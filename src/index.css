@@ -1,3 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  * {
+    @apply box-border;
+  }
+  /* border divider */
+  .thin-box-divider {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+  }
+
+  .thin-left-divider {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
+    -moz-box-shadow: inset 1px 0px 0px 0px rgba(29, 29, 29);
+    box-shadow: inset 1px 0px 0px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  .thin-top-divider {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
+    -moz-box-shadow: inset 0px 1px 0px 0px rgba(29, 29, 29);
+    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  .thin-right-divider {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
+    -moz-box-shadow: inset -1px 0px 0px 0px rgba(29, 29, 29);
+    box-shadow: inset -1px 0px 0px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  .thin-bottom-divider {
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    -webkit-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
+    -moz-box-shadow: inset 0px -1px 0px 0px rgba(29, 29, 29);
+    box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  .medium-box-divider {
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px,
+      rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
+  }
+
+  /* Medium top divider */
+  .medium-top-divider {
+    border-top: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+
+  .medium-bottom-divider {
+    border-bottom: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+
+  /* Medium right divider */
+  .medium-right-divider {
+    border-right: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+
+  /* Medium left divider */
+  .medium-left-divider {
+    border-left: 1px solid rgba(27, 31, 35, 0.1);
+    /* width, style, color */
+  }
+}
