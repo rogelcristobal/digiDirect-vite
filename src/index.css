@@ -6,6 +6,7 @@
   * {
     @apply box-border;
   }
+  
   ::-webkit-scrollbar {
     @apply w-2 bg-neutral-300/40;
   }
