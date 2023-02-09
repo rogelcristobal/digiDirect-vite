@@ -15,11 +15,11 @@ const Section = ({ title, children, category, child }) => {
     }
   }, [ref.current]);
   return (
-    <div className="flex-auto thin-box-divider box-border pb-4 pt-6 relative">
+    <div className="flex-auto  box-border pb-4 pt-6 relative">
       {category && (
         <p
           ref={category ? ref : null}
-          className={`sticky  top-7 transition-all duration-300 ease-in-out  w-fit z-30 text-sm leading-[24px] tracking-tight font-semibold mb-3 capitalize lg:mb-4 text-blue-500 `}
+          className={`sticky  top-5 transition-all duration-300 ease-in-out  w-fit z-30 text-sm leading-[24px] tracking-tight font-semibold mb-3 capitalize lg:mb-4 text-blue-500 `}
         >
           
           {title}
@@ -28,7 +28,7 @@ const Section = ({ title, children, category, child }) => {
 
       <h1
         className={` tracking-tight font-bold mb-3 capitalize font-plus ${
-          child ? "text-lg" : "text-[1.35rem]"
+          child ? "text-lg" : "text-[1.25rem]"
         }`}
       >
         {title}

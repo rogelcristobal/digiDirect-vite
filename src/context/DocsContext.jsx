@@ -100,7 +100,7 @@ export const DocsProvider = ({ children }) => {
               package.
             </Section>
             <Section title={"product overview"} child>
-              Short description shows key information about a product in a
+              Product overview (short description) shows key information about a product in a
               concise and easy-to-read manner. It typically includes a list of
               the most important features and benefits of a product, presented
               in bullet point form.
