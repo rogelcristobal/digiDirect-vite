@@ -9,7 +9,7 @@ const SidebarLayoutPage = () => {
       {/* sidebar */}
       <div className="h-[calc(100vh-5.5rem)] sticky top-24 thin-box-divider w-96 pt-6">
         {/* content */}
-        <h5 className="text-slate-900 text-sm tracking-tight text-left  font-bold capitalize mb-6">
+        <h5 className="text-slate-900 text-sm tracking-tight text-left  font-bold capitalize mb-4">
           getting started
         </h5>
         <div className="space-y-2">
@@ -41,7 +41,7 @@ const SidebarLayoutPage = () => {
         {/* content */}
 
         {textContent.sections.map((item, id) => (
-          <Section key={id} title={item.title} category={item.category}>
+          <Section key={id} id={item.id} title={item.title} category={item.category}>
             {item.detail}
           </Section>
         ))}
