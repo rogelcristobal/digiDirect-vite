@@ -9,7 +9,7 @@ function App() {
       {/* navbar */}
         <Navbar></Navbar>
       {/* body */}
-      <div className=" md:px-4 lg:px-14 py-4 min-h-[150vh] h-auto  flex  gap-2 items-start justify-center mx-auto box-border">
+      <div className=" md:px-4 lg:px-14 py-6 min-h-[150vh] h-auto  flex  gap-2 items-start justify-center mx-auto box-border">
        <SidebarLayoutPage></SidebarLayoutPage>
       </div>
       {/* footer */}

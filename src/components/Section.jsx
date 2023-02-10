@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 
-const Section = ({ title, children, category, child }) => {
+const Section = ({ title, children, category, child,id }) => {
   const [sticky, setSticky] = useState(false);
   const { ref, entry } = useInView();
   const parentRef = useRef(null);
@@ -20,7 +20,6 @@ const Section = ({ title, children, category, child }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [entry,parentRef]);
-  
   return (
     <div ref={parentRef} className="flex-auto  box-border pb-4 pt-6 relative">
       {category && (
