@@ -45,7 +45,7 @@ const Section = ({ title, children, category, child,id ,hash}) => {
       >
         {title}
       </h1>
-      <div className=" lg:max-w-3xl prose prose-slate font-sans font-[500] text-base">{children}</div>
+      <div className=" lg:max-w-3xl prose prose-slate text-[0.950rem] font-sans font-[500] text-base">{children}</div>
     </div>
   );
 };
