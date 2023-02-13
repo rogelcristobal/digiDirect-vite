@@ -4,12 +4,12 @@ import Footer from "./components/Footer";
  
 function App() {
   return (
-    <div className="h-auto bg-[#ffffff] text-slate-900 box-border space-y-2 font-inter">
+    <div className="h-auto bg-[#ffffff]  text-slate-900 box-border  font-inter">
       {/* [#0a1120] */}
       {/* navbar */}
         <Navbar></Navbar>
       {/* body */}
-      <div className=" md:px-4 lg:px-14 py-6 min-h-[150vh] h-auto  flex  gap-2 items-start justify-center mx-auto box-border">
+      <div className=" md:px-4 lg:px-0  min-h-[150vh] h-auto pt-4  flex  items-start justify-center  box-border">
        <SidebarLayoutPage></SidebarLayoutPage>
       </div>
       {/* footer */}
