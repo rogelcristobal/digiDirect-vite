@@ -2,7 +2,7 @@ import React from "react";
 import { useContext, useRef, useState, useEffect } from "react";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
-import { motion } from "framer-motion";
+import {useNavigate} from 'react-router-dom'
 const SidebarLayoutPage = () => {
   const { state: textContent } = useContext(DocsContext);
   const ref = useRef(null);
@@ -23,92 +23,60 @@ const SidebarLayoutPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [ref.current]);
-  console.log(sticky);
-  const parent = {
-    hidden: { opacity: 0, rotate: 180 },
-    visible: { opacity: 1, rotate: 0, transition: { duration: 2 } },
-  };
-  const anim = {
-    hidden: {
-      opacity: 0,
-      pathLength: 0,
-    },
-    visible: {
-      opacity: 1,
-      pathLength: 1,
-      transition: {
-        duration: 4,
-        ease: "easeInOut",
-      },
-    },
-  };
+ 
+  const [targetId, setTargetId] = useState(null);
+  
+  const targetRef = React.useRef(null);
+ 
+   const camelCaseAndRemoveSpaces=(value)=>{
+    if(value.split(" ").Length === 1){
+       console.log(value)
+    }else{
+      const converted = value.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+          return index == 0 ? word.toLowerCase() : word.toUpperCase();
+        })
+        .replace(/\s+/g, "");
+
+        return converted
+    }
+  }
+
+  useEffect(()=>{
+    if(targetRef.current){
+      console.log(targetRef.current)
+    }
+  },[targetRef.current])
+  
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
       <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-center items-start w-[26rem] overflow-y-auto pt-14 ">
         {/* content */}
         <nav className="relative h-full  px-[1rem]">
-          <h5 className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
+          <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
-            {/* <svg
-              className="medium-box-divider "
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <motion.path
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{
-                  duration: 2,
-                  ease: "easeInOut",
-                }}
-                id="SVGRepo_iconCarrier"
-                d="M 5.99992 24 H 41.9999"
-                stroke="rgb(15, 23, 42)"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <motion.path
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{
-                  duration: 2,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  repeatDelay: 1,
-                }}
-                id="SVGRepo_iconCarrier_head"
-                d="M 30 12 L 42 24 L 30 36"
-                stroke="red"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg> */}
-          </h5>
+          </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-3 text-left  font-plus">
-            <p className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 ">
+          <div className="space-y-3.5 text-slate-700 pl-3 text-left flex items-start flex-col justify-start  font-plus">
+            <a href="#introduction" className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 ">
               {textContent.title}
-            </p>
+            </a>
             {textContent.sections.map((item, id) => (
-              <p
+              <a
                 key={id}
+                href={`#${item.category}`}
                 className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 "
               >
                 {item.title}
-              </p>
+              </a>
             ))}
           </div>
         </nav>
       </div>
       {/* body */}
-      <div className="h-full box-border thin-box-divider w-full py-14 px-12  ">
+      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-14 px-12  ">
         {/* heading container */}
-        <div className=" max-w-3xl relative flex-auto  mb-12">
+        <div id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-12">
           <p className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
             {textContent.category}
           </p>
