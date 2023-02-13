@@ -23,28 +23,23 @@ const SidebarLayoutPage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [ref.current]);
-  // console.log(sticky);
  
-
-  //  const navigate = useNavigate();
   const [targetId, setTargetId] = useState(null);
   
   const targetRef = React.useRef(null);
-  // const handleClick = (event, id) => {
-  //   event.preventDefault();
-  //   setTargetId(id);
-  //   navigate('/');
-  // };
-  // useEffect(() => {
-  //     if (targetRef.current && targetId) {
-  //     targetRef.current[targetId].scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //       inline: 'nearest',
-  //     });
-  //   }
-  // }, [targetRef.current]);
-  
+ 
+   const camelCaseAndRemoveSpaces=(value)=>{
+    if(value.split(" ").Length === 1){
+       console.log(value)
+    }else{
+      const converted = value.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+          return index == 0 ? word.toLowerCase() : word.toUpperCase();
+        })
+        .replace(/\s+/g, "");
+
+        return converted
+    }
+  }
 
   useEffect(()=>{
     if(targetRef.current){
@@ -58,21 +53,22 @@ const SidebarLayoutPage = () => {
       <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-center items-start w-[26rem] overflow-y-auto pt-14 ">
         {/* content */}
         <nav className="relative h-full  px-[1rem]">
-          <a className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
+          <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
-          </a>
+          </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-3 text-left  font-plus">
-            <a href="#intro" className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 ">
+          <div className="space-y-3.5 text-slate-700 pl-3 text-left flex items-start flex-col justify-start  font-plus">
+            <a href="#introduction" className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 ">
               {textContent.title}
             </a>
             {textContent.sections.map((item, id) => (
-              <p
+              <a
                 key={id}
+                href={`#${item.category}`}
                 className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 "
               >
                 {item.title}
-              </p>
+              </a>
             ))}
           </div>
         </nav>
@@ -80,7 +76,7 @@ const SidebarLayoutPage = () => {
       {/* body */}
       <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-14 px-12  ">
         {/* heading container */}
-        <div id="intro" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-12">
+        <div id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-12">
           <p className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
             {textContent.category}
           </p>
