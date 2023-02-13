@@ -31,7 +31,7 @@ const Section = ({ title, children, category, child,id ,hash}) => {
           }
         }}
           {...(category && { ref: ref })}
-          className={` medium-box-divider   transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
+          className={` thin-box-divider w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
         >
          {category}
         </p>
