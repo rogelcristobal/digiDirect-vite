@@ -24,7 +24,7 @@ const Section = ({ title, children, category, child, id, hash }) => {
   // hash => camelcase , hash === 1 word return
   const camelCaseAndRemoveSpaces=(value)=>{
     if(value.split(" ").Length === 1){
-      return value
+       console.log(value)
     }else{
       const converted = value.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
           return index == 0 ? word.toLowerCase() : word.toUpperCase();
@@ -53,6 +53,7 @@ const Section = ({ title, children, category, child, id, hash }) => {
   return (
     <div
       ref={parentRef}
+      {...(entry&& { id: camelCaseAndRemoveSpaces(category)})}   
       className="flex-auto  box-border pb-4 pt-6 relative"
     >
       {category && (
@@ -64,7 +65,6 @@ const Section = ({ title, children, category, child, id, hash }) => {
             },
           }}
           {...(category && { ref: ref })}
-          {...(entry&& { id: camelCaseAndRemoveSpaces(entry.target.innerText)})}
           className={` thin-box-divider w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
         >
           {category}
