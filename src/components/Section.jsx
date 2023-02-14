@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 const Section = ({ title, children, category, child, id, hash }) => {
   const [sticky, setSticky] = useState(false);
-  const { ref, entry } = useInView();
+  const { ref, entry,inView} = useInView();
   const parentRef = useRef(null);
  
   const camelCaseAndRemoveSpaces=(value)=>{
@@ -19,13 +19,17 @@ const Section = ({ title, children, category, child, id, hash }) => {
         return converted
     }
   }
-
+  useEffect(()=>{
+    if(entry){
+      console.log(entry.target, `view${inView}`)
+    }
+  },[entry])
 
    
   
   return (
     <div
-      ref={parentRef}
+      // ref={ref}
       {...(entry&& { id: category})}   
       className="flex-auto  box-border pb-4 pt-6 relative scroll-mt-20"
     >
@@ -46,7 +50,7 @@ const Section = ({ title, children, category, child, id, hash }) => {
       >
         {title}
       </h1>
-      <div className=" lg:max-w-3xl prose prose-slate text-[0.950rem] font-sans font-[500] text-base">
+      <div className=" lg:max-w-3xl prose leading-7 prose-slate font-[500]  text-[0.950rem] font-plus  text-base">
         {children}
       </div>
     </div>

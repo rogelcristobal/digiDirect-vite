@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import { useInView } from "react-intersection-observer";
 const DocsContext = createContext();
 import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
@@ -62,6 +62,7 @@ export const DocsProvider = ({ children }) => {
         ),
       },
       {
+        inView:false,
         category: "description",
         title: "product descriptions",
         detail: (
