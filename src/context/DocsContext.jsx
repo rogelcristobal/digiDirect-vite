@@ -4,12 +4,14 @@ const DocsContext = createContext();
 import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
   const [state, setState] = useState({
+
     category: "product listing",
     title: "introduction",
     detail:
       "A product listing refers to an online representation of a product that displays its features, specifications, images, and sometimes customer reviews, in a structured and organized manner. It's a crucial aspect of e-commerce as it helps customers in making informed purchasing decisions.",
     sections: [
       {
+        viewState:false,
         category: "in the box",
         title: `what's in the box`,
         detail: (
@@ -36,6 +38,7 @@ export const DocsProvider = ({ children }) => {
         ),
       },
       {
+        viewState:false,
         category: "specification",
         title: "product specifications",
         detail: (
@@ -62,7 +65,7 @@ export const DocsProvider = ({ children }) => {
         ),
       },
       {
-        inView:false,
+        viewState:false,
         category: "description",
         title: "product descriptions",
         detail: (
@@ -118,6 +121,7 @@ export const DocsProvider = ({ children }) => {
         ),
       },
       {
+        viewState:false,
         category: "SEO",
         title: "Search engine optimization",
         detail: (
@@ -203,10 +207,7 @@ export const DocsProvider = ({ children }) => {
           </div>
         ),
       },
-      {
-        title: "",
-        detail: <div></div>,
-      },
+      
     ],
   });
   return (

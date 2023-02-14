@@ -41,11 +41,7 @@ const SidebarLayoutPage = () => {
     }
   }
 
-  useEffect(()=>{
-    if(targetRef.current){
-      // console.log(targetRef.current)
-    }
-  },[targetRef.current])
+
   
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
@@ -67,7 +63,7 @@ const SidebarLayoutPage = () => {
                 href={`#${item.category}`}
                 className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 text-slate-500/70"
               >
-                {item.title}
+                {item.title}{String(item.viewState)}
               </a>
             ))}
           </div>
@@ -92,7 +88,7 @@ const SidebarLayoutPage = () => {
         {textContent.sections.map((item, id) => (
           <Section
             key={id}
-            id={item.id}
+            itemID={id}
             title={item.title}
             category={item.category}
             hash={item.category}

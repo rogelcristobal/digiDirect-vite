@@ -1,12 +1,11 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-const Section = ({ title, children, category, child, id, hash }) => {
-  const [sticky, setSticky] = useState(false);
-  const { ref, entry,inView} = useInView();
-  const parentRef = useRef(null);
- 
+import DocsContext from "../context/DocsContext";
+const Section = ({ title, children, category, child, itemID, hash }) => {
+  const { ref, entry,inView} = useInView()
+  const {setState,state} = useContext(DocsContext)
+  // text? 1 word=> return text: camel-case
   const camelCaseAndRemoveSpaces=(value)=>{
     if(value.split(" ").Length === 1){
        console.log(value)
@@ -19,26 +18,31 @@ const Section = ({ title, children, category, child, id, hash }) => {
         return converted
     }
   }
+  // [inView] state.viewState = inView value
   useEffect(()=>{
-    if(entry){
-      console.log(entry.target, `view${inView}`)
-    }
-  },[entry])
+    setState(prev=> ({
+      ...prev,
+      sections: prev.sections.map((item,id)=>{
+        if(id === itemID){
+          return { ...item, viewState: inView}
+        }
+        return item
+      })      
+    }))
+  },[inView])
 
-   
   
   return (
     <div
-      // ref={ref}
+      {...(category && { ref: ref })}
       {...(entry&& { id: category})}   
-      className="flex-auto  box-border pb-4 pt-6 relative scroll-mt-20"
+      className="flex-auto  box-border pb-4 pt-6 relative scroll-mt-20 "
     >
       {category && (
         <p
-          {...(category && { ref: ref })}
           className={` thin-box-divider w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
         >
-          {category}
+          {category}{itemID}
         </p>
       )}
 
