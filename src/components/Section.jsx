@@ -3,9 +3,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 const Section = ({ title, children, category, child, itemID, hash }) => {
-  const [threshold, setThreshold] = useState(null);
+  const [option, setOption] = useState({
+    threshold:0,
+    rootMargin:null
+  });
   const { ref, entry, inView } = useInView({
-    threshold: threshold,
+    threshold: 0.3,
   });
   const { setState } = useContext(DocsContext);
   // text? 1 word=> return text: camel-case
@@ -37,27 +40,20 @@ const Section = ({ title, children, category, child, itemID, hash }) => {
 
   useEffect(() => {
     if (entry) {
-      if (entry.target.clientHeight > 650) {
-        setThreshold(0.3);
-      } 
-      else {
-        setThreshold(0.7)
-      
-      }
+      console.log(title,Math.floor(entry.target.getBoundingClientRect().top))
     }
   }, [entry]);
   return (
     <div
       {...(category && { ref: ref })}
       {...(entry && { id: category })}
-      className="flex-auto  box-border pb-4 pt-6 relative scroll-mt-20 "
+      className="flex-auto  box-border pb-0 pt-0 relative scroll-mt-20 medium-box-divider "
     >
       {category && (
         <p
           className={` thin-box-divider w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
         >
           {category}
-          {threshold}
         </p>
       )}
 
