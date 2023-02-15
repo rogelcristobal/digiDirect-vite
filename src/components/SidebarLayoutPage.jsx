@@ -45,7 +45,7 @@ const SidebarLayoutPage = () => {
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-14 ">
+      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-8 ">
         {/* content */}
         <nav className="relative h-full  px-[1rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
@@ -71,7 +71,7 @@ const SidebarLayoutPage = () => {
       </div>
 
       {/* body */}
-      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-14 px-12 scroll-smooth	 ">
+      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-6 px-12 scroll-smooth	 ">
         {/* heading container */}
         <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14 medium-box-divider ">
           <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
