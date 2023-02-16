@@ -8,9 +8,10 @@ const Section = ({ title, children, category, child, itemID, hash }) => {
   const { setState } = useContext(DocsContext);
   const sampleRef=useRef(null)
   const [sample, setSample] = useState(0);
+    
 
   const { ref, entry } = useInView({
-    threshold: sample,
+    threshold: 0.6,
     onChange: (inView) => {
       setState((prev) => ({
         ...prev,
@@ -23,21 +24,6 @@ const Section = ({ title, children, category, child, itemID, hash }) => {
       }));
     },
   });
-    const calculateThreshold=(height)=>{
-    if(height > 650){
-      console.log(title, "0.3")
-    }else{
-      console.log(title,'0.7')
-    }
-  }
-  useEffect(()=>{
-    if(category){
-      if(sampleRef.current){
-      const newThreshold = calculateThreshold(sampleRef.current.clientHeight)
-      newThreshold()
-    }
-    }
-  },[sampleRef])
 
   // text? 1 word=> return text: camel-case
   const camelCaseAndRemoveSpaces = (value) => {
@@ -56,28 +42,29 @@ const Section = ({ title, children, category, child, itemID, hash }) => {
 
   return (
     <div
-      ref={sampleRef}
-      {...(category && { ref: ref })}
+    {...(category && { ref: ref })}
+      
       {...(entry && { id: category })}
       className="flex-auto  box-border pb-0 pt-6 relative scroll-mt-20  "
     >
       {category && (
         <p
-          className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-3  font-plus`}
+         
+          className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-4  font-plus`}
         >
-          {category}{sample}
+          {category}{category&& sample}
         </p>
       )}
 
       <h1
         href={hash}
-        className={` tracking-tight font-bold mb-3 capitalize font-plus ${
+        className={` tracking-tight font-bold mb-4 capitalize font-plus ${
           child ? "text-lg" : "text-2xl"
         }`}
       >
         {title}
       </h1>
-      <div className=" lg:max-w-3xl prose leading-7 prose-slate font-[500]  text-[0.950rem] font-plus  text-base">
+      <div className=" lg:max-w-3xl prose leading-7 prose-slate font-[500]   font-plus  text-base">
         {children}
       </div>
     </div>

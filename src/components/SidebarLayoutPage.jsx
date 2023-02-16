@@ -46,7 +46,7 @@ const SidebarLayoutPage = () => {
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-6 ">
+      <div className="h-[calc(100vh-5.5rem)]  sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-6 ">
         {/* content */}
         <nav className="relative h-full  px-[1rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
@@ -55,14 +55,14 @@ const SidebarLayoutPage = () => {
           {/* items */}
           <div className="space-y-3.5 text-slate-700 pl-3 text-left flex items-start flex-col justify-start  font-plus">
             <a href="#introduction" className={`capitalize text-sm font-semibold  cursor-pointer 
-            ${titleRefEntry&&(titleViewState?'text-blue-500':'text-slate-900')} `}>
+            ${titleRefEntry&&(titleViewState?'text-blue-500':'text-slate-500/70')} `}>
               {state.title}
             </a>
             {state.sections.map((item, id) => (
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-900': ' text-blue-500'}`}
+                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-500/70': ' text-blue-500'}`}
               >
                 {item.title}
               </a>
@@ -83,11 +83,11 @@ const SidebarLayoutPage = () => {
           >
             {state.title}
           </h1>
-          <p className="mt-4 lg:mt-6 text-lg ">{state.detail}</p>
+          <p className="mt-4 lg:max-w-3xl prose leading-7 prose-slate font-[500]   font-plus  text-base">{state.detail}</p>
         </div>
         {/* content */}
 
-        <div className="box-border space-y-12">
+        <div className="box-border space-y-4">
             {state.sections.map((item, id) => (
           <Section
             key={id}
