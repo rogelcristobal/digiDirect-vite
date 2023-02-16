@@ -12,6 +12,7 @@ export const DocsProvider = ({ children }) => {
     sections: [
       {
         viewState:false,
+        viewThreshold:0.7,
         category: "In the box",
         title: `What's in the box`,
         detail: (
@@ -41,6 +42,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
+        viewThreshold:0.7,
         category: "Specification",
         title: "Product specifications",
         detail: (
@@ -70,6 +72,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
+        viewThreshold:0.3,
         category: "Description",
         title: "Product descriptions",
         detail: (
@@ -132,6 +135,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
+        viewThreshold:0.2,
         category: "SEO",
         title: "Search engine optimization",
         detail: (

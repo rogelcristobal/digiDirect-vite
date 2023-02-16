@@ -1,11 +1,13 @@
 import React from "react";
-import { useContext,useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
 const SidebarLayoutPage = () => {
-  const {state} = useContext(DocsContext);
-  const [titleViewRef,titleViewState,titleRefEntry] = useInView({threshold:1})
+  const { state } = useContext(DocsContext);
+  const [titleViewRef, titleViewState, titleRefEntry] = useInView({
+    threshold: 1,
+  });
   // const ref = useRef(null);
   // const [ setSticky] = useState(false);
 
@@ -24,82 +26,123 @@ const SidebarLayoutPage = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, [ref.current]);
-  
+
   const targetRef = React.useRef(null);
- 
-   const camelCaseAndRemoveSpaces=(value)=>{
-    if(value.split(" ").Length === 1){
-       console.log(value)
-    }else{
-      const converted = value.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+
+  const camelCaseAndRemoveSpaces = (value) => {
+    if (value.split(" ").Length === 1) {
+      console.log(value);
+    } else {
+      const converted = value
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
           return index == 0 ? word.toLowerCase() : word.toUpperCase();
         })
         .replace(/\s+/g, "");
 
-        return converted
+      return converted;
     }
-  }
+  };
 
-  
-
-  
   return (
-    <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
+    <div className="relative w-full px-8 mx-auto flex items-start   justify-start gap-2   box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)]  sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[20rem] overflow-y-auto pt-3 ">
+      <div className="h-[calc(100vh-5.5rem)] sticky top-16   pl-2 lg:pl-0 box-border flex justify-start items-start w-[23rem]   pt-12 thin-right-divider overflow-y-scroll">
         {/* content */}
         <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
           </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-plus">
-            <a href="#introduction" className={`capitalize text-sm font-semibold  cursor-pointer 
-            ${titleRefEntry&&(titleViewState?'text-slate-900':'text-slate-500/70')} `}>
-              {state.title}
+          <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
+            <a
+              href="#introduction"
+              className={`capitalize text-sm font-semibold  cursor-pointer 
+            ${
+              titleRefEntry &&
+              (titleViewState ? "text-slate-900" : "text-slate-500")
+            } `}
+            >
+              Documentation
             </a>
+           
+          </div>
+        </nav>
+      </div>
+
+      {/* body */}
+      <div
+        ref={targetRef}
+        className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth	 "
+      >
+        {/* heading container */}
+        <div className="box-border flex-auto">
+          <div
+            id="introduction"
+            className="scroll-mt-28 max-w-3xl relative flex-auto  mb-20  "
+          >
+            <p
+              ref={titleViewRef}
+              className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-blue-500"
+            >
+              {state.category}
+            </p>
+            <h1
+              className={`inline-block text-2xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  `}
+            >
+              {state.title}
+            </h1>
+            <p className="mt-4 lg:max-w-3xl prose leading-[29px] prose-slate font-[500]   font-plus  text-[16px]">
+              {state.detail}
+            </p>
+          </div>
+          {/* content */}
+
+          <div className="box-border space-y-4">
+            {state.sections.map((item, id) => (
+              <Section
+                key={id}
+                itemID={id}
+                title={item.title}
+                category={item.category}
+                hash={item.category}
+                threshold={item.viewThreshold}
+              >
+                {item.detail}
+              </Section>
+            ))}
+          </div>
+        </div>
+         <div className=" w-[17rem] h-96 box-border top-32 sticky">
+          <nav className="relative h-full  px-[0rem]">
+          <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
+           On this page
+          </p>
+          {/* items */}
+          <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
+            {/* <a
+              href="#introduction"
+              className={`capitalize text-sm font-semibold  cursor-pointer 
+            ${
+              titleRefEntry &&
+              (titleViewState ? "text-blue-500" : "text-slate-500")
+            } `}
+            >
+              {state.title}
+            </a> */}
             {state.sections.map((item, id) => (
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-500/70': ' text-slate-900'}`}
+                className={`capitalize text-sm font-semibold  cursor-pointer ${
+                  !item.viewState ? "text-slate-500/70" : " text-blue-500"
+                }`}
               >
                 {item.title}
               </a>
             ))}
           </div>
         </nav>
-      </div>
-
-      {/* body */}
-      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-6 px-12 scroll-smooth	 ">
-        {/* heading container */}
-        <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14  ">
-          <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-slate-500/80">
-            {state.category}
-          </p>
-          <h1
-            className={`inline-block text-xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  `}
-          >
-            {state.title}
-          </h1>
-          <p className="mt-4 lg:max-w-3xl prose leading-7 prose-slate font-[500]   font-plus  text-base">{state.detail}</p>
-        </div>
-        {/* content */}
-
-        <div className="box-border space-y-4">
-            {state.sections.map((item, id) => (
-          <Section
-            key={id}
-            itemID={id}
-            title={item.title}
-            category={item.category}
-            hash={item.category}
-          >
-            {item.detail}
-          </Section>
-        ))}
-        </div>
+         </div>
       </div>
     </div>
   );
