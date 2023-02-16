@@ -24,7 +24,6 @@ const SidebarLayoutPage = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, [ref.current]);
- 
   
   const targetRef = React.useRef(null);
  
@@ -42,10 +41,12 @@ const SidebarLayoutPage = () => {
   }
 
   
+
+  
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-8 ">
+      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-6 ">
         {/* content */}
         <nav className="relative h-full  px-[1rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
@@ -73,12 +74,12 @@ const SidebarLayoutPage = () => {
       {/* body */}
       <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-6 px-12 scroll-smooth	 ">
         {/* heading container */}
-        <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14 medium-box-divider ">
+        <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14  ">
           <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
             {state.category}
           </p>
           <h1
-            className={`inline-block text-2xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  capitalize`}
+            className={`inline-block text-xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  capitalize`}
           >
             {state.title}
           </h1>
@@ -86,7 +87,8 @@ const SidebarLayoutPage = () => {
         </div>
         {/* content */}
 
-        {state.sections.map((item, id) => (
+        <div className="box-border space-y-12">
+            {state.sections.map((item, id) => (
           <Section
             key={id}
             itemID={id}
@@ -97,6 +99,7 @@ const SidebarLayoutPage = () => {
             {item.detail}
           </Section>
         ))}
+        </div>
       </div>
     </div>
   );
