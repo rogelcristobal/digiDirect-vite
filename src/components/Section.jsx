@@ -50,15 +50,15 @@ const Section = ({ title, children, category, child, itemID, hash }) => {
       {category && (
         <p
          
-          className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3 capitalize lg:mb-4  font-plus`}
+          className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-slate-500/80 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
         >
-          {category}{category&& sample}
+          {category}
         </p>
       )}
 
       <h1
         href={hash}
-        className={` tracking-tight font-bold mb-4 capitalize font-plus ${
+        className={` tracking-tight font-bold mb-3.5 capitalize font-plus ${
           child ? "text-lg" : "text-2xl"
         }`}
       >

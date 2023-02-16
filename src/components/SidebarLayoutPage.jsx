@@ -46,23 +46,23 @@ const SidebarLayoutPage = () => {
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)]  sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[22rem] overflow-y-auto pt-6 ">
+      <div className="h-[calc(100vh-5.5rem)]  sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[20rem] overflow-y-auto pt-3 ">
         {/* content */}
-        <nav className="relative h-full  px-[1rem]">
+        <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
           </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-3 text-left flex items-start flex-col justify-start  font-plus">
+          <div className="space-y-3.5 text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-plus">
             <a href="#introduction" className={`capitalize text-sm font-semibold  cursor-pointer 
-            ${titleRefEntry&&(titleViewState?'text-blue-500':'text-slate-500/70')} `}>
+            ${titleRefEntry&&(titleViewState?'text-slate-900':'text-slate-500/70')} `}>
               {state.title}
             </a>
             {state.sections.map((item, id) => (
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-500/70': ' text-blue-500'}`}
+                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-500/70': ' text-slate-900'}`}
               >
                 {item.title}
               </a>
@@ -75,11 +75,11 @@ const SidebarLayoutPage = () => {
       <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-6 px-12 scroll-smooth	 ">
         {/* heading container */}
         <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14  ">
-          <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
+          <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-slate-500/80">
             {state.category}
           </p>
           <h1
-            className={`inline-block text-xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  capitalize`}
+            className={`inline-block text-xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  `}
           >
             {state.title}
           </h1>
