@@ -5,15 +5,15 @@ import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
   const [state, setState] = useState({
 
-    category: "product listing",
-    title: "introduction",
+    category: "Product listing",
+    title: "Introduction",
     detail:
       "A product listing refers to an online representation of a product that displays its features, specifications, images, and sometimes customer reviews, in a structured and organized manner. It's a crucial aspect of e-commerce as it helps customers in making informed purchasing decisions.",
     sections: [
       {
         viewState:false,
-        category: "in the box",
-        title: `what's in the box`,
+        category: "In the box",
+        title: `What's in the box`,
         detail: (
           <div>
             Refers to the items that are included with a product when it is
@@ -29,18 +29,20 @@ export const DocsProvider = ({ children }) => {
             properly.
             <br />
             This template will display the included items in bullets.
-            <Section title={"kit/bundled "} child>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Kit/bundled "} child>
               This template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
             </Section>
+            </div>
           </div>
         ),
       },
       {
         viewState:false,
-        category: "specification",
-        title: "product specifications",
+        category: "Specification",
+        title: "Product specifications",
         detail: (
           <div>
             Product specifications, also known as product specs, are a set of
@@ -56,18 +58,20 @@ export const DocsProvider = ({ children }) => {
             detailed product specifications is important in order to help
             customers make informed purchasing decisions and to ensure that the
             product meets their needs and expectations.
-            <Section title={"kit/bundled "} child>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Kit/bundled "} child>
               This template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
             </Section>
+            </div>
           </div>
         ),
       },
       {
         viewState:false,
-        category: "description",
-        title: "product descriptions",
+        category: "Description",
+        title: "Product descriptions",
         detail: (
           <div>
             A product description in a product listing is a written summary of
@@ -94,16 +98,21 @@ export const DocsProvider = ({ children }) => {
             capabilities. Additionally, it will also help customers to
             troubleshoot any issues they may have with the product, by providing
             information about common problems and solutions.
-            <Section title={"advance description"} child>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Advance description"} child>
               This template can be used to add more product features to a
               product listing.
             </Section>
-            <Section title="kit/bundled" child>
+            </div>
+            <div className="box-border pt-6 pb-4">
+            <Section title="Kit/bundled" child>
               This template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
             </Section>
-            <Section title={"product overview"} child>
+            </div>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Product overview"} child>
               Product overview (short description) shows key information about a product in a
               concise and easy-to-read manner. It typically includes a list of
               the most important features and benefits of a product, presented
@@ -117,6 +126,7 @@ export const DocsProvider = ({ children }) => {
               clear and organized overview of the product's features and
               benefits.
             </Section>
+            </div>
           </div>
         ),
       },
@@ -131,7 +141,8 @@ export const DocsProvider = ({ children }) => {
             search engine results pages (SERPs). This can be accomplished
             through a variety of techniques, including the use of meta tags such
             as title, description, and keywords.
-            <Section title={"meta title"} child>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Meta title"} child>
               A meta title is a short text that appears at the top of a web
               page, typically in the browser tab. It is used to describe the
               content of the page and it helps search engines understand what
@@ -147,7 +158,9 @@ export const DocsProvider = ({ children }) => {
               product page and avoid duplication across different pages on the
               website.
             </Section>
-            <Section title={"meta keywords"} child>
+            </div>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Meta keywords"} child>
               Meta keywords are a type of meta tag that can be included in the
               HTML code of a webpage. When creating a product listing, these
               keywords can be used to provide a list of words or phrases that
@@ -161,12 +174,15 @@ export const DocsProvider = ({ children }) => {
               module. It is important to choose relevant and specific keywords
               that accurately describe the product.
             </Section>
-            <Section title={"meta description"} child>
+            </div>
+            <div className="box-border pt-6 pb-4">
+            <Section title={"Meta description"} child>
               A meta description is a summary of a webpage's content that
               appears in search results. In a product listing, it should provide
               key features, benefits, and relevant information about the
               product. Keep it under 155 characters.
-              <Section title="meta description guidelines" child>
+              <div className="box-border pt-6 pb-4">
+              <Section title="Meta description guidelines" child>
                 <ul>
                   <li>ProductTitle should always be present, </li>
                   <li>digiDirect should always be present, </li>
@@ -203,7 +219,9 @@ export const DocsProvider = ({ children }) => {
                   </li>
                 </ul>
               </Section>
+              </div>
             </Section>
+            </div>
           </div>
         ),
       },

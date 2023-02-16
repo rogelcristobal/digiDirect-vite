@@ -1,30 +1,29 @@
 import React from "react";
-import { useContext, useRef, useState, useEffect } from "react";
+import { useContext,useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
-import {useNavigate} from 'react-router-dom'
 const SidebarLayoutPage = () => {
-  const { state: textContent } = useContext(DocsContext);
-  const ref = useRef(null);
-  const [sticky, setSticky] = useState(false);
+  const {state} = useContext(DocsContext);
+  const [titleViewRef,titleViewState,titleRefEntry] = useInView({threshold:1})
+  // const ref = useRef(null);
+  // const [ setSticky] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = Math.floor(window.scrollY);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const position = Math.floor(window.scrollY);
 
-      if (position > 30) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [ref.current]);
- 
-  const [targetId, setTargetId] = useState(null);
+  //     if (position > 30) {
+  //       setSticky(true);
+  //     } else {
+  //       setSticky(false);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [ref.current]);
   
   const targetRef = React.useRef(null);
  
@@ -41,51 +40,55 @@ const SidebarLayoutPage = () => {
     }
   }
 
+  
 
   
   return (
     <div className="relative container mx-auto flex items-start   justify-start gap-2 pt-0 box-border">
       {/* sidebar container*/}
-      <div className="h-[calc(100vh-5.5rem)] thin-box-divider sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] overflow-y-auto pt-14 ">
+      <div className="h-[calc(100vh-5.5rem)]  sticky top-20  pl-0 box-border flex justify-start items-start w-[24rem] lg:w-[20rem] overflow-y-auto pt-3 ">
         {/* content */}
-        <nav className="relative h-full  px-[1rem]">
+        <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
           </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-3 text-left flex items-start flex-col justify-start  font-plus">
-            <a href="#introduction" className="capitalize text-sm font-semibold  cursor-pointer text-blue-500 ">
-              {textContent.title}
+          <div className="space-y-3.5 text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-plus">
+            <a href="#introduction" className={`capitalize text-sm font-semibold  cursor-pointer 
+            ${titleRefEntry&&(titleViewState?'text-slate-900':'text-slate-500/70')} `}>
+              {state.title}
             </a>
-            {textContent.sections.map((item, id) => (
+            {state.sections.map((item, id) => (
               <a
                 key={id}
                 href={`#${item.category}`}
-                className="capitalize text-sm font-semibold  cursor-pointer hover:text-blue-500 text-slate-500/70"
+                className={`capitalize text-sm font-semibold  cursor-pointer ${!item.viewState? 'text-slate-500/70': ' text-slate-900'}`}
               >
-                {item.title}{String(item.viewState)}
+                {item.title}
               </a>
             ))}
           </div>
         </nav>
       </div>
+
       {/* body */}
-      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-14 px-12  ">
+      <div ref={targetRef} className="h-full box-border thin-box-divider w-full py-6 px-12 scroll-smooth	 ">
         {/* heading container */}
-        <div id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14">
-          <p className="text-sm leading-[24px]  font-semibold mb-3 capitalize lg:mb-3 text-blue-500">
-            {textContent.category}
+        <div  id="introduction" className="scroll-mt-28 max-w-3xl relative flex-auto  mb-14  ">
+          <p ref={titleViewRef} className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-slate-500/80">
+            {state.category}
           </p>
           <h1
-            className={`inline-block text-2xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  capitalize`}
+            className={`inline-block text-xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  `}
           >
-            {textContent.title}
+            {state.title}
           </h1>
-          <p className="mt-4 lg:mt-6 text-lg ">{textContent.detail}</p>
+          <p className="mt-4 lg:max-w-3xl prose leading-7 prose-slate font-[500]   font-plus  text-base">{state.detail}</p>
         </div>
         {/* content */}
 
-        {textContent.sections.map((item, id) => (
+        <div className="box-border space-y-4">
+            {state.sections.map((item, id) => (
           <Section
             key={id}
             itemID={id}
@@ -96,6 +99,7 @@ const SidebarLayoutPage = () => {
             {item.detail}
           </Section>
         ))}
+        </div>
       </div>
     </div>
   );
