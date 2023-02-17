@@ -56,15 +56,10 @@ const SidebarLayoutPage = () => {
           <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
             <a
               href="#introduction"
-              className={`capitalize text-sm font-semibold  cursor-pointer 
-            ${
-              titleRefEntry &&
-              (titleViewState ? "text-slate-900" : "text-slate-500")
-            } `}
+              className={`capitalize text-sm font-semibold  cursor-pointer `}
             >
               Documentation
             </a>
-           
           </div>
         </nav>
       </div>
@@ -95,8 +90,8 @@ const SidebarLayoutPage = () => {
               {state.detail}
             </p>
           </div>
-          {/* content */}
 
+          {/* content */}
           <div className="box-border space-y-4">
             {state.sections.map((item, id) => (
               <Section
@@ -112,37 +107,41 @@ const SidebarLayoutPage = () => {
             ))}
           </div>
         </div>
-         <div className=" w-[17rem] h-96 box-border top-32 sticky">
+        {/* page navigation */}
+        <div className=" w-[17rem] h-96 box-border top-32 sticky">
           <nav className="relative h-full  px-[0rem]">
-          <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
-           On this page
-          </p>
-          {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
-            {/* <a
-              href="#introduction"
-              className={`capitalize text-sm font-semibold  cursor-pointer 
+            <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
+              On this page
+            </p>
+            {/* items */}
+            <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
+              <a
+                href="#introduction"
+                className={`relative capitalize text-sm font-semibold  cursor-pointer 
             ${
               titleRefEntry &&
-              (titleViewState ? "text-blue-500" : "text-slate-500")
+              (titleViewState ? "text-blue-500" : "text-slate-500/70")
             } `}
-            >
-              {state.title}
-            </a> */}
-            {state.sections.map((item, id) => (
-              <a
-                key={id}
-                href={`#${item.category}`}
-                className={`capitalize text-sm font-semibold  cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-blue-500"
-                }`}
               >
-                {item.title}
+                {state.title}
+                <div className={`absolute h-full w-[3px] bg-blue-500 top-0 -left-4 ${titleViewState?'visible':'hidden'} rounded-md`}></div>
+
               </a>
-            ))}
-          </div>
-        </nav>
-         </div>
+              {state.sections.map((item, id) => (
+                <a
+                  key={id}
+                  href={`#${item.category}`}
+                  className={`relative text-sm font-semibold  cursor-pointer ${
+                    !item.viewState ? "text-slate-500/70" : " text-blue-500"
+                  }`}
+                >
+                  {item.title}
+                  <div className={`absolute h-full w-[3px] bg-blue-500 top-0 -left-4 ${item.viewState?'visible':'hidden'} rounded-md`}></div>
+                </a>
+              ))}
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   );
