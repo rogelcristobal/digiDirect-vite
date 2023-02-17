@@ -37,11 +37,12 @@ export const DocsProvider = ({ children }) => {
             important to provide accurate and detailed information about what is
             included with the product in order to avoid confusion and customer
             dissatisfaction.
-            <br />
+           
             <br />
             This information can include items such as accessories, manuals, and
             any other components that are necessary for the product to function
             properly.
+            <br />
             <Codeblock template={inTheBoxMarkup}></Codeblock>
             
             This template will display the included items in bullets.
@@ -73,7 +74,7 @@ export const DocsProvider = ({ children }) => {
             specifications can include information such as dimensions, weight,
             materials, power requirements, and any other technical details that
             are relevant to the product.
-            
+            <br />
             <Codeblock template={specsMarkup}></Codeblock>
             They can also include information about the product's performance,
             such as its capacity, speed, or efficiency. Providing accurate and
@@ -86,6 +87,7 @@ export const DocsProvider = ({ children }) => {
               This template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
+              <br />
               <Codeblock template={specsMarkupCategorized}></Codeblock>
             </Section>
             </div>
@@ -109,7 +111,7 @@ export const DocsProvider = ({ children }) => {
             relevant technical specifications.
             <br />
             <Codeblock template={descriptionSimple}></Codeblock>
-            <br />
+            
             As demonstrated by the examples provided, the product description
             includes the product name, its key features, the Global Trade Item
             Number (GTIN) and the Manufacturer Part Number (MPIN).
@@ -128,6 +130,7 @@ export const DocsProvider = ({ children }) => {
             <Section title={"Advance description"} child>
               This template can be used to add more product features to a
               product listing.
+              <br />
               <Codeblock template={descriptionBest}></Codeblock>
             </Section>
             </div>
@@ -136,6 +139,7 @@ export const DocsProvider = ({ children }) => {
               Kit/bundled template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
+              <br />
               <Codeblock template={descriptionKit}></Codeblock>
             </Section>
             </div>
@@ -147,7 +151,7 @@ export const DocsProvider = ({ children }) => {
               in bullet point form.
               <br />
               <Codeblock template={shortDescription}></Codeblock>
-              <br />
+             
               This format allows for quick and easy scanning of the information,
               making it easy for potential customers to understand the product's
               key selling points. It is an efficient way to present information
@@ -190,7 +194,7 @@ export const DocsProvider = ({ children }) => {
               the one you are selling. It is an important element of search
               engine optimization (SEO) as it helps to increase the visibility
               and click-through rate of the product listing.
-             
+              <br />
               <Codeblock template={seoMetaTitle}></Codeblock>
              
               It's important to make sure that the meta title is unique to each
@@ -204,7 +208,7 @@ export const DocsProvider = ({ children }) => {
               HTML code of a webpage. When creating a product listing, these
               keywords can be used to provide a list of words or phrases that
               describe the product.
-              
+              <br />
               <Codeblock template={seoMetaKeyword}></Codeblock>
               
               These keywords can help search engines determine the relevance of
@@ -221,6 +225,7 @@ export const DocsProvider = ({ children }) => {
               appears in search results. In a product listing, it should provide
               key features, benefits, and relevant information about the
               product. Keep it under 155 characters.
+              <br />
               <Codeblock template={seoMetaDescription}></Codeblock>
               <div className="box-border pt-6 pb-4">
               <Section title="Meta description guidelines" child>
