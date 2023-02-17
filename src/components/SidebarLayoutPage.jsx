@@ -92,7 +92,6 @@ const SidebarLayoutPage = () => {
               {state.detail}
             </p>
           </div>
-          <Codeblock></Codeblock>
 
           {/* content */}
           <div className="box-border space-y-4">

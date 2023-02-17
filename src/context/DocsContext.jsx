@@ -1,8 +1,21 @@
 import { createContext, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import template from '../templates/template'
+import Codeblock from "../components/Codeblock";
 const DocsContext = createContext();
 import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
+  const { inTheBoxMarkup,
+    specsMarkup,
+    descriptionSimple,
+    specsMarkupCategorized,
+    descriptionBest,
+    descriptionKit,
+    seoMetaTitle,
+    seoMetaKeyword,
+    seoMetaDescription,
+    shortDescription,
+    shortDescriptionKit,
+    bundleInTheBox,} = template()
   const [state, setState] = useState({
     viewState:false,
     viewThreshold:0.9,
@@ -29,7 +42,8 @@ export const DocsProvider = ({ children }) => {
             This information can include items such as accessories, manuals, and
             any other components that are necessary for the product to function
             properly.
-            <br />
+            <Codeblock template={inTheBoxMarkup}></Codeblock>
+            
             This template will display the included items in bullets.
             <div className="box-border pt-6 pb-4">
             <Section title={"Kit/bundled "} child>

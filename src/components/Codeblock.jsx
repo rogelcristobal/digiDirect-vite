@@ -1,20 +1,20 @@
 import React from "react";
-import { Sandpack } from "@codesandbox/sandpack-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const Codeblock = () => {
+const Codeblock = ({ template }) => {
+  const customStyle = {
+    paddingLeft: "1.5rem",
+    borderRadius: "5px",
+  };
   return (
-    <div>
-      <Sandpack
-        template="react"
-        options={{
-          showLineNumbers: false, // default - true
-          showInlineErrors: true, // default - false
-          wrapContent: true, // default - false
-          editorHeight: 280, // default - 300
-          editorWidthPercentage: 60, // default - 50
-        }}
-      />
+    <div className="py-4"> 
+
+    <SyntaxHighlighter language="html" style={coldarkDark} customStyle={customStyle}>
+    {template.tags}
+    </SyntaxHighlighter>
     </div>
+    
   );
 };
 
