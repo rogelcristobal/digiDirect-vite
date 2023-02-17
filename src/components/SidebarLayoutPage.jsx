@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
+import Codeblock from "./Codeblock";
 const SidebarLayoutPage = () => {
   const { state } = useContext(DocsContext);
   const [titleViewRef, titleViewState, titleRefEntry] = useInView({
@@ -47,7 +48,7 @@ const SidebarLayoutPage = () => {
     <div className="relative w-full px-8 mx-auto flex items-start   justify-start gap-2   box-border">
       {/* sidebar container*/}
       <div className="h-[calc(100vh-5.5rem)] sticky top-16   pl-2 lg:pl-0 box-border flex justify-start items-start w-[23rem]   pt-12 thin-right-divider overflow-y-scroll">
-        {/* content */}
+        {/*sidebar content */}
         <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             getting started
@@ -69,8 +70,9 @@ const SidebarLayoutPage = () => {
         ref={targetRef}
         className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth	 "
       >
-        {/* heading container */}
+        {/* content container */}
         <div className="box-border flex-auto">
+          {/* header */}
           <div
             id="introduction"
             className="scroll-mt-28 max-w-3xl relative flex-auto  mb-20  "
@@ -90,6 +92,7 @@ const SidebarLayoutPage = () => {
               {state.detail}
             </p>
           </div>
+          <Codeblock></Codeblock>
 
           {/* content */}
           <div className="box-border space-y-4">
@@ -142,6 +145,8 @@ const SidebarLayoutPage = () => {
             </div>
           </nav>
         </div>
+
+        
       </div>
     </div>
   );
