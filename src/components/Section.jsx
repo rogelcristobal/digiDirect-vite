@@ -55,7 +55,7 @@ const Section = ({ title, children, category, child, itemID, hash ,threshold}) =
 
       <h2
         href={hash}
-        className={` tracking-tight font-bold mb-4 capitalize font-plus ${
+        className={` tracking-tight font-bold mb-4  font-plus ${
           child ? "text-lg" : "text-[1.4rem]"
         }`}
       >

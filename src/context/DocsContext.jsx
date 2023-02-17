@@ -4,7 +4,8 @@ const DocsContext = createContext();
 import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
   const [state, setState] = useState({
-
+    viewState:false,
+    viewThreshold:0.9,
     category: "Product listing",
     title: "Introduction",
     detail:
@@ -12,7 +13,7 @@ export const DocsProvider = ({ children }) => {
     sections: [
       {
         viewState:false,
-        viewThreshold:0.7,
+        viewThreshold:0.75,
         category: "In the box",
         title: `What's in the box`,
         detail: (
@@ -42,7 +43,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
-        viewThreshold:0.7,
+        viewThreshold:0.425,
         category: "Specification",
         title: "Product specifications",
         detail: (
@@ -135,7 +136,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
-        viewThreshold:0.2,
+        viewThreshold:0.135,
         category: "SEO",
         title: "Search engine optimization",
         detail: (
