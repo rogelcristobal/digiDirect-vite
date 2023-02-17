@@ -333,13 +333,13 @@ const template = () => {
     `
   }
   const seoMetaTitle = {
-    tags: `ProductName | Buy at digiDirect`,
+    text: `ProductName | Buy at digiDirect`,
   };
   const seoMetaKeyword = {
-    tags: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
+    text: `ProductName, ProductName Australia, Barcode1, Barcode2, buy, shop, digidirect, australia, price,`,
   };
   const seoMetaDescription={
-    tags:`Lock in your look and protect your phone with ultra-slim OtterBox Symmetry Series Graphics Case for Apple iPhone 13, Ant Enigma that's easy to install and fortified with drop protection`
+    text:`Lock in your look and protect your phone with ultra-slim OtterBox Symmetry Series Graphics Case for Apple iPhone 13, Ant Enigma that's easy to install and fortified with drop protection`
   }
 
 
