@@ -7,7 +7,7 @@ const Codeblock = ({ template }) => {
   const customStyle = {
     paddingLeft: "2rem",
     paddingTop: "1rem",
-    borderRadius: "10px",
+    borderRadius: "0px",
     fontSize: "13px",
     // fontWeight:"400",
     lineHeight: "24px",
@@ -27,7 +27,7 @@ const Codeblock = ({ template }) => {
   }
   return (
     <div
-      className="my-6 rounded-lg overflow-hidden"
+      className="my-6  rounded-lg overflow-hidden"
       style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
       <div className="h-12 w-full thin-bottom-divider flex items-center justify-start text-[0.8rem] font-[500]  px-4 gap-2">
