@@ -61,7 +61,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
-        viewThreshold:0.425,
+        viewThreshold:0.175,
         category: "Specification",
         title: "Product specifications",
         detail: (
@@ -94,7 +94,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
-        viewThreshold:0.4,
+        viewThreshold:0.085,
         category: "Description",
         title: "Product descriptions",
         detail: (
@@ -169,7 +169,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState:false,
-        viewThreshold:0.135,
+        viewThreshold:0.175,
         category: "SEO",
         title: "Search engine optimization",
         detail: (
