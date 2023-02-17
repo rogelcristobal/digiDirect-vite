@@ -50,6 +50,8 @@ export const DocsProvider = ({ children }) => {
               This template can be utilized when the product listing pertains to
               a kit or bundle, which includes two or more products within the
               package.
+               <Codeblock template={bundleInTheBox}></Codeblock>
+           
             </Section>
             </div>
           </div>
