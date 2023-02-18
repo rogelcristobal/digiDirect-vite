@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
-    <div className="h-[calc(100vh-5.5rem)] sticky top-16   pl-2 lg:pl-0 box-border flex justify-start items-start w-[23rem]   pt-12 thin-right-divider overflow-y-scroll">
+    <div className="h-[calc(100vh-5.5rem)] sticky top-16   pl-2 lg:pl-0 box-border flex justify-start items-start w-[24rem]   pt-12 thin-right-divider overflow-y-scroll">
       {/*sidebar content */}
       <nav className="relative h-full  px-[0rem]">
         <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">

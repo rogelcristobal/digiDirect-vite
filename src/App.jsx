@@ -3,11 +3,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
 import { Outlet, Routes, Route } from "react-router-dom";
-import SamplePage from "./components/SamplePage";
+import Login from "./components/Login";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SamplePage />} />
+      <Route path="/" element={<Login />} />
       <Route
         path="/product-listing/*"
         element={
