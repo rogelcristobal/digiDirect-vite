@@ -52,7 +52,7 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="my-6  rounded-lg overflow-hidden relative"
+      className="my-8  rounded-lg overflow-hidden relative"
       style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
       <div className="h-12 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem] font-[500]  px-4 gap-2">

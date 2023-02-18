@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -6,7 +7,7 @@ const Navbar = () => {
         {/* items container */}
         <div className='h-fit container mx-auto items-center justify-end box-border flex `'>
            <nav className=''>
-             <span className='text-sm font-semibold capitalize mr-52 '>docs</span>
+             <span className='text-sm font-semibold capitalize mr-52 '><Link to="documentation">docs</Link></span>
 
            </nav>
         </div>
