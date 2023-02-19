@@ -43,7 +43,7 @@ const Section = ({ title, children, category, child, itemID, hash ,threshold}) =
     <div
       {...(category && { ref: ref })}
       {...(entry && { id: category })}
-      className="flex-auto  box-border pb-0 pt-0 relative scroll-mt-28  "
+      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
     >
       {category && (
         <p
@@ -61,10 +61,10 @@ const Section = ({ title, children, category, child, itemID, hash ,threshold}) =
       >
         {title}
       </h2>
-      <div className="box-border lg:max-w-3xl prose prose-slate font-[500] leading-[29px] font-plus  text-base">
+      <div className="box-border lg:max-w-3xl prose  font-[400] leading-[28px] font-inter  text-[16px]">
         {children}
       </div>
-    </div>
+      </div>
   );
 };
 

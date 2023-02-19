@@ -43,11 +43,11 @@ const SidebarLayoutPage = () => {
               className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth	 "
             >
               {/* content container */}
-              <div className="box-border flex-auto">
+              <div className="box-border flex-auto ">
                 {/* header */}
                 <div
                   id="introduction"
-                  className="scroll-mt-28 max-w-3xl relative flex-auto  mb-20  "
+                  className="scroll-mt-28 max-w-3xl relative flex-auto mb-12  "
                 >
                   <p
                     ref={titleViewRef}
@@ -60,15 +60,17 @@ const SidebarLayoutPage = () => {
                   >
                     {state.title}
                   </h1>
-                  <p className="mt-4 lg:max-w-3xl prose leading-[29px] prose-slate font-[500]   font-plus  text-[16px]">
+                  <p className="mt-4 lg:max-w-3xl prose leading-[29px] text-[rgba(60, 60, 67, .92)] font-[400]   font-inter  text-[16px]">
                     {state.detail}
                   </p>
                 </div>
 
+                <div className="h-[1px] w-full mb-12 bg-slate-200"></div>
                 {/* content */}
-                <div className="box-border space-y-4">
+                <div className="box-border ">
                   {state.sections.map((item, id) => (
-                    <Section
+                    <>
+                      <Section
                       key={id}
                       itemID={id}
                       title={item.title}
@@ -78,6 +80,9 @@ const SidebarLayoutPage = () => {
                     >
                       {item.detail}
                     </Section>
+                    <div className="h-[1px] w-full mb-12 bg-slate-200"></div>
+                    </>
+    
                   ))}
                 </div>
               </div>
@@ -128,12 +133,11 @@ const SidebarLayoutPage = () => {
             </div>
           }
         ></Route>
-        <Route path="listing-helper" element={
-          <div> listing helper</div>
-        }>
-
-        </Route>
-        <Route path="*" element={ <ErrorPage />}/>
+        <Route
+          path="listing-helper"
+          element={<div> listing helper</div>}
+        ></Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       {/* <Route path="/other" element={

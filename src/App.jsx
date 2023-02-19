@@ -11,7 +11,7 @@ function App() {
       <Route
         path="/product-listing/*"
         element={
-          <div className="h-auto bg-[#ffffff]  text-slate-900 box-border  font-inter">
+          <div className="h-auto bg-[#ffffff]  text-[rgba(60, 60, 67, .92)] box-border  font-inter">
             {/* [#0a1120] */}
             {/* navbar */}
             <Navbar></Navbar>
