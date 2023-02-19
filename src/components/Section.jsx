@@ -49,33 +49,33 @@ const Section = ({
 
   return (
     <>
-    <div
-      {...(category && { ref: ref })}
-      {...(entry && { id: category })}
-      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
-    >
-      {category && (
-        <p
-          className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
-        >
-          {category}
-        </p>
-      )}
-
-      <h2
-        href={hash}
-        className={` tracking-tight font-bold mb-4  font-plus ${
-          child ? "text-lg" : "text-[1.4rem]"
-        }`}
+      <div
+        {...(category && { ref: ref })}
+        {...(entry && { id: category })}
+        className="flex-auto  box-border pb-0  relative scroll-mt-28  "
       >
-        {title}
-      </h2>
-      <div className="box-border lg:max-w-3xl prose  font-[400] leading-[28px] font-inter  text-[16px]">
-        {children}
+        {category && (
+          <p
+            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
+          >
+            {category}
+          </p>
+        )}
+
+        <h2
+          href={hash}
+          className={` tracking-tight font-bold mb-4  font-plus ${
+            child ? "text-lg" : "text-[1.4rem]"
+          }`}
+        >
+          {title}
+        </h2>
+        <div className="box-border lg:max-w-3xl prose  font-[400] leading-[28px] font-inter  text-[16px]">
+          {children}
+        </div>
       </div>
-    </div>
-    <div className="h-[1px] w-full mb-12 bg-slate-200"></div>
-              </>      
+      {/* <div className="h-[1px] w-full mb-12 bg-slate-200"></div> */}
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
 import { useLocation, Routes, Route } from "react-router-dom";
+import ListingHelperPage from "./components/ListingHelperPage";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
 import { useEffect } from "react";
@@ -32,7 +33,7 @@ function App() {
                   ></Route>
                   <Route
                     path="listing-helper"
-                    element={<div> listing helper</div>}
+                    element={ <ListingHelperPage/>}
                   ></Route>
                   <Route path="*" element={<ErrorPage />} />
                 </Routes>

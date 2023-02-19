@@ -29,14 +29,14 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth	 "
+      className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth"
     >
       {/* content container */}
-      <div className="box-border flex-auto ">
+      <div className="box-border flex-auto w-full">
         {/* header */}
         <div
           id="introduction"
-          className="scroll-mt-28 max-w-3xl relative flex-auto mb-12  "
+          className="scroll-mt-28 max-w-3xl relative flex-auto mb-12  box-border"
         >
           <p
             ref={titleViewRef}
@@ -72,7 +72,7 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      <div className=" w-[17rem] h-96 box-border top-32 sticky">
+      <div className=" w-[20rem] h-96 box-border top-32 sticky">
         <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
             On this page
