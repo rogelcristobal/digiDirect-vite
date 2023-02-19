@@ -17,7 +17,7 @@ const Login = () => {
           <form onSubmit={(e)=>handleLogin(e)} className='w-full mb-6  h-fit px-2 py-6 flex flex-col items-center justify-start box-border '>
             <div className='mb-12 flex flex-col items-start justify-center w-full'>
               <span className='text-[1.7rem] w-full font-bold  font-plus tracking-tight text-slate-800 mb-2'>Welcome back !</span>
-              <span className='text-sm font-medium font-plus text-slate-800 tracking-tight'>Let's create some digiDirect product listing with ease.</span>
+              <span className='text-[16px] font-medium prose font-inter'>Let's create some digiDirect product listing with ease.</span>
 
             </div>
             <input type="text" className='outline-blue-500 border-2 mb-6 w-full border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm' placeholder='Email'/>

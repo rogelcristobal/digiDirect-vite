@@ -3,7 +3,15 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 import ScrollPositionContext from "../context/ScrollPositionContext";
-const Section = ({ title, children, category, child, itemID, hash ,threshold}) => {
+const Section = ({
+  title,
+  children,
+  category,
+  child,
+  itemID,
+  hash,
+  threshold,
+}) => {
   const { position } = useContext(ScrollPositionContext);
   const { setState } = useContext(DocsContext);
   const sampleRef = useRef(null);
@@ -40,6 +48,7 @@ const Section = ({ title, children, category, child, itemID, hash ,threshold}) =
   };
 
   return (
+    <>
     <div
       {...(category && { ref: ref })}
       {...(entry && { id: category })}
@@ -64,7 +73,9 @@ const Section = ({ title, children, category, child, itemID, hash ,threshold}) =
       <div className="box-border lg:max-w-3xl prose  font-[400] leading-[28px] font-inter  text-[16px]">
         {children}
       </div>
-      </div>
+    </div>
+    <div className="h-[1px] w-full mb-12 bg-slate-200"></div>
+              </>      
   );
 };
 

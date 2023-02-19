@@ -9,7 +9,6 @@ import {
   RouterProvider,
   BrowserRouter,
 } from "react-router-dom";
-import SidebarLayoutPage from "./components/SidebarLayoutPage";
 // const router=createBrowserRouter([
 //   {
 //     path:"/",
