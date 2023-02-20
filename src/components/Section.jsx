@@ -64,7 +64,7 @@ const Section = ({
 
         <h2
           href={hash}
-          className={` tracking-tight font-bold mb-4  font-plus ${
+          className={`text-slate-900  tracking-tight font-bold mb-4  font-plus ${
             child ? "text-lg" : "text-[1.4rem]"
           }`}
         >

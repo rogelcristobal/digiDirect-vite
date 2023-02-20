@@ -6,11 +6,11 @@ const Codeblock = ({ template }) => {
   const [view, toggleView] = useState(0);
   const [copyIsClicked, setCopyIsClicked] = useState(false);
   const customStyle = {
-    paddingLeft: "1.5rem",
+    paddingLeft: "2rem",
     paddingTop: "1rem",
     borderRadius: "0px",
-    fontSize: "13px",
-    lineHeight: "22px",
+    fontSize: "0.775rem",
+    lineHeight: "1.4rem",
     whiteSpace: "pre",
     tabSize: "4",
     border: "none",
@@ -52,10 +52,10 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="my-10  rounded-lg overflow-hidden relative"
-      style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+      className="my-10  rounded-lg overflow-hidden medium-box-divider relative"
+      // style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
-      <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem] font-[500]  px-4 gap-2">
+      <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]  font-[500]   gap-2">
         {/* togglers */}
         {Object.keys(template)
           .reverse()
@@ -64,19 +64,19 @@ const Codeblock = ({ template }) => {
               <button
                 onClick={() => handleToggle(id)}
                 key={id}
-                className={`h-full px-3 relative transition-all duration-300 ease-in-out capitalize ${
+                className={`h-full px-6 relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
-                    ? "text-slate-900"
-                    : "hover:text-slate-900 text-slate-500/70"
-                } font-medium`}
+                    ? "text-slate-900 "
+                    : "hover:text-slate-900 text-slate-500/70 "
+                } font-medium `}
                 type="button"
               >
                 {item}
-                <div
+                {/* <div
                   className={`absolute h-[3px] transition-all duration-300 ease-in-out w-full bg-slate-900 bottom-0 left-0 ${
                     view === id ? "visible" : "hidden"
                   } rounded-md`}
-                ></div>
+                ></div> */}
               </button>
             );
           })}
