@@ -12,7 +12,7 @@ const Login = () => {
   }
   return (
     <div className='w-full h-screen flex items-center justify-start box-border'>
-      <div className='w-[36rem] box-border h-full   bg-white shadow-xl  px-[3.5rem]'>
+      <div className='w-[34rem] box-border h-full   bg-white shadow-xl  px-[3.5rem]'>
         <div className='  h-full w-full flex flex-col items-center justify-end box-border'>
           <form onSubmit={(e)=>handleLogin(e)} className='w-full mb-6  h-fit px-2 py-6 flex flex-col items-center  justify-start box-border '>
             <div className='mb-12 flex flex-col items-start justify-center w-full'>
@@ -43,9 +43,9 @@ const Login = () => {
             </div>
 
             {/* sign in page*/}
-            <div className='flex item-start justify-center text-xs font-plus font-medium'>
+            {/* <div className='flex item-start justify-center text-xs font-plus font-medium'>
               <span>Don't have an account? <a href="" className='underline underline-blue-500 text-blue-500 underline-offset-2'>Sign in here</a></span>
-            </div>
+            </div> */}
 
           </form>
 

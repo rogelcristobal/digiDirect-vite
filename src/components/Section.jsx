@@ -56,7 +56,7 @@ const Section = ({
       >
         {category && (
           <p
-            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-slate-500/50 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
+            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-slate-500/50 text-base  font-semibold   leading-[24px] tracking-tight  mb-3  lg:mb-3  font-plus`}
           >
             {category}
           </p>
@@ -64,7 +64,7 @@ const Section = ({
 
         <h2
           href={hash}
-          className={`text-slate-900  tracking-tight font-bold mb-4  font-plus ${
+          className={`text-slate-900  tracking-tight font-bold mb-3  font-plus ${
             child ? "text-lg" : "text-[1.4rem]"
           }`}
         >
