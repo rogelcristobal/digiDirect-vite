@@ -22,7 +22,7 @@ function App() {
             {/* navbar */}
             <Navbar></Navbar>
             <div className=" md:px-4 lg:px-0  min-h-[150vh] h-auto pt-0  flex  items-start justify-center  box-border">
-              <div className="relative w-full px-8 mx-auto flex items-start   justify-start gap-2   box-border">
+              <div className="relative w-full px-0 mx-auto flex items-start   justify-start gap-2   box-border">
                 {/* sidebar */}
                 <Sidebar />
                 {/* content */}

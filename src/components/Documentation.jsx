@@ -29,7 +29,7 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border flex w-full pb-6 pt-16 pl-12 gap-20 scroll-smooth"
+      className="h-full box-border flex w-full pb-6 pt-10 pl-12 gap-20 scroll-smooth"
     >
       {/* content container */}
       <div className="box-border flex-auto w-full">
@@ -40,7 +40,7 @@ const Documentation = () => {
         >
           <p
             ref={titleViewRef}
-            className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-blue-500"
+            className="text-sm leading-[24px]  font-semibold mb-3  lg:mb-3 text-slate-500/50"
           >
             {state.category}
           </p>
@@ -84,12 +84,12 @@ const Documentation = () => {
               className={`relative capitalize text-sm font-semibold  cursor-pointer 
             ${
               titleRefEntry &&
-              (titleViewState ? "text-blue-500" : "text-slate-500/70")
+              (titleViewState ? "text-slate-900" : "text-slate-500/70")
             } `}
             >
               {state.title}
               <div
-                className={`absolute h-full w-[3px] bg-blue-500 top-0 -left-4 ${
+                className={`absolute h-full w-[3px] bg-slate-900 top-0 -left-4 ${
                   titleViewState ? "visible" : "hidden"
                 } rounded-md`}
               ></div>
@@ -99,12 +99,12 @@ const Documentation = () => {
                 key={id}
                 href={`#${item.category}`}
                 className={`relative text-sm font-semibold  cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-blue-500"
+                  !item.viewState ? "text-slate-500/70" : " text-slate-900"
                 }`}
               >
                 {item.title}
                 <div
-                  className={`absolute h-full w-[3px] bg-blue-500 top-0 -left-4 ${
+                  className={`absolute h-full w-[3px] bg-slate-900 top-0 -left-4 ${
                     item.viewState ? "visible" : "hidden"
                   } rounded-md`}
                 ></div>

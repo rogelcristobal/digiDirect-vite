@@ -56,7 +56,7 @@ const Section = ({
       >
         {category && (
           <p
-            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-blue-500 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
+            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-slate-500/50 text-base  font-bold   leading-[24px] tracking-tight  mb-3  lg:mb-3.5  font-plus`}
           >
             {category}
           </p>
