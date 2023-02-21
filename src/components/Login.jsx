@@ -11,17 +11,17 @@ const Login = () => {
     navigate('product-listing/documentation')
   }
   return (
-    <div className='w-full h-screen grid grid-flow-col grid-cols-6'>
-      <div className='w h-full grid col-span-2 bg-white shadow-xl py-8 px-[4rem]'>
-        <div className=' h-full w-full flex flex-col items-center justify-end '>
-          <form onSubmit={(e)=>handleLogin(e)} className='w-full mb-6  h-fit px-2 py-6 flex flex-col items-center justify-start box-border '>
+    <div className='w-full h-screen flex items-center justify-start box-border'>
+      <div className='w-[34rem] box-border h-full   bg-white shadow-xl  px-[3.5rem]'>
+        <div className='  h-full w-full flex flex-col items-center justify-end box-border'>
+          <form onSubmit={(e)=>handleLogin(e)} className='w-full mb-6  h-fit px-2 py-6 flex flex-col items-center  justify-start box-border '>
             <div className='mb-12 flex flex-col items-start justify-center w-full'>
-              <span className='text-[1.7rem] w-full font-bold  font-plus tracking-tight text-slate-800 mb-2'>Welcome back !</span>
-              <span className='text-[16px] font-medium prose font-inter'>Let's create some digiDirect product listing with ease.</span>
+              <span className='text-[1.6rem] w-full font-bold  font-plus tracking-tight text-slate-800 mb-2'>Welcome back !</span>
+              {/* <span className='text-[16px] font-medium prose font-inter'>Let's create some digiDirect product listing with ease.</span> */}
 
             </div>
-            <input type="text" className='outline-blue-500 border-2 mb-6 w-full border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm' placeholder='Email'/>
-            <input type="password" className='outline-blue-500 border-2 w-full mb-4 border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm ' placeholder='Password'/>
+            <input type="text" className='outline-slate-900 border-2 mb-6 w-full border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm' placeholder='Email'/>
+            <input type="password" className='outline-slate-900 border-2 w-full mb-4 border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm ' placeholder='Password'/>
             <div className='h-8 w-full mb-8 flex items-center justify-between'>
               <div className='box-border flex items-center justify-between gap-2'>
                 <input type="checkbox" name="remember-me" checked={isChecked} onChange={handleToggleCheckbox}/>
@@ -29,7 +29,7 @@ const Login = () => {
               </div>
               <a href="" className='text-xs font-plus text-blue-500 font-medium'>Forgot your password?</a>
             </div>
-            <button type="submit" className='h-12 w-full bg-blue-500 hover:bg-blue-600 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center'>Login</button>
+            <button type="submit" className='h-12 w-full bg-[#5138ed] hover:bg-[#5138ed]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center'>Login</button>
             
             {/* login options */}
             <div className='thin-top-divider mt-8 relative h-fit py-8 w-full '>
@@ -43,16 +43,16 @@ const Login = () => {
             </div>
 
             {/* sign in page*/}
-            <div className='flex item-start justify-center text-xs font-plus font-medium'>
+            {/* <div className='flex item-start justify-center text-xs font-plus font-medium'>
               <span>Don't have an account? <a href="" className='underline underline-blue-500 text-blue-500 underline-offset-2'>Sign in here</a></span>
-            </div>
+            </div> */}
 
           </form>
 
         </div>
       </div>
       {/* image */}
-      <div className='bg-slate-100 box-border col-span-4 w-full h-full'>
+      <div className='bg-slate-100 box-border  w-full h-full'>
         
         
       </div>

@@ -18,11 +18,11 @@ function App() {
       <Route
         path="/product-listing/*"
         element={
-          <div className="h-auto bg-[#ffffff]  text-[rgba(60, 60, 67, .92)] box-border  font-inter">
+          <div className="h-auto bg-[#ffffff]  text-slate-900 box-border  font-inter">
             {/* navbar */}
             <Navbar></Navbar>
             <div className=" md:px-4 lg:px-0  min-h-[150vh] h-auto pt-0  flex  items-start justify-center  box-border">
-              <div className="relative w-full px-8 mx-auto flex items-start   justify-start gap-2   box-border">
+              <div className="relative w-full px-0 mx-auto flex items-start   justify-start gap-2   box-border">
                 {/* sidebar */}
                 <Sidebar />
                 {/* content */}
