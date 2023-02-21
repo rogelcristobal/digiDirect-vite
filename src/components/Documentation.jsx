@@ -29,34 +29,34 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border flex w-full pb-6 pt-10 pl-12 gap-20 scroll-smooth"
+      className="h-full box-border flex w-full pb-6 pt-12 gap-6 px-14 items-start scroll-smooth"
     >
       {/* content container */}
-      <div className="box-border flex-auto w-full">
+      <div className="box-border flex-auto w-full ">
         {/* header */}
         <div
           id="introduction"
-          className="scroll-mt-28 max-w-3xl relative flex-auto mb-12  box-border"
+          className="scroll-mt-28 max-w-2xl relative flex-auto mb-16  box-border"
         >
           <p
             ref={titleViewRef}
-            className="text-sm leading-[24px]  font-semibold mb-2 text-[#5138ed]"
+            className="text-sm leading-[24px] font-inter font-medium mb-2 text-slate-500/70"
           >
             {state.category}
           </p>
           <h1
-            className={`inline-block text-2xl sm:text-3xl font-plus font-bold tracking-tight text-slate-900  `}
+            className={`inline-block text-3xl  font-inter font-[600] tracking-tigher text-slate-900  `}
           >
             {state.title}
           </h1>
-          <p className="mt-4 lg:max-w-3xl prose leading-[29px] text-[rgba(60, 60, 67, .92)] font-[400]   font-inter  text-[16px]">
+          <p className="mt-4  prose leading-7 prose-slate   ">
             {state.detail}
           </p>
         </div>
 
-        <div className="h-[1px] w-full mb-12 bg-slate-200"></div>
+        {/* <div className="h-[1px] w-full mb-12 bg-slate-200"></div> */}
         {/* content */}
-        <div className="box-border ">
+        <div className=" space-y-20">
           {state.sections.map((item, id) => (
             <Section
               key={id}
@@ -72,40 +72,40 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      <div className=" w-[20rem] h-96 box-border top-32 sticky">
+      <div className=" w-[18rem]  h-fit  py-4 box-border top-28 sticky">
         <nav className="relative h-full  px-[0rem]">
-          <p className="text-slate-900 text-sm  text-left font-plus  font-bold capitalize mb-4">
+          <p className="text-slate-900 text-sm  text-left font-inter  font-[600] capitalize mb-4">
             On this page
           </p>
           {/* items */}
-          <div className="space-y-3.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
-            <a
+          <div className="space-y-2 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-inter">
+            {/* <a
               href="#introduction"
-              className={`relative capitalize text-sm font-semibold  cursor-pointer 
+              className={`relative capitalize text-sm font-medium  cursor-pointer 
             ${
               titleRefEntry &&
-              (titleViewState ? "text-[#5138ed]" : "text-slate-500/70")
+              (titleViewState ? "text-slate-900" : "text-slate-500/70")
             } `}
             >
               {state.title}
               <div
-                className={`absolute h-full w-[3px] bg-[#5138ed] top-0 -left-4 ${
+                className={`absolute h-full w-[3px]  top-0 -left-3 ${
                   titleViewState ? "visible" : "hidden"
                 } rounded-md`}
               ></div>
-            </a>
+            </a> */}
             {state.sections.map((item, id) => (
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`relative text-sm font-semibold  cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-[#5138ed]"
+                className={`relative text-sm font-medium py-1 cursor-pointer ${
+                  !item.viewState ? "text-slate-500/70" : " text-slate-900"
                 }`}
               >
                 {item.title}
                 <div
-                  className={`absolute h-full w-[3px] bg-[#5138ed] top-0 -left-3 ${
-                    item.viewState ? "visible" : "hidden"
+                  className={`absolute h-full w-[3px]  bg-slate-900 top-0 -left-3 ${
+                    item.viewState ? "visible" : "invisible"
                   } rounded-md`}
                 ></div>
               </a>
