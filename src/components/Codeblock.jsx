@@ -8,6 +8,7 @@ const Codeblock = ({ template }) => {
   const customStyle = {
     paddingLeft: "2rem",
     paddingTop: "1rem",
+    // paddingBottom:'1.5rem',
     borderRadius: "0px",
     fontSize: "0.775rem",
     lineHeight: "1.4rem",
@@ -53,10 +54,10 @@ const Codeblock = ({ template }) => {
   return (
     <div
       className="my-10  rounded-lg overflow-hidden medium-box-divider relative"
-      // style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+      style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
-      <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]  font-[500]   gap-2">
-        {/* togglers */}
+       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]  font-[500]   gap-2">
+        
         {Object.keys(template)
           .reverse()
           .map((item, id) => {
@@ -66,24 +67,20 @@ const Codeblock = ({ template }) => {
                 key={id}
                 className={`h-full px-6 relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
-                    ? "text-slate-900 "
+                    ? "text-[#5138ed] "
                     : "hover:text-slate-900 text-slate-500/70 "
                 } font-medium `}
                 type="button"
               >
                 {item}
-                {/* <div
-                  className={`absolute h-[3px] transition-all duration-300 ease-in-out w-full bg-slate-900 bottom-0 left-0 ${
-                    view === id ? "visible" : "hidden"
-                  } rounded-md`}
-                ></div> */}
+              
               </button>
             );
           })}
         <button
           onClick={handleToggleCopyToggle}
           type="button"
-          className={` text-xl transition-all duration-300 ease-in-out  absolute top-1/2 -translate-y-1/2 right-2  h-full px-3 ${copyIsClicked?'text-slate-900':'text-slate-500/60 hover:text-slate-900'}`}
+          className={` text-xl transition-all duration-300 ease-in-out  absolute top-1/2 -translate-y-1/2 right-2  h-full px-3  font-medium ${copyIsClicked?'text-[#5138ed]':'text-slate-500/60 hover:text-slate-900'}`}
         >
           {!copyIsClicked ? (
             <TbClipboard></TbClipboard>
@@ -91,7 +88,7 @@ const Codeblock = ({ template }) => {
             <TbClipboardCheck></TbClipboardCheck>
           )}
         </button>
-      </div>
+      </div> 
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines

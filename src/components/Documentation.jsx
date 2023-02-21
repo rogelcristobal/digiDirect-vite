@@ -40,7 +40,7 @@ const Documentation = () => {
         >
           <p
             ref={titleViewRef}
-            className="text-sm leading-[24px]  font-semibold mb-2 text-slate-500/50"
+            className="text-sm leading-[24px]  font-semibold mb-2 text-[#5138ed]"
           >
             {state.category}
           </p>
@@ -84,12 +84,12 @@ const Documentation = () => {
               className={`relative capitalize text-sm font-semibold  cursor-pointer 
             ${
               titleRefEntry &&
-              (titleViewState ? "text-slate-900" : "text-slate-500/70")
+              (titleViewState ? "text-[#5138ed]" : "text-slate-500/70")
             } `}
             >
               {state.title}
               <div
-                className={`absolute h-full w-[3px] bg-slate-900 top-0 -left-4 ${
+                className={`absolute h-full w-[3px] bg-[#5138ed] top-0 -left-4 ${
                   titleViewState ? "visible" : "hidden"
                 } rounded-md`}
               ></div>
@@ -99,12 +99,12 @@ const Documentation = () => {
                 key={id}
                 href={`#${item.category}`}
                 className={`relative text-sm font-semibold  cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-slate-900"
+                  !item.viewState ? "text-slate-500/70" : " text-[#5138ed]"
                 }`}
               >
                 {item.title}
                 <div
-                  className={`absolute h-full w-[3px] bg-slate-900 top-0 -left-4 ${
+                  className={`absolute h-full w-[3px] bg-[#5138ed] top-0 -left-3 ${
                     item.viewState ? "visible" : "hidden"
                   } rounded-md`}
                 ></div>

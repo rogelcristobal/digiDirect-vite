@@ -29,7 +29,7 @@ const Login = () => {
               </div>
               <a href="" className='text-xs font-plus text-blue-500 font-medium'>Forgot your password?</a>
             </div>
-            <button type="submit" className='h-12 w-full bg-slate-900 hover:bg-slate-800 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center'>Login</button>
+            <button type="submit" className='h-12 w-full bg-[#5138ed] hover:bg-[#5138ed]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center'>Login</button>
             
             {/* login options */}
             <div className='thin-top-divider mt-8 relative h-fit py-8 w-full '>

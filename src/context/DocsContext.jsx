@@ -19,8 +19,8 @@ export const DocsProvider = ({ children }) => {
   const [state, setState] = useState({
     viewState:false,
     viewThreshold:0.9,
-    category: "Product listing",
-    title: "Introduction",
+    category: "Guides",
+    title: "Overview",
     detail:
       "A product listing refers to an online representation of a product that displays its features, specifications, images, and sometimes customer reviews, in a structured and organized manner. It's a crucial aspect of e-commerce as it helps customers in making informed purchasing decisions.",
     sections: [
