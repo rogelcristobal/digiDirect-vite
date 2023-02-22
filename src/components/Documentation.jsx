@@ -36,11 +36,11 @@ const Documentation = () => {
         {/* header */}
         <div
           id="introduction"
-          className="scroll-mt-28 max-w-2xl relative flex-auto mb-16  box-border"
+          className="scroll-mt-28 max-w-3xl relative flex-auto mb-16  box-border"
         >
           <p
             ref={titleViewRef}
-            className="text-sm leading-[24px] font-inter font-medium mb-2 text-slate-500/70"
+            className="text-sm leading-[24px] font-inter font-medium mb-2 text-[#5138ed]"
           >
             {state.category}
           </p>
@@ -56,7 +56,7 @@ const Documentation = () => {
 
         {/* <div className="h-[1px] w-full mb-12 bg-slate-200"></div> */}
         {/* content */}
-        <div className=" space-y-20">
+        <div className=" space-y-14">
           {state.sections.map((item, id) => (
             <Section
               key={id}
@@ -65,6 +65,7 @@ const Documentation = () => {
               category={item.category}
               hash={item.category}
               threshold={item.viewThreshold}
+              {...(item.child&& {child: true})}
             >
               {item.detail}
             </Section>
@@ -72,28 +73,13 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      <div className=" w-[18rem]  h-fit  py-4 box-border top-28 sticky">
+      {/* <div className=" w-[18rem]  h-fit  py-4 box-border top-28 sticky">
         <nav className="relative h-full  px-[0rem]">
           <p className="text-slate-900 text-sm  text-left font-inter  font-[600] capitalize mb-4">
             On this page
           </p>
-          {/* items */}
           <div className="space-y-2 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-inter">
-            {/* <a
-              href="#introduction"
-              className={`relative capitalize text-sm font-medium  cursor-pointer 
-            ${
-              titleRefEntry &&
-              (titleViewState ? "text-slate-900" : "text-slate-500/70")
-            } `}
-            >
-              {state.title}
-              <div
-                className={`absolute h-full w-[3px]  top-0 -left-3 ${
-                  titleViewState ? "visible" : "hidden"
-                } rounded-md`}
-              ></div>
-            </a> */}
+           
             {state.sections.map((item, id) => (
               <a
                 key={id}
@@ -112,7 +98,7 @@ const Documentation = () => {
             ))}
           </div>
         </nav>
-      </div>
+      </div> */}
     </div>
   );
 };

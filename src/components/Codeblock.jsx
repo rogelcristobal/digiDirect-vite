@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 const Codeblock = ({ template }) => {
   const [view, toggleView] = useState(0);
@@ -10,7 +10,7 @@ const Codeblock = ({ template }) => {
     paddingTop: "1rem",
     // paddingBottom:'1.5rem',
     borderRadius: "0px",
-    fontSize: "0.8rem",
+    fontSize: "0.785rem",
     lineHeight: "1.4rem",
     whiteSpace: "pre",
     tabSize: "4",
@@ -53,10 +53,10 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="my-10   overflow-hidden medium-box-divider relative"
-      style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+      className="my-8  overflow-hidden medium-box-divider relative"
+      // style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
-       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]   bg-[#1c3c44] gap-0">
+       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]   gap-0">
         
         {Object.keys(template)
           .reverse()
@@ -67,7 +67,7 @@ const Codeblock = ({ template }) => {
                 key={id}
                 className={`h-full px-4 font-normal relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
-                    ? "text-white "
+                    ? "text-[#5138ed] "
                     : "hover:text-neutral-400 text-neutral-400/70 "
                 } font-medium `}
                 type="button"
@@ -92,7 +92,7 @@ const Codeblock = ({ template }) => {
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines
-        style={coldarkDark}
+        style={ghcolors}
         customStyle={customStyle}
         codeTagProps={codeTagProps}
         

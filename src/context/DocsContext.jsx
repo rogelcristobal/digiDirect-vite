@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
-import template from '../templates/template'
+import template from "../templates/template";
 import Codeblock from "../components/Codeblock";
 const DocsContext = createContext();
 import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
-  const { inTheBoxMarkup,
+  const {
+    inTheBoxMarkup,
     specsMarkup,
     descriptionSimple,
     specsMarkupCategorized,
@@ -15,19 +16,20 @@ export const DocsProvider = ({ children }) => {
     seoMetaDescription,
     shortDescription,
     shortDescriptionKit,
-    bundleInTheBox,} = template()
+    bundleInTheBox,
+  } = template();
   const [state, setState] = useState({
-    viewState:false,
-    viewThreshold:0.9,
+    viewState: false,
+    viewThreshold: 0.9,
     category: "Guides",
     title: "Overview",
     detail:
       "A product listing refers to an online representation of a product that displays its features, specifications, images, and sometimes customer reviews, in a structured and organized manner. It's a crucial aspect of e-commerce as it helps customers in making informed purchasing decisions.",
     sections: [
       {
-        viewState:false,
-        viewThreshold:0.4,
-        category: "In the box",
+        viewState: false,
+        viewThreshold: 0,
+        category: "in the box",
         title: `What's in the box`,
         detail: (
           <div>
@@ -37,32 +39,35 @@ export const DocsProvider = ({ children }) => {
             important to provide accurate and detailed information about what is
             included with the product in order to avoid confusion and customer
             dissatisfaction.
-           
             <br />
             This information can include items such as accessories, manuals, and
             any other components that are necessary for the product to function
             properly.
             <br />
             <Codeblock template={inTheBoxMarkup}></Codeblock>
-            
             This template will display the included items in bullets.
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Kit/bundled "} child>
-              Kit/bundled templates can be utilized when the product listing pertains to
-              a kit or bundle, which includes two or more products within the
-              package.
-
-
-               <Codeblock template={bundleInTheBox}></Codeblock>
-           
-            </Section>
-            </div>
           </div>
         ),
       },
       {
-        viewState:false,
-        viewThreshold:0.175,
+        viewState: false,
+        viewThreshold: 0,
+        category: "in the box/kit",
+        title: "Kit/bundled what's in the box",
+        child: true,
+        detail: (
+          <div>
+            Kit/bundled templates can be utilized when the product listing
+            pertains to a kit or bundle, which includes two or more products
+            within the package.
+            <br />
+            <Codeblock template={bundleInTheBox}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
         category: "Specification",
         title: "Product specifications",
         detail: (
@@ -81,22 +86,28 @@ export const DocsProvider = ({ children }) => {
             detailed product specifications is important in order to help
             customers make informed purchasing decisions and to ensure that the
             product meets their needs and expectations.
-
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Kit/bundled "} child>
-              This template can be utilized when the product listing pertains to
-              a kit or bundle, which includes two or more products within the
-              package.
-              <br />
-              <Codeblock template={specsMarkupCategorized}></Codeblock>
-            </Section>
-            </div>
           </div>
         ),
       },
       {
-        viewState:false,
-        viewThreshold:0.085,
+        viewState: false,
+        viewThreshold: 0,
+        category: "Specification/kit",
+        title: "Kit/bundled specification",
+        child: true,
+        detail: (
+          <div>
+            This template can be utilized when the product listing pertains to a
+            kit or bundle, which includes two or more products within the
+            package.
+            <br />
+            <Codeblock template={specsMarkupCategorized}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
         category: "Description",
         title: "Product descriptions",
         detail: (
@@ -111,7 +122,6 @@ export const DocsProvider = ({ children }) => {
             relevant technical specifications.
             <br />
             <Codeblock template={descriptionSimple}></Codeblock>
-            
             As demonstrated by the examples provided, the product description
             includes the product name, its key features, the Global Trade Item
             Number (GTIN) and the Manufacturer Part Number (MPIN).
@@ -126,54 +136,77 @@ export const DocsProvider = ({ children }) => {
             capabilities. Additionally, it will also help customers to
             troubleshoot any issues they may have with the product, by providing
             information about common problems and solutions.
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Advance description"} child>
-              This template can be used to add more product features to a
-              product listing.
-              <br />
-              <Codeblock template={descriptionBest}></Codeblock>
-            </Section>
-            </div>
-            <div className="box-border pt-0 pb-0">
-            <Section title="Kit/bundled" child>
-              Kit/bundled template can be utilized when the product listing pertains to
-              a kit or bundle, which includes two or more products within the
-              package.
-              <br />
-              <Codeblock template={descriptionKit}></Codeblock>
-            </Section>
-            </div>
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Product overview"} child>
-              Product overview (short description) shows key information about a product in a
-              concise and easy-to-read manner. It typically includes a list of
-              the most important features and benefits of a product, presented
-              in bullet point form.
-              <br />
-              <Codeblock template={shortDescription}></Codeblock>
-             
-              This format allows for quick and easy scanning of the information,
-              making it easy for potential customers to understand the product's
-              key selling points. It is an efficient way to present information
-              on a product listing or documentation website, as it provides a
-              clear and organized overview of the product's features and
-              benefits.
-              
-            
-            </Section>
-             <Section title="Kit/bundled" child>
-              Kit/bundled template can be utilized when the product listing pertains to
-              a kit or bundle, which includes two or more products within the
-              package.
-              <Codeblock template={descriptionKit}></Codeblock>
-            </Section>
-            </div>
           </div>
         ),
       },
       {
-        viewState:false,
-        viewThreshold:0.175,
+        viewState: false,
+        viewThreshold: 0,
+        category: "description/advanced",
+        title: "Advaced description",
+        child: true,
+        detail: (
+          <div>
+            This template can be used to add more product features to a product
+            listing.
+            <br />
+            <Codeblock template={descriptionBest}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "description/kit",
+        title: "kit/bundled description",
+        child: true,
+        detail: (
+          <div>
+            Kit/bundled template can be utilized when the product listing
+            pertains to a kit or bundle, which includes two or more products
+            within the package.
+            <Codeblock template={descriptionKit}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "product overview",
+        title: "Product overview",
+        detail: (
+          <div>
+            Product overview (short description) shows key information about a
+            product in a concise and easy-to-read manner. It typically includes
+            a list of the most important features and benefits of a product,
+            presented in bullet point form.
+            <Codeblock template={shortDescription}></Codeblock>
+            This format allows for quick and easy scanning of the information,
+            making it easy for potential customers to understand the product's
+            key selling points. It is an efficient way to present information on
+            a product listing or documentation website, as it provides a clear
+            and organized overview of the product's features and benefits.
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "product overview/kit",
+        title: "kit/bundled product overview",
+        child: true,
+        detail: (
+          <div>
+            Kit/bundled template can be utilized when the product listing
+            pertains to a kit or bundle, which includes two or more products
+            within the package.
+            <Codeblock template={descriptionKit}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
         category: "SEO",
         title: "Search engine optimization",
         detail: (
@@ -183,95 +216,117 @@ export const DocsProvider = ({ children }) => {
             search engine results pages (SERPs). This can be accomplished
             through a variety of techniques, including the use of meta tags such
             as title, description, and keywords.
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Meta title"} child>
-              A meta title is a short text that appears at the top of a web
-              page, typically in the browser tab. It is used to describe the
-              content of the page and it helps search engines understand what
-              the page is about. In the context of a product listing, the meta
-              title is the title that is used to represent the product in search
-              engine results pages, when people search for products similar to
-              the one you are selling. It is an important element of search
-              engine optimization (SEO) as it helps to increase the visibility
-              and click-through rate of the product listing.
-              <br />
-              <Codeblock template={seoMetaTitle}></Codeblock>
-             
-              It's important to make sure that the meta title is unique to each
-              product page and avoid duplication across different pages on the
-              website.
-            </Section>
-            </div>
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Meta keywords"} child>
-              Meta keywords are a type of meta tag that can be included in the
-              HTML code of a webpage. When creating a product listing, these
-              keywords can be used to provide a list of words or phrases that
-              describe the product.
-              <br />
-              <Codeblock template={seoMetaKeyword}></Codeblock>
-              
-              These keywords can help search engines determine the relevance of
-              the product listing to a user's search query. In a Content
-              Management System (CMS), meta keywords can typically be added to a
-              product page by editing the HTML code or by using a plugin or
-              module. It is important to choose relevant and specific keywords
-              that accurately describe the product.
-            </Section>
-            </div>
-            <div className="box-border pt-0 pb-0">
-            <Section title={"Meta description"} child>
-              A meta description is a summary of a webpage's content that
-              appears in search results. In a product listing, it should provide
-              key features, benefits, and relevant information about the
-              product. Keep it under 155 characters.
-              <br />
-              <Codeblock template={seoMetaDescription}></Codeblock>
-              <div className="box-border pt-0 pb-0">
-              <Section title="Meta description guidelines" child>
-                <ul>
-                  <li>ProductTitle should always be present, </li>
-                  <li>digiDirect should always be present, </li>
-                  <li>
-                    it is preferable that the wording "buy" or "purchase" is
-                    present (this is primary ecommerce Call to Action CTA).
-                  </li>
-                  <li>
-                    Gaming and tech should be more simplified for a less
-                    "tech-savy" audience and focused more on urgency (today,
-                    available)
-                  </li>
-                  <li>
-                    For cameras and other traditional photo categories, features
-                    tend to be more important and these customers are more
-                    tech-savy
-                  </li>
-                  <li>
-                    Targeting the Meta Description for a use-case the product is
-                    particularly suited for is a good excuse to mention a key
-                    feature (or three) about the product that you believe
-                    searches may look for (Google auto-suggestions commonly tell
-                    you this if you enter the Product Title into search){" "}
-                  </li>
-                  <li>
-                    A way of thinking about which features to include is "what
-                    would the customer be searching for" ie. do they wonder how
-                    many megapixel X camera has?
-                  </li>
-                  <li>
-                    Meta Descriptions should not be too long. What is
-                    consideblue long is relative but 150 characters is long and
-                    170 would be too long. Less is more!
-                  </li>
-                </ul>
-              </Section>
-              </div>
-            </Section>
-            </div>
           </div>
         ),
       },
-      
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "SEO/meta title",
+        title: "Meta title",
+        child: true,
+        detail: (
+          <div>
+            A meta title is a short text that appears at the top of a web page,
+            typically in the browser tab. It is used to describe the content of
+            the page and it helps search engines understand what the page is
+            about. In the context of a product listing, the meta title is the
+            title that is used to represent the product in search engine results
+            pages, when people search for products similar to the one you are
+            selling. It is an important element of search engine optimization
+            (SEO) as it helps to increase the visibility and click-through rate
+            of the product listing.
+            <Codeblock template={seoMetaTitle}></Codeblock>
+            It's important to make sure that the meta title is unique to each
+            product page and avoid duplication across different pages on the
+            website.
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "SEO/meta keywords",
+        title: "Meta keywords",
+        child: true,
+        detail: (
+          <div>
+            Meta keywords are a type of meta tag that can be included in the
+            HTML code of a webpage. When creating a product listing, these
+            keywords can be used to provide a list of words or phrases that
+            describe the product.
+            <br />
+            <Codeblock template={seoMetaKeyword}></Codeblock>
+            These keywords can help search engines determine the relevance of
+            the product listing to a user's search query. In a Content
+            Management System (CMS), meta keywords can typically be added to a
+            product page by editing the HTML code or by using a plugin or
+            module. It is important to choose relevant and specific keywords
+            that accurately describe the product.
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "SEO/meta description",
+        title: "Meta description",
+        child: true,
+        detail: (
+          <div>
+            A meta description is a summary of a webpage's content that appears
+            in search results. In a product listing, it should provide key
+            features, benefits, and relevant information about the product. Keep
+            it under 155 characters.
+            <br />
+            <Codeblock template={seoMetaDescription}></Codeblock>
+          </div>
+        ),
+      },
+      {
+        viewState: false,
+        viewThreshold: 0,
+        category: "SEO/meta description guidelines",
+        title: "Meta description guidelines",
+        child: true,
+        detail: (
+          <div>
+            <ul>
+              <li>ProductTitle should always be present, </li>
+              <li>digiDirect should always be present, </li>
+              <li>
+                it is preferable that the wording "buy" or "purchase" is present
+                (this is primary ecommerce Call to Action CTA).
+              </li>
+              <li>
+                Gaming and tech should be more simplified for a less "tech-savy"
+                audience and focused more on urgency (today, available)
+              </li>
+              <li>
+                For cameras and other traditional photo categories, features
+                tend to be more important and these customers are more tech-savy
+              </li>
+              <li>
+                Targeting the Meta Description for a use-case the product is
+                particularly suited for is a good excuse to mention a key
+                feature (or three) about the product that you believe searches
+                may look for (Google auto-suggestions commonly tell you this if
+                you enter the Product Title into search)
+              </li>
+              <li>
+                A way of thinking about which features to include is "what would
+                the customer be searching for" ie. do they wonder how many
+                megapixel X camera has?
+              </li>
+              <li>
+                Meta Descriptions should not be too long. What is consideblue
+                long is relative but 150 characters is long and 170 would be too
+                long. Less is more!
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
   });
   return (

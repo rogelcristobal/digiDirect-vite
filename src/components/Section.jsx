@@ -50,18 +50,12 @@ const Section = ({
 
   return (
     <div
-      {...(category && { ref: ref })}
-      {...(entry && { id: category })}
-      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
+      // {...(category && { ref: ref })}
+      // {...(entry && { id: category })}
+      ref={ref}
+      id={category}
+      className="flex-auto  box-border pb-0 relative scroll-mt-28  "
     >
-      {/* {category && (
-          <p
-            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-[#5138ed] text-[15px]  font-semibold   leading-[24px] tracking-tight  mb-4   `}
-          >
-            {category}
-          </p>
-        )} */}
-
       <h2
         href={hash}
         className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   ${
