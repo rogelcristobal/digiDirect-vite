@@ -13,7 +13,7 @@ const Section = ({
   threshold,
 }) => {
   const { position } = useContext(ScrollPositionContext);
-  const { setState } = useContext(DocsContext);
+  const { setState, state } = useContext(DocsContext);
   const sampleRef = useRef(null);
   const [sample, setSample] = useState(0);
 
@@ -24,6 +24,7 @@ const Section = ({
         ...prev,
         sections: prev.sections.map((item, id) => {
           if (id === itemID) {
+            
             return { ...item, viewState: inView };
           }
           return item;
@@ -48,34 +49,23 @@ const Section = ({
   };
 
   return (
-    <>
-      <div
-        {...(category && { ref: ref })}
-        {...(entry && { id: category })}
-        className="flex-auto  box-border pb-0  relative scroll-mt-28  "
+    <div
+      // {...(category && { ref: ref })}
+      // {...(entry && { id: category })}
+      ref={ref}
+      id={category}
+      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
+    >
+      <h2
+        href={hash}
+        className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   ${
+          child ? "text-lg" : "text-2xl"
+        }`}
       >
-        {category && (
-          <p
-            className={`  w-fit  transition-all duration-300 ease-in-out   z-30 text-[#5138ed] text-[15px]  font-semibold   leading-[24px] tracking-tight  mb-3  lg:mb-3  font-plus`}
-          >
-            {category}
-          </p>
-        )}
-
-        <h2
-          href={hash}
-          className={`text-slate-900  tracking-tight font-bold mb-3  font-plus ${
-            child ? "text-lg" : "text-[1.4rem]"
-          }`}
-        >
-          {title}
-        </h2>
-        <div className="box-border lg:max-w-3xl prose  font-[400] leading-[28px] font-inter  text-[16px]">
-          {children}
-        </div>
-      </div>
-      {/* <div className="h-[1px] w-full mb-12 bg-slate-200"></div> */}
-    </>
+        {title}
+      </h2>
+      <div className="box-border prose leading-7 prose-slate">{children}</div>
+    </div>
   );
 };
 
