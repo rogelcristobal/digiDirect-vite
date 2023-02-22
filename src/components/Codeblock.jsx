@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 const Codeblock = ({ template }) => {
   const [view, toggleView] = useState(0);
@@ -56,7 +56,7 @@ const Codeblock = ({ template }) => {
       className="my-8  overflow-hidden medium-box-divider relative"
       // style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
     >
-       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem]   gap-0">
+       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem] bg-[#011627]/90  gap-0">
         
         {Object.keys(template)
           .reverse()
@@ -67,7 +67,7 @@ const Codeblock = ({ template }) => {
                 key={id}
                 className={`h-full px-4 font-normal relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
-                    ? "text-[#5138ed] "
+                    ? "text-white "
                     : "hover:text-neutral-400 text-neutral-400/70 "
                 } font-medium `}
                 type="button"
@@ -92,7 +92,7 @@ const Codeblock = ({ template }) => {
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines
-        style={ghcolors}
+        style={nightOwl}
         customStyle={customStyle}
         codeTagProps={codeTagProps}
         
