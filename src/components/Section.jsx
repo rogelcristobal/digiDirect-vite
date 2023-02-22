@@ -54,7 +54,7 @@ const Section = ({
       // {...(entry && { id: category })}
       ref={ref}
       id={category}
-      className="flex-auto  box-border pb-0 relative scroll-mt-28  "
+      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
     >
       <h2
         href={hash}

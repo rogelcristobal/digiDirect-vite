@@ -29,14 +29,14 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border flex w-full pb-6 pt-12 gap-6 px-14 items-start scroll-smooth"
+      className="h-full box-border flex w-full pb-6 pt-12  justify-start  pl-20  items-start scroll-smooth"
     >
       {/* content container */}
-      <div className="box-border flex-auto w-full ">
+      <div className="box-border  flex-auto w-full  max-w-3xl">
         {/* header */}
         <div
           id="introduction"
-          className="scroll-mt-28 max-w-3xl relative flex-auto mb-16  box-border"
+          className="scroll-mt-28  relative flex-auto mb-16  box-border"
         >
           <p
             ref={titleViewRef}

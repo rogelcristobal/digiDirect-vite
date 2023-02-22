@@ -7,7 +7,7 @@ const Navbar = () => {
         {/* items container */}
         <div className='h-fit container mx-auto items-center justify-end box-border flex `'>
            <nav className=''>
-             <span className='text-sm font-semibold capitalize mr-52 '><Link to="documentation">Guide</Link></span>
+             <span className='text-sm font-semibold capitalize mr-52 '><Link to="documentation">Guides</Link></span>
 
            </nav>
         </div>
