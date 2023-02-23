@@ -65,11 +65,11 @@ const Codeblock = ({ template }) => {
               <button
                 onClick={() => handleToggle(id)}
                 key={id}
-                className={`h-full px-4 font-normal relative transition-all duration-300 ease-in-out capitalize ${
+                className={`h-full px-4  relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
                     ? "text-white "
                     : "hover:text-neutral-400 text-neutral-400/70 "
-                } font-medium `}
+                } font-[400] `}
                 type="button"
               >
                 {item}

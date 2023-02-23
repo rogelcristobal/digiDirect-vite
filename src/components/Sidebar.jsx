@@ -6,7 +6,7 @@ import { FiBook, FiBox } from "react-icons/fi";
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
   return (
-    <div className="h-[calc(100vh-5.5rem)] sticky top-14    overflow-y-auto  box-border flex-auto justify-start items-start w-[25rem]  thin-right-divider ">
+    <div className="h-[calc(100vh-3rem)] sticky top-14    overflow-y-auto  box-border flex-auto justify-start items-start w-[25rem]  thin-right-divider ">
       {/* <div className="h-fit box-border w-full pt-8  thin-box-divider  bg-white  z-30 mb-6 sticky top-0 flex items-center justify-center flex-col">
           <input
             type="text"

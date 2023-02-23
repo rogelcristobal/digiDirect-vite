@@ -29,7 +29,7 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border flex w-full pb-6 pt-12  justify-start  pl-16  items-start scroll-smooth"
+      className="h-full box-border lg:pl-16 flex w-full pb-6 pt-12  justify-start    items-start scroll-smooth"
     >
       {/* content container */}
       <div className="box-border  flex-auto w-full  max-w-3xl">
