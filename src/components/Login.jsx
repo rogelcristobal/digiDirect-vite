@@ -54,70 +54,63 @@ const Login = () => {
   useEffect(()=>{},[])
   return (
     <div className="w-full h-screen flex items-center justify-start box-border">
-      <div className="w-[34rem] box-border h-full   bg-white shadow-xl  px-[3.5rem]">
-        <div className="  h-full w-full flex flex-col items-center justify-end box-border">
+      <div className="w-[33rem] box-border h-full   bg-white shadow-xl  px-[3rem]">
+        <div className="  h-full w-full flex flex-col items-start pt-6 justify-between box-border">
+          <div className="box-border font-plus text-[16px] tracking-tight  font-bold">
+            <span className="text-[#356be5]">digi</span>Create
+          </div>
           <form
             onSubmit={(e) => handleLogin(e)}
-            className="w-full mb-6  h-fit px-2 py-6 flex flex-col items-center  justify-start box-border "
+            className="w-full mb-8  h-fit px-2  py-6 flex flex-col items-center  justify-start box-border "
           >
-            <div className="mb-12 flex flex-col items-start justify-center w-full">
-              <span className="text-[1.6rem] w-full font-bold  font-plus tracking-tight text-slate-800 mb-2">
-                Welcome back ! 
+            <div className="mb-6 flex flex-col items-start justify-center w-full">
+              <span className="text-[1.75rem] w-full font-[700] tracking-tight font-plus  text-slate-800 mb-2">
+
+                Sign in. 
               </span>
-              {/* <span className='text-[16px] font-medium prose font-inter'>Let's create some digiDirect product listing with ease.</span> */}
+              <p className='text-[14px] font-[500]  prose text-slate-500/90 font-plus'> New at digiCreate?  
+                <a className="text-[#356be5] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">Sign up here.</a>
+              </p>
             </div>
             <input
               type="email"
               onChange={(e) => handleEmailChange(e)}
-              className="outline-slate-900 border-2 mb-6 w-full border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm"
+              className="outline-slate-900 border-[1.5px] mb-4 w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem] "
               placeholder="Email"
+              autocomplete="off"
             />
             <input
               type="password"
               onChange={(e)=>handlePasswordChange(e)}
-              className="outline-slate-900 border-2 w-full mb-4 border-solid border-slate-300/80 rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:text-sm "
+              className="outline-slate-900 border-[1.5px] mb-4 w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
               placeholder="Password"
+              autocomplete="off"
             />
-            <div className="h-8 w-full mb-8 flex items-center justify-between">
-              <div className="box-border flex items-center justify-between gap-2">
-                <input
-                  type="checkbox"
-                  name="remember-me"
-                  checked={isChecked}
-                  onChange={handleToggleCheckbox}
-                />
-                <span
-                  className={`text-xs font-plus transition-all duration-300 ease-in-out ${
-                    isChecked ? "text-slate-900" : "text-slate-500/70"
-                  }`}
-                >
-                  Remember me
-                </span>
-              </div>
+            <div className="h-8  w-full mb-6 flex items-center justify-between">
+            
               <a
                 href=""
-                onClick={handleSignout}
-                className="text-xs font-plus text-blue-500 font-medium"
+                className="text-xs font-plus text-[#356be5] font-[600]"
               >
                 Forgot your password?
               </a>
             </div>
             <button
               type="submit"
-              className="h-12 w-full bg-[#5138ed] hover:bg-[#5138ed]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center"
+              className="h-12 w-full bg-[#356be5] hover:bg-[#356be5]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center"
             >
               Login
             </button>
 
             {/* login options */}
-            <div className="thin-top-divider mt-8 relative h-fit py-8 w-full ">
+            <div className="medium-top-divider mt-6 relative h-fit py-6 w-full ">
               <span className="absolute left-1/2 -translate-x-1/2 text-center -top-[0.8rem] text-[0.7rem] font-plus font-semibold py-1 px-3 text-slate-500/60 bg-white ">
                 Or , Log in with
               </span>
               <button
                 onClick={(e)=>handleGoogleLogin(e)}
                 type="button"
-                className="h-12 w-full  medium-box-divider rounded-md font-plus font-medium text-xs flex items-center justify-center gap-4"
+                className="h-12 w-full border-[1.5px] border-solid border-slate-300 rounded-md font-plus font-[600] text-xs flex items-center justify-center gap-3"
               >
                 <div className=" w-fit h-fit">
                   <svg
@@ -149,10 +142,7 @@ const Login = () => {
               </button>
             </div>
 
-            {/* sign in page*/}
-            {/* <div className='flex item-start justify-center text-xs font-plus font-medium'>
-              <span>Don't have an account? <a href="" className='underline underline-blue-500 text-blue-500 underline-offset-2'>Sign in here</a></span>
-            </div> */}
+           
           </form>
         </div>
       </div>

@@ -18,7 +18,7 @@ const Sidebar = () => {
       {/*sidebar content */}
       <nav className="relative h-full w-full px-[0rem] mt-8  box-border lg:px-8">
         
-        <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-4">
+        <p className=" text-[0.85rem]  text-left font-inter  font-[600] capitalize mb-4">
           Get started
         </p>
         {/* items */}
@@ -28,10 +28,10 @@ const Sidebar = () => {
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`relative text-sm font-medium py-1 ${
-                  item.child && "ml-4"
+                className={`relative text-[0.85rem] font-medium py-1 ${
+                  item.child && "ml-0"
                 }  w-full  cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-[#5138ed]"
+                  !item.viewState ? "text-slate-500/70" : " text-[#356be5]"
                 }`}
               >
                 {item.title}

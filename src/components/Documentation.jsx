@@ -40,7 +40,7 @@ const Documentation = () => {
         >
           <p
             ref={titleViewRef}
-            className="text-sm leading-[24px] font-inter font-medium mb-2 text-[#5138ed]"
+            className="text-sm leading-[24px] font-inter font-[600] mb-2 text-[#356be5]"
           >
             {state.category}
           </p>
