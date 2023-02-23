@@ -31,7 +31,6 @@ const Section = ({
       }));
     },
   });
-
   // text? 1 word=> return text: camel-case
   const camelCaseAndRemoveSpaces = (value) => {
     if (value.split(" ").Length === 1) {
@@ -51,7 +50,7 @@ const Section = ({
     <div
       ref={ref}
       id={category}
-      className="flex-auto   box-border pb-0  relative scroll-mt-28  "
+      className="flex-auto bg-red-100  box-border pb-0  relative scroll-mt-28  "
     >
       <h2
         href={hash}
@@ -60,12 +59,12 @@ const Section = ({
         }`}
       >
         {title}
-        <p>position: {position}</p>
-        <p>position from top:{entry && entry.target.offsetTop}</p>
-        <p>height {entry && entry.target.clientHeight}</p>
+        <p>scroll position: {position}</p>
+        <p>position from top:{entry && Math.floor(entry.target.offsetTop)}</p>
+        <p>height {entry && Math.floor(entry.boundingClientRect.height)}</p>
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
-      <p className="text-lg text-blue-500">{entry && position >= entry.target.offsetTop && position <= entry.target.clientHeight? 'view':null}</p>
+      <p className="text-lg text-blue-500">{entry && position >= entry.target.offsetTop && position <= entry.boundingClientRect.height? 'view':null}</p>
     </div>
   );
 };
