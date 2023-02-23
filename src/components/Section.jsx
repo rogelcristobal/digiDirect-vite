@@ -12,10 +12,9 @@ const Section = ({
   hash,
   threshold,
 }) => {
-  const { position } = useContext(ScrollPositionContext);
+  const { position } = useContext(ScrollPositionContext); // scroll position
   const { setState, state } = useContext(DocsContext);
-  const sampleRef = useRef(null);
-  const [sample, setSample] = useState(0);
+
 
   const { ref, entry } = useInView({
     threshold: threshold,
@@ -45,6 +44,32 @@ const Section = ({
       return converted;
     }
   };
+  const [elementAttributes,setElementAttributes] = useState({
+    top:0,
+    bottom:0
+  })
+  const [view,setView] = useState(false)
+  useEffect(() => {
+    if (entry) {
+      const top = Math.floor(entry.target.offsetTop) - 105
+      const bottom = Math.floor(entry.boundingClientRect.height) + top
+      setElementAttributes({
+        top: top,
+        bottom: bottom
+      }) 
+      
+    }
+  }, [entry]);
+  useEffect(()=>{
+    if(position >= elementAttributes.top && position <= elementAttributes.bottom){
+      setView(true)
+     
+    }else{
+      setView(false)
+     
+      
+    }
+  },[elementAttributes,position,entry])
 
   return (
     <div
@@ -60,11 +85,13 @@ const Section = ({
       >
         {title}
         <p>scroll position: {position}</p>
-        <p>position from top:{entry && Math.floor(entry.target.offsetTop)}</p>
-        <p>height {entry && Math.floor(entry.boundingClientRect.height)}</p>
+        <p>position from top:{entry &&  elementAttributes.top}</p>
+        <p>el height {entry && elementAttributes.bottom}</p>
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
-      <p className="text-lg text-blue-500">{entry && position >= entry.target.offsetTop && position <= entry.boundingClientRect.height? 'view':null}</p>
+      <p className="text-lg text-blue-500">
+        {String(view)}
+      </p>
     </div>
   );
 };
