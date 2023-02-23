@@ -21,6 +21,7 @@ const Navbar = () => {
                <FaGithub />
             </Link>
           </p>
+          
         </div>
       </div>
     </div>

@@ -12,10 +12,9 @@ const Section = ({
   hash,
   threshold,
 }) => {
-  const { position } = useContext(ScrollPositionContext);
+  const { position } = useContext(ScrollPositionContext); // scroll position
   const { setState, state } = useContext(DocsContext);
-  const sampleRef = useRef(null);
-  const [sample, setSample] = useState(0);
+
 
   const { ref, entry } = useInView({
     threshold: threshold,
@@ -24,7 +23,6 @@ const Section = ({
         ...prev,
         sections: prev.sections.map((item, id) => {
           if (id === itemID) {
-            
             return { ...item, viewState: inView };
           }
           return item;
@@ -32,7 +30,6 @@ const Section = ({
       }));
     },
   });
-
   // text? 1 word=> return text: camel-case
   const camelCaseAndRemoveSpaces = (value) => {
     if (value.split(" ").Length === 1) {
@@ -47,14 +44,54 @@ const Section = ({
       return converted;
     }
   };
+  const [elementAttributes,setElementAttributes] = useState({
+    top:0,
+    bottom:0
+  })
+
+  useEffect(() => {
+    if (entry) {
+      const top = Math.floor(entry.target.offsetTop) - 105
+      const bottom = Math.floor(entry.boundingClientRect.height) + top
+      setElementAttributes({
+        top: top,
+        bottom: bottom
+      }) 
+      
+    }
+  }, [entry]);
+  useEffect(()=>{
+    if(position >= elementAttributes.top && position <= elementAttributes.bottom){
+     
+      setState((prev) => ({
+        ...prev,
+        sections: prev.sections.map((item, id) => {
+          if (id === itemID) {
+            return { ...item, viewState: true };
+          }
+          return item;
+        }),
+      }));
+    }else{
+    
+     setState((prev) => ({
+        ...prev,
+        sections: prev.sections.map((item, id) => {
+          if (id === itemID) {
+            return { ...item, viewState: false };
+          }
+          return item;
+        }),
+      }));
+      
+    }
+  },[elementAttributes,position])
 
   return (
     <div
-      // {...(category && { ref: ref })}
-      // {...(entry && { id: category })}
       ref={ref}
       id={category}
-      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
+      className="flex-auto   box-border pb-0  relative scroll-mt-28  "
     >
       <h2
         href={hash}
@@ -63,8 +100,14 @@ const Section = ({
         }`}
       >
         {title}
+        <p>scroll position: {position}</p>
+        <p>position from top:{entry &&  elementAttributes.top}</p>
+        <p>el height {entry && elementAttributes.bottom}</p>
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
+      <p className="text-lg text-blue-500">
+        
+      </p>
     </div>
   );
 };
