@@ -48,7 +48,7 @@ const Section = ({
     top:0,
     bottom:0
   })
-  const [view,setView] = useState(false)
+
   useEffect(() => {
     if (entry) {
       const top = Math.floor(entry.target.offsetTop) - 105
@@ -62,20 +62,36 @@ const Section = ({
   }, [entry]);
   useEffect(()=>{
     if(position >= elementAttributes.top && position <= elementAttributes.bottom){
-      setView(true)
      
+      setState((prev) => ({
+        ...prev,
+        sections: prev.sections.map((item, id) => {
+          if (id === itemID) {
+            return { ...item, viewState: true };
+          }
+          return item;
+        }),
+      }));
     }else{
-      setView(false)
-     
+    
+     setState((prev) => ({
+        ...prev,
+        sections: prev.sections.map((item, id) => {
+          if (id === itemID) {
+            return { ...item, viewState: false };
+          }
+          return item;
+        }),
+      }));
       
     }
-  },[elementAttributes,position,entry])
+  },[elementAttributes,position])
 
   return (
     <div
       ref={ref}
       id={category}
-      className="flex-auto bg-red-100  box-border pb-0  relative scroll-mt-28  "
+      className="flex-auto   box-border pb-0  relative scroll-mt-28  "
     >
       <h2
         href={hash}
@@ -90,7 +106,7 @@ const Section = ({
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
       <p className="text-lg text-blue-500">
-        {String(view)}
+        
       </p>
     </div>
   );
