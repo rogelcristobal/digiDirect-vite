@@ -1,7 +1,11 @@
-import React, { useState,useEffect } from "react";
-import {  signInWithEmailAndPassword ,signInWithPopup,signOut} from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth ,googleProvider} from "../firebase/firebase";
+import { auth, googleProvider } from "../firebase/firebase";
 import { async } from "@firebase/util";
 const Login = () => {
   const navigate = useNavigate();
@@ -14,44 +18,51 @@ const Login = () => {
       return { ...prev, email: e.target.value };
     });
   };
-  const handlePasswordChange=(e)=>{
-    setLoginInput((prev)=>{
-      return {...prev, password: e.target.value}
-    })
-  }
+  const handlePasswordChange = (e) => {
+    setLoginInput((prev) => {
+      return { ...prev, password: e.target.value };
+    });
+  };
   const [isChecked, setIsChecked] = useState(false);
   const handleToggleCheckbox = () => {
     setIsChecked((prev) => (prev = !isChecked));
   };
-  
-  const handleLogin = async(e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    try { 
-      const user = await signInWithEmailAndPassword(auth,loginInput.email, loginInput.password)
-      console.log(user)
-      if(user){
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginInput.email,
+        loginInput.password
+      );
+      console.log(user);
+      if (user) {
         navigate("product-listing/documentation");
       }
     } catch (error) {
-      console.log(error)
-    }  
+      console.log(error);
+    }
   };
-  const handleGoogleLogin=async(e)=>{
+  const handleGoogleLogin = async (e) => {
     try {
-      const user = signInWithPopup(auth, googleProvider)
-      console.log(user)
+      const user = signInWithPopup(auth, googleProvider);
+      console.log(user);
+      if (user) {
+        navigate("product-listing/documentation");
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
- const handleSignout=async()=>{
+  };
+  const handleSignout = async () => {
     try {
-      await signOut(auth)
+      await signOut(auth);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
- }
-  useEffect(()=>{},[])
+  };
+  useEffect(() => {}, []);
   return (
     <div className="w-full h-screen flex items-center justify-start box-border">
       <div className="w-[33rem] box-border h-full   bg-white shadow-xl  px-[3rem]">
@@ -65,11 +76,14 @@ const Login = () => {
           >
             <div className="mb-6 flex flex-col items-start justify-center w-full">
               <span className="text-[1.75rem] w-full font-[700] tracking-tight font-plus  text-slate-800 mb-2">
-
-                Sign in. 
+                Sign in.
               </span>
-              <p className='text-[14px] font-[500]  prose text-slate-500/90 font-plus'> New at digiCreate?  
-                <a className="text-[#356be5] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">Sign up here.</a>
+              <p className="text-[14px] font-[500]  prose text-slate-500/90 font-plus">
+                
+                New at digiCreate?
+                <a className="text-[#356be5] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">
+                  Sign up here.
+                </a>
               </p>
             </div>
             <input
@@ -81,13 +95,12 @@ const Login = () => {
             />
             <input
               type="password"
-              onChange={(e)=>handlePasswordChange(e)}
+              onChange={(e) => handlePasswordChange(e)}
               className="outline-slate-900 border-[1.5px] mb-4 w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
               placeholder="Password"
               autocomplete="off"
             />
             <div className="h-8  w-full mb-6 flex items-center justify-between">
-            
               <a
                 href=""
                 className="text-xs font-plus text-[#356be5] font-[600]"
@@ -108,7 +121,7 @@ const Login = () => {
                 Or , Log in with
               </span>
               <button
-                onClick={(e)=>handleGoogleLogin(e)}
+                onClick={(e) => handleGoogleLogin(e)}
                 type="button"
                 className="h-12 w-full border-[1.5px] border-solid border-slate-300 rounded-md font-plus font-[600] text-xs flex items-center justify-center gap-3"
               >
@@ -141,13 +154,13 @@ const Login = () => {
                 <span>Sign up with google</span>
               </button>
             </div>
-
-           
           </form>
         </div>
       </div>
       {/* image */}
-      <div className="bg-slate-100 box-border  w-full h-full"></div>
+      <div className="bg-slate-100 box-border  w-full h-full">
+  
+      </div>
     </div>
   );
 };

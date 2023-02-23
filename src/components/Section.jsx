@@ -24,7 +24,6 @@ const Section = ({
         ...prev,
         sections: prev.sections.map((item, id) => {
           if (id === itemID) {
-            
             return { ...item, viewState: inView };
           }
           return item;
@@ -50,11 +49,9 @@ const Section = ({
 
   return (
     <div
-      // {...(category && { ref: ref })}
-      // {...(entry && { id: category })}
       ref={ref}
       id={category}
-      className="flex-auto  box-border pb-0  relative scroll-mt-28  "
+      className="flex-auto   box-border pb-0  relative scroll-mt-28  "
     >
       <h2
         href={hash}
@@ -63,8 +60,12 @@ const Section = ({
         }`}
       >
         {title}
+        <p>position: {position}</p>
+        <p>position from top:{entry && entry.target.offsetTop}</p>
+        <p>height {entry && entry.target.clientHeight}</p>
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
+      <p className="text-lg text-blue-500">{entry && position >= entry.target.offsetTop && position <= entry.target.clientHeight? 'view':null}</p>
     </div>
   );
 };
