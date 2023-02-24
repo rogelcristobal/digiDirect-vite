@@ -49,7 +49,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "in the box/kit",
         title: "Kit/bundled what's in the box",
         child: true,
         detail: (
@@ -87,7 +86,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "Specification/kit",
+
         title: "Kit/bundled specification",
         child: true,
         detail: (
@@ -135,7 +134,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "description/advanced",
+
         title: "Advaced description",
         child: true,
         detail: (
@@ -149,7 +148,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "description/kit",
+
         title: "kit/bundled description",
         child: true,
         detail: (
@@ -182,7 +181,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "product overview/kit",
+
         title: "kit/bundled product overview",
         child: true,
         detail: (
@@ -210,7 +209,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "SEO/meta title",
+
         title: "Meta title",
         child: true,
         detail: (
@@ -233,7 +232,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "SEO/meta keywords",
+
         title: "Meta keywords",
         child: true,
         detail: (
@@ -255,7 +254,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "SEO/meta description",
+
         title: "Meta description",
         child: true,
         detail: (
@@ -271,7 +270,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "SEO/meta description guidelines",
+
         title: "Meta description guidelines",
         child: true,
         detail: (

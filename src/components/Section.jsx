@@ -94,7 +94,7 @@ const Section = ({
   return (
     <div
       ref={ref}
-      id={category}
+      id={title}
       
       className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
@@ -106,7 +106,7 @@ const Section = ({
         </p>
       )}
       <h2
-        href={hash}
+        href={hash} //category
         className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
         ${header ? "text-3xl" : child ? "text-lg" : "text-2xl"}`}
       >
