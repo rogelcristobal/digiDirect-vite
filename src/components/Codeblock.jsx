@@ -54,7 +54,7 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="mb-8 mt-6 overflow-hidden  relative  "
+      className="mb-8 mt-4 overflow-hidden  relative  "
     >
        <div className="h-12  relative w-full  flex items-center justify-start text-[0.8rem]   gap-0">
         
