@@ -9,13 +9,14 @@ const Codeblock = ({ template }) => {
     paddingLeft: "1.5rem",
     paddingTop: "1rem",
     // paddingBottom:'1.5rem',
-    borderRadius: "0px",
+    borderRadius: "10px",
     fontSize: "0.785rem",
     lineHeight: "1.4rem",
     whiteSpace: "pre",
     tabSize: "4",
     border: "none",
     margin: "0",
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px"
   };
   const codeTagProps = {
     style: {
@@ -53,10 +54,9 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="my-8  overflow-hidden medium-box-divider relative"
-      // style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}
+      className="mb-8 mt-6 overflow-hidden  relative  "
     >
-       <div className="h-10 relative w-full thin-bottom-divider flex items-center justify-start text-[0.8rem] bg-[#011627]/90  gap-0">
+       <div className="h-12  relative w-full  flex items-center justify-start text-[0.8rem]   gap-0">
         
         {Object.keys(template)
           .reverse()
@@ -65,9 +65,9 @@ const Codeblock = ({ template }) => {
               <button
                 onClick={() => handleToggle(id)}
                 key={id}
-                className={`h-full px-4  relative transition-all duration-300 ease-in-out capitalize ${
+                className={`h-full px-3 font-plus relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
-                    ? "text-white "
+                    ? "text-[#356be5] "
                     : "hover:text-neutral-400 text-neutral-400/70 "
                 } font-[400] `}
                 type="button"
@@ -80,13 +80,15 @@ const Codeblock = ({ template }) => {
         <button
           onClick={handleToggleCopyToggle}
           type="button"
-          className={` text-xl transition-all duration-300 ease-in-out  absolute top-1/2 -translate-y-1/2 right-2  h-full px-3 tracking-tight font-medium ${copyIsClicked?'text-white':'hover:text-neutral-400 text-neutral-400/70'}`}
+          className={` text-xl transition-all duration-300 ease-in-out flex items-start justify-center absolute top-1/2 -translate-y-1/2 right-2  py-2 px-3 gap-2   ${copyIsClicked?'text-[#356be5]':'hover:text-neutral-400 text-neutral-400/70'}`}
         >
+          <span className={`text-[#356be5] text-sm text-[0.775rem] font-[400]  font-plus  ${!copyIsClicked?'invisible':'visible'}`}>Copied!</span>
           {!copyIsClicked ? (
             <TbClipboard></TbClipboard>
           ) : (
             <TbClipboardCheck></TbClipboardCheck>
           )}
+          
         </button>
       </div> 
       <SyntaxHighlighter

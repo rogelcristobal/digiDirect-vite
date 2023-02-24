@@ -39,8 +39,8 @@ const Section = ({
   useEffect(() => {
     // whenever the ref mounted
     if (ref.current) {
-      const top = Math.floor(ref.current.offsetTop) - 60;
-      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 60;
+      const top = Math.floor(ref.current.offsetTop) - 80;
+      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 100;
       setElementAttributes({
         top: top,
         bottom: bottom,
@@ -112,7 +112,8 @@ const Section = ({
       >
         {title}
       </h2>
-      <div className="box-border prose leading-7 prose-slate">{children}</div>
+      <div className="box-border prose leading-7  prose-slate">{children}</div>
+      
     </div>
   );
 };
