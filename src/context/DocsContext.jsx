@@ -20,15 +20,13 @@ export const DocsProvider = ({ children }) => {
   } = template();
   const [state, setState] = useState({
     viewState: false,
-    viewThreshold: 0,
-    category: "Guides",
+    category: "guides",
     title: "Overview",
     detail:
       "A product listing refers to an online representation of a product that displays its features, specifications, images, and sometimes customer reviews, in a structured and organized manner. It's a crucial aspect of e-commerce as it helps customers in making informed purchasing decisions.",
     sections: [
       {
         viewState: false,
-        viewThreshold: 0,
         category: "in the box",
         title: `What's in the box`,
         detail: (
@@ -51,7 +49,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "in the box/kit",
         title: "Kit/bundled what's in the box",
         child: true,
@@ -67,7 +64,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "Specification",
         title: "Product specifications",
         detail: (
@@ -91,7 +87,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "Specification/kit",
         title: "Kit/bundled specification",
         child: true,
@@ -107,7 +102,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "Description",
         title: "Product descriptions",
         detail: (
@@ -141,7 +135,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "description/advanced",
         title: "Advaced description",
         child: true,
@@ -156,7 +149,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "description/kit",
         title: "kit/bundled description",
         child: true,
@@ -171,7 +163,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "product overview",
         title: "Product overview",
         detail: (
@@ -191,7 +182,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "product overview/kit",
         title: "kit/bundled product overview",
         child: true,
@@ -206,7 +196,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "SEO",
         title: "Search engine optimization",
         detail: (
@@ -221,7 +210,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "SEO/meta title",
         title: "Meta title",
         child: true,
@@ -245,7 +233,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "SEO/meta keywords",
         title: "Meta keywords",
         child: true,
@@ -268,7 +255,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "SEO/meta description",
         title: "Meta description",
         child: true,
@@ -285,7 +271,6 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        viewThreshold: 0,
         category: "SEO/meta description guidelines",
         title: "Meta description guidelines",
         child: true,

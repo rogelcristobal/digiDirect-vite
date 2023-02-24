@@ -22,10 +22,9 @@ const Sidebar = () => {
         </p>
         {/* items */}
         <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
-          <div className="w-full box-border space-y-1.5 flex flex-col  items-start justify-start">
+          <div className="w-full box-border space-y-1.5 flex flex-col ml-6 items-start justify-start">
             
               <a
-                
                 href={`#${state.category}`}
                 className={`relative text-[0.85rem] font-medium py-1 
                
@@ -40,8 +39,8 @@ const Sidebar = () => {
               <a
                 key={id}
                 href={`#${item.category}`}
-                className={`relative text-[0.85rem] font-medium py-1 ${
-                  item.child && "ml-0"
+                className={`relative text-[0.85rem]  font-[500] py-1 ${
+                  item.child && "ml-6"
                 }  w-full  cursor-pointer ${
                   !item.viewState ? "text-slate-500/70" : " text-[#356be5]"
                 }`}

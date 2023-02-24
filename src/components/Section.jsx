@@ -1,6 +1,5 @@
 import React from "react";
 import { useContext, useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import DocsContext from "../context/DocsContext";
 import ScrollPositionContext from "../context/ScrollPositionContext";
 const Section = ({
@@ -10,26 +9,13 @@ const Section = ({
   child,
   itemID,
   hash,
-  threshold,
-  header
+  
+  header,
 }) => {
   const { position } = useContext(ScrollPositionContext); // scroll position
-  const { setState, state } = useContext(DocsContext);
-
-  const { ref, entry } = useInView({
-    threshold: threshold,
-    onChange: (inView) => {
-      setState((prev) => ({
-        ...prev,
-        sections: prev.sections.map((item, id) => {
-          if (id === itemID) {
-            return { ...item, viewState: inView };
-          }
-          return item;
-        }),
-      }));
-    },
-  });
+  const { setState } = useContext(DocsContext);
+  const ref= useRef(null)
+ 
   // text? 1 word=> return text: camel-case
   const camelCaseAndRemoveSpaces = (value) => {
     if (value.split(" ").Length === 1) {
@@ -44,67 +30,89 @@ const Section = ({
       return converted;
     }
   };
+  // state of element height and offsetTop
   const [elementAttributes, setElementAttributes] = useState({
     top: 0,
     bottom: 0,
   });
 
   useEffect(() => {
-    if (entry) {
-      const top = Math.floor(entry.target.offsetTop) - 60;
-      const bottom = Math.floor(entry.boundingClientRect.height) + top + 60;
+    // whenever the ref mounted
+    if (ref.current) {
+      const top = Math.floor(ref.current.offsetTop) - 60;
+      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 60;
       setElementAttributes({
         top: top,
         bottom: bottom,
       });
     }
-  }, [entry]);
+  }, [ref.current]);
   useEffect(() => {
-    if (
-      position >= elementAttributes.top &&
-      position <= elementAttributes.bottom
-    ) {
-      setState((prev) => ({
-        ...prev,
-        sections: prev.sections.map((item, id) => {
-          if (id === itemID) {
-            return { ...item, viewState: true };
-          }
-          return item;
-        }),
-      }));
-    } else {
-      setState((prev) => ({
-        ...prev,
-        sections: prev.sections.map((item, id) => {
-          if (id === itemID) {
-            return { ...item, viewState: false };
-          }
-          return item;
-        }),
-      }));
+    if(!header){
+      if (
+        position >= elementAttributes.top &&
+        position <= elementAttributes.bottom
+      ) {
+        setState((prev) => ({
+          ...prev,
+          sections: prev.sections.map((item, id) => {
+            if (id === itemID) {
+              return { ...item, viewState: true };
+            }
+            return item;
+          }),
+        }));
+      } else {
+        setState((prev) => ({
+          ...prev,
+          sections: prev.sections.map((item, id) => {
+            if (id === itemID) {
+              return { ...item, viewState: false };
+            }
+            return item;
+          }),
+        }));
+      }
+    }else{
+      if (
+        position >= elementAttributes.top &&
+        position <= elementAttributes.bottom
+      ) {
+        setState((prev) => ({
+          ...prev,
+          viewState: true
+        }));
+      } else {
+         setState((prev) => ({
+          ...prev,
+          viewState: false
+        }));
+      }
     }
   }, [elementAttributes, position]);
-
+  
   return (
     <div
       ref={ref}
       id={category}
+      
       className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
+      {header && (
+        <p
+          className="text-sm leading-[24px] capitalize font-inter font-[600] mb-2 text-[#356be5]"
+        >
+          {category}
+        </p>
+      )}
       <h2
         href={hash}
         className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
-        ${header ? 'text-3xl' : (child ? 'text-lg':'text-2xl')}`}
+        ${header ? "text-3xl" : child ? "text-lg" : "text-2xl"}`}
       >
         {title}
-        {/* <p>scroll position: {position}</p>
-        <p>position from top:{entry && elementAttributes.top}</p>
-        <p>el height {entry && elementAttributes.bottom}</p> */}
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
-      
-     
     </div>
   );
 };
