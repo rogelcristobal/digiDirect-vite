@@ -15,7 +15,6 @@ const Section = ({
   const { position } = useContext(ScrollPositionContext); // scroll position
   const { setState, state } = useContext(DocsContext);
 
-
   const { ref, entry } = useInView({
     threshold: threshold,
     onChange: (inView) => {
@@ -44,25 +43,26 @@ const Section = ({
       return converted;
     }
   };
-  const [elementAttributes,setElementAttributes] = useState({
-    top:0,
-    bottom:0
-  })
+  const [elementAttributes, setElementAttributes] = useState({
+    top: 0,
+    bottom: 0,
+  });
 
   useEffect(() => {
     if (entry) {
-      const top = Math.floor(entry.target.offsetTop) - 105
-      const bottom = Math.floor(entry.boundingClientRect.height) + top
+      const top = Math.floor(entry.target.offsetTop) - 60;
+      const bottom = Math.floor(entry.boundingClientRect.height) + top + 60;
       setElementAttributes({
         top: top,
-        bottom: bottom
-      }) 
-      
+        bottom: bottom,
+      });
     }
   }, [entry]);
-  useEffect(()=>{
-    if(position >= elementAttributes.top && position <= elementAttributes.bottom){
-     
+  useEffect(() => {
+    if (
+      position >= elementAttributes.top &&
+      position <= elementAttributes.bottom
+    ) {
       setState((prev) => ({
         ...prev,
         sections: prev.sections.map((item, id) => {
@@ -72,9 +72,8 @@ const Section = ({
           return item;
         }),
       }));
-    }else{
-    
-     setState((prev) => ({
+    } else {
+      setState((prev) => ({
         ...prev,
         sections: prev.sections.map((item, id) => {
           if (id === itemID) {
@@ -83,15 +82,14 @@ const Section = ({
           return item;
         }),
       }));
-      
     }
-  },[elementAttributes,position])
+  }, [elementAttributes, position]);
 
   return (
     <div
       ref={ref}
       id={category}
-      className="flex-auto   box-border pb-0  relative scroll-mt-28  "
+      className="flex-auto  medium-box-divider box-border pb-0   scroll-mt-24  "
     >
       <h2
         href={hash}
@@ -100,14 +98,20 @@ const Section = ({
         }`}
       >
         {title}
-        <p>scroll position: {position}</p>
-        <p>position from top:{entry &&  elementAttributes.top}</p>
-        <p>el height {entry && elementAttributes.bottom}</p>
+        {/* <p>scroll position: {position}</p>
+        <p>position from top:{entry && elementAttributes.top}</p>
+        <p>el height {entry && elementAttributes.bottom}</p> */}
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
-      <p className="text-lg text-blue-500">
-        
-      </p>
+      <div className="absolute left-0 w-full py-3 text-white font-medium text-center bg-black/30 "
+       style={{top:elementAttributes.top+"px"}}>
+       {title} top
+      </div>
+      <div className="absolute left-0 w-full py-3 text-white font-medium text-center bg-black/30 "
+       style={{top:elementAttributes.bottom+"px"}}>
+       {title} bottom
+      </div>
+     
     </div>
   );
 };
