@@ -103,14 +103,7 @@ const Section = ({
         <p>el height {entry && elementAttributes.bottom}</p> */}
       </h2>
       <div className="box-border prose leading-7 prose-slate">{children}</div>
-      <div className="absolute left-0 w-full py-3 text-white font-medium text-center bg-black/30 "
-       style={{top:elementAttributes.top+"px"}}>
-       {title} top
-      </div>
-      <div className="absolute left-0 w-full py-3 text-white font-medium text-center bg-black/30 "
-       style={{top:elementAttributes.bottom+"px"}}>
-       {title} bottom
-      </div>
+      
      
     </div>
   );
