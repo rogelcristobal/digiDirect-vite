@@ -39,8 +39,8 @@ const Section = ({
   useEffect(() => {
     // whenever the ref mounted
     if (ref.current) {
-      const top = Math.floor(ref.current.offsetTop) - 60;
-      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 60;
+      const top = Math.floor(ref.current.offsetTop) - 90;
+      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 100;
       setElementAttributes({
         top: top,
         bottom: bottom,
@@ -94,25 +94,26 @@ const Section = ({
   return (
     <div
       ref={ref}
-      id={category}
+      id={title}
       
       className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
-      {header && (
+      {category && (
         <p
-          className="text-sm leading-[24px] capitalize font-inter font-[600] mb-2 text-[#356be5]"
+          className="text-sm leading-[24px] capitalize font-plus font-[600] mb-2 text-[#356be5]"
         >
           {category}
         </p>
       )}
       <h2
-        href={hash}
+        href={hash} //category
         className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
         ${header ? "text-3xl" : child ? "text-lg" : "text-2xl"}`}
       >
         {title}
       </h2>
-      <div className="box-border prose leading-7 prose-slate">{children}</div>
+      <div className="box-border prose leading-7  prose-slate">{children}</div>
+      
     </div>
   );
 };
