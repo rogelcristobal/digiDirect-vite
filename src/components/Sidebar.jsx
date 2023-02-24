@@ -18,43 +18,43 @@ const Sidebar = () => {
             )}
             <a
               href={`#${state.category}`}
-              className={`relative text-[0.825rem] font-[400] py-1  ml-6
+              className={`relative text-[0.875rem] font-[400] py-1  ml-5
                
                  w-full  cursor-pointer ${
-                   !state.viewState ? "text-slate-900" : " text-[#356be5]"
+                   !state.viewState ? "text-slate-900" : " text-[#356be5] font-[500]"
                  }`}
             >
               {state.title}
-              <div
-                className={`h-[110%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-6 ${
+              {/* <div
+                className={`h-[105%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-5 ${
                   state.viewState ? "bg-[#356be5]" : "bg-slate-100"
                 }`}
-              ></div>
+              ></div> */}
             </a>
             {/* items */}
             {state.sections.map((item, id) => (
               <>
                 {item.category && (
-                  <p className=" text-[0.85rem] mt-3 lg:mb-3  text-left font-inter  font-semibold text-slate-900 capitalize ">
+                  <p className=" text-[0.85rem] mt-4 lg:mb-4  text-left font-inter  font-semibold text-slate-900 capitalize ">
                     {item.category}
                   </p>
                 )}
                 <a
                   key={id}
                   href={`#${item.title}`}
-                  className={`relative text-[0.825rem] capitalize ml-6 font-[400] py-1  mb-1 font-inter ${
+                  className={`relative text-[0.875rem] capitalize ml-5 font-[400] py-1  mb-1 font-inter ${
                     item.child && "ml-0"
                   }  w-full  cursor-pointer ${
-                    !item.viewState ? "text-slate-700" : " text-[#356be5] "
+                    !item.viewState ? "text-slate-700" : " text-[#356be5] font-[500]"
                   }`}
                 >
                   {item.title}
 
-                  <div
-                    className={`h-[110%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-6 ${
+                  {/* <div
+                    className={`h-[105%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-5 ${
                       item.viewState ? "bg-[#356be5]" : "bg-slate-100"
                     }`}
-                  ></div>
+                  ></div> */}
                 </a>
               </>
             ))}

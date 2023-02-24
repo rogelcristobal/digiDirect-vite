@@ -1,17 +1,12 @@
 import React from "react";
-import { useContext, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
-import Sidebar from "./Sidebar";
-import { Route, Routes } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
+import { Link } from "react-router-dom";
+import {FiChevronRight} from 'react-icons/fi'
 const Documentation = () => {
   const { state } = useContext(DocsContext);
-  const [titleViewRef, titleViewState, titleRefEntry] = useInView({
-    threshold: 1,
-  });
-
+ 
   const camelCaseAndRemoveSpaces = (value) => {
     if (value.split(" ").Length === 1) {
       console.log(value);
@@ -29,7 +24,7 @@ const Documentation = () => {
 
   return (
     <div
-      className="h-full box-border lg:pl-16 flex w-full pb-6 pt-12  justify-start    items-start scroll-smooth"
+      className="h-full box-border lg:pl-16 flex w-full pb-6 pt-10  justify-start    items-start scroll-smooth"
     >
       {/* content container */}
       <div className="box-border  flex-auto w-full  max-w-3xl">
@@ -40,12 +35,12 @@ const Documentation = () => {
         >
           {/* <p
             ref={titleViewRef}
-            className="text-sm leading-[24px] font-inter font-[600] mb-2 text-[#356be5]"
+            className="text-sm leading-[24px] font-plus font-[600] mb-2 text-[#356be5]"
           >
             {state.category}
           </p>
           <h1
-            className={`inline-block text-3xl  font-inter font-[600] tracking-tigher text-slate-900  `}
+            className={`inline-block text-3xl  font-plus font-[600] tracking-tigher text-slate-900  `}
           >
             {state.title}
           </h1>
@@ -74,32 +69,23 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      {/* <div className=" w-[18rem]  h-fit  py-4 box-border top-28 sticky">
-        <nav className="relative h-full  px-[0rem]">
-          <p className="text-slate-900 text-sm  text-left font-inter  font-[600] capitalize mb-4">
-            On this page
+      <div className=" w-[26rem]  h-fit py-4 box-border top-28 sticky">
+        <nav className="relative h-full  pr-[1rem]">
+          <p className=" text-sm  text-left font-plus  font-[600] capitalize mb-3">
+            Get started
           </p>
-          <div className="space-y-2 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-inter">
+          <div className="space-y-2 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-plus">
            
-            {state.sections.map((item, id) => (
-              <a
-                key={id}
-                href={`#${item.category}`}
-                className={`relative text-sm font-medium py-1 cursor-pointer ${
-                  !item.viewState ? "text-slate-500/70" : " text-slate-900"
-                }`}
-              >
-                {item.title}
-                <div
-                  className={`absolute h-full w-[3px]  bg-slate-900 top-0 -left-3 ${
-                    item.viewState ? "visible" : "invisible"
-                  } rounded-md`}
-                ></div>
-              </a>
-            ))}
+              <Link to='' className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1">
+                <FiChevronRight className="text-[1rem] 0 "/>
+                Create product listing 
+              </Link>
+            
+           
+           
           </div>
         </nav>
-      </div> */}
+      </div>
     </div>
   );
 };
