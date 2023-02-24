@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import DocsContext from "../context/DocsContext";
-import NavigationLink from "./NavigationLink";
-import { FiBook, FiBox } from "react-icons/fi";
 
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
+ 
   return (
     <div className="h-[calc(100vh-3rem)] sticky top-14    overflow-y-auto  box-border flex-auto justify-start items-start w-[25rem]  thin-right-divider ">
       {/* <div className="h-fit box-border w-full pt-8  thin-box-divider  bg-white  z-30 mb-6 sticky top-0 flex items-center justify-center flex-col">
@@ -24,6 +23,19 @@ const Sidebar = () => {
         {/* items */}
         <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
           <div className="w-full box-border space-y-1.5 flex flex-col  items-start justify-start">
+            
+              <a
+                
+                href={`#${state.category}`}
+                className={`relative text-[0.85rem] font-medium py-1 
+               
+                 w-full  cursor-pointer ${
+                  !state.viewState ? "text-slate-500/70" : " text-[#356be5]"
+                }`}
+              >
+                {state.title}
+              </a>
+            
             {state.sections.map((item, id) => (
               <a
                 key={id}

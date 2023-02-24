@@ -11,6 +11,7 @@ const Section = ({
   itemID,
   hash,
   threshold,
+  header
 }) => {
   const { position } = useContext(ScrollPositionContext); // scroll position
   const { setState, state } = useContext(DocsContext);
@@ -89,13 +90,12 @@ const Section = ({
     <div
       ref={ref}
       id={category}
-      className="flex-auto  medium-box-divider box-border pb-0   scroll-mt-24  "
+      className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
       <h2
         href={hash}
-        className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   ${
-          child ? "text-lg" : "text-2xl"
-        }`}
+        className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
+        ${header ? 'text-3xl' : (child ? 'text-lg':'text-2xl')}`}
       >
         {title}
         {/* <p>scroll position: {position}</p>
