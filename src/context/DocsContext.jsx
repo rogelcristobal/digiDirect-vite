@@ -20,7 +20,7 @@ export const DocsProvider = ({ children }) => {
   } = template();
   const [state, setState] = useState({
     viewState: false,
-    viewThreshold: 0.9,
+    viewThreshold: 0,
     category: "Guides",
     title: "Overview",
     detail:

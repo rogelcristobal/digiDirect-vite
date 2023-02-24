@@ -35,10 +35,10 @@ const Documentation = () => {
       <div className="box-border  flex-auto w-full  max-w-3xl">
         {/* header */}
         <div
-          id="introduction"
+          id={state.category}
           className="scroll-mt-28  relative flex-auto mb-16  box-border"
         >
-          <p
+          {/* <p
             ref={titleViewRef}
             className="text-sm leading-[24px] font-inter font-[600] mb-2 text-[#356be5]"
           >
@@ -51,7 +51,8 @@ const Documentation = () => {
           </h1>
           <p className="mt-4  prose leading-7 prose-slate   ">
             {state.detail}
-          </p>
+          </p> */}
+         <Section title={state.title} category={state.category} hash={state.category} header>{state.detail}</Section>
         </div>
 
         {/* <div className="h-[1px] w-full mb-12 bg-slate-200"></div> */}
@@ -64,7 +65,7 @@ const Documentation = () => {
               title={item.title}
               category={item.category}
               hash={item.category}
-              threshold={item.viewThreshold}
+              // threshold={item.viewThreshold}
               {...(item.child&& {child: true})}
             >
               {item.detail}
