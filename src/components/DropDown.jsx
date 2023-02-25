@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiChevronDown, FiLayout } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 
-const DropDown = ({ children, dropDownTitle }) => {
+const DropDown = ({ children, dropDownTitle ,icon}) => {
   const [state, setState] = React.useState(true);
   const handleToggle = () => {
     setState(!state);
@@ -32,10 +32,17 @@ const DropDown = ({ children, dropDownTitle }) => {
         className={`relative text-[1rem] w-full flex items-center justify-between rounded-md font-[500] py-2 px-0 box-border  font-inter  mb-3`}
       >
         <div className="flex items-center  gap-2.5  justify-between">
-          <FiChevronDown />
-          <FiLayout
-            className={`${state ? "text-blue-500 " : "text-slate-900"}`}
-          />
+          <motion.div initial={{
+            rotate:-90
+          }}
+           animate={{
+            rotate: state ? 0: -90
+          }}
+          ><FiChevronDown /></motion.div>
+          <div className={`h-fit w-fit  ${state ? "text-blue-500 " : "text-slate-900"}`}>
+
+            {icon}
+          </div>
           <p
             className={` text-[0.85rem]  box-border   text-left font-inter capitalize `}
           >

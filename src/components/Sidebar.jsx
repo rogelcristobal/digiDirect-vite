@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import DropDown from "./DropDown";
+import {FiLayout} from 'react-icons/fi'
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
@@ -11,8 +12,8 @@ const Sidebar = () => {
         {/* items */}
         <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
           <div className="w-full box-border  block">
-            <DropDown dropDownTitle={state&& state.category}>
-              
+            <DropDown dropDownTitle={state && state.category} icon={<FiLayout/>}>
+              {/* title section/href */}
               <a
                 href={`#${state.category}`}
                 className={`relative text-[0.875rem] capitalize  box-border  block font-[400] py-2 rounded-md
@@ -24,9 +25,7 @@ const Sidebar = () => {
               >
                 {state.title}
               </a>
-              
-              
-
+              {/* content items */}
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
@@ -48,20 +47,17 @@ const Sidebar = () => {
                     {item.title}
 
                     {/* <div
-                    className={`h-[105%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-5 ${
+                    className={`h-[90%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-5 ${
                       item.viewState ? "bg-[#356be5]" : "bg-slate-100"
                     }`}
                   ></div> */}
                   </a>
                 </>
               ))}
-              </DropDown>
+            </DropDown>
+
           </div>
         </div>
-
-        {/* {[{title:'Product listing helper',pathname:'listing-helper',icon:<FiBox />}].map((item,id)=>(
-             <NavigationLink key={id} icon={item?.icon} title={item.title} path={item.pathname}></NavigationLink>
-          ))} */}
       </nav>
     </div>
   );
