@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import template from "../templates/template";
 import Codeblock from "../components/Codeblock";
+import Hightlight from "../components/Hightlight";
 const DocsContext = createContext();
 export const DocsProvider = ({ children }) => {
   const {
@@ -70,8 +71,8 @@ export const DocsProvider = ({ children }) => {
             details that describe the technical characteristics and features of
             a product. They are typically listed in the product description or
             specifications section of a website or catalog. Product
-            specifications can include information such as dimensions, weight,
-            materials, power requirements, and any other technical details that
+            specifications can include information such as <Hightlight>dimensions, weight,
+            materials, power requirements, and any other technical details </Hightlight>  that
             are relevant to the product.
             <br />
             <Codeblock template={specsMarkup}></Codeblock>
