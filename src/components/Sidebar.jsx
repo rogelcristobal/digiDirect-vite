@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import DropDown from "./DropDown";
-import {FiLayout} from 'react-icons/fi'
+import {FiLayout,FiLayers} from 'react-icons/fi'
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
@@ -12,7 +12,7 @@ const Sidebar = () => {
         {/* items */}
         <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
           <div className="w-full box-border  block">
-            <DropDown dropDownTitle={state && state.category} icon={<FiLayout/>}>
+            <DropDown dropDownTitle={state && state.category} icon={<FiLayout/>} initialState>
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
@@ -55,6 +55,7 @@ const Sidebar = () => {
                 </>
               ))}
             </DropDown>
+            <DropDown dropDownTitle='Create product listing' icon={<FiLayers/>} ></DropDown>
 
           </div>
         </div>

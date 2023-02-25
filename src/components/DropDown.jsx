@@ -2,8 +2,8 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 
-const DropDown = ({ children, dropDownTitle ,icon}) => {
-  const [state, setState] = React.useState(true);
+const DropDown = ({ children, dropDownTitle ,icon,initialState}) => {
+  const [state, setState] = React.useState(initialState?true:false);
   const handleToggle = () => {
     setState(!state);
   };
@@ -29,7 +29,7 @@ const DropDown = ({ children, dropDownTitle ,icon}) => {
     <>
       <button
         onClick={handleToggle}
-        className={`relative text-[1rem] w-full flex items-center justify-between rounded-md font-[500] py-2 px-0 box-border  font-inter  mb-3`}
+        className={`relative text-[1rem] w-full  flex items-center justify-between rounded-md font-[500] py-2 px-0 box-border  font-inter  mb-3`}
       >
         <div className="flex items-center  gap-2.5  justify-between">
           <motion.div initial={{
@@ -58,7 +58,7 @@ const DropDown = ({ children, dropDownTitle ,icon}) => {
             animate="visible"
             initial="hidden"
             exit="unMount"
-            className="w-full  block overflow-hidden pl-6 box-border "
+            className="w-full  block overflow-hidden pl-6 box-border  mb-3"
           >
             {children}
           </motion.div>
