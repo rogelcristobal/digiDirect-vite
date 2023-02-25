@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import template from "../templates/template";
 import Codeblock from "../components/Codeblock";
 const DocsContext = createContext();
-import Section from "../components/Section";
 export const DocsProvider = ({ children }) => {
   const {
     inTheBoxMarkup,
