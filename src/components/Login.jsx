@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../firebase/firebase";
-import { async } from "@firebase/util";
+import {TbBox} from 'react-icons/tb'
 const Login = () => {
   const navigate = useNavigate();
   const [loginInput, setLoginInput] = useState({
@@ -68,11 +68,13 @@ const Login = () => {
       <div className="w-[33rem] box-border h-full   bg-white shadow-xl  px-[3rem]">
         <div className="  h-full w-full flex flex-col items-start pt-6 justify-between box-border">
           <div className="box-border font-plus text-[16px] tracking-tight  font-bold">
-            <span className="text-[#356be5]">digi</span>Create
+            <span className=" text-3xl">
+              <TbBox />
+            </span>
           </div>
           <form
             onSubmit={(e) => handleLogin(e)}
-            className="w-full mb-8  h-fit px-2  py-6 flex flex-col items-center  justify-start box-border "
+            className="w-full mb-20  h-fit px-2  py-6 flex flex-col items-center  justify-start box-border "
           >
             <div className="mb-6 flex flex-col items-start justify-center w-full">
               <span className="text-[1.75rem] w-full font-[700] tracking-tight font-plus  text-slate-800 mb-2">

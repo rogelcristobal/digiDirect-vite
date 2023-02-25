@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 const Codeblock = ({ template }) => {
   const [view, toggleView] = useState(0);
@@ -17,6 +17,7 @@ const Codeblock = ({ template }) => {
     border: "none",
     margin: "0",
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px"
+    // boxShadow: "rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px"
   };
   const codeTagProps = {
     style: {
@@ -54,7 +55,7 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="mb-8 mt-4 overflow-hidden  relative  "
+      className="mb-8 mt-4   relative  "
     >
        <div className="h-12  relative w-full  flex items-center justify-start text-[0.8rem]   gap-0">
         
@@ -65,7 +66,7 @@ const Codeblock = ({ template }) => {
               <button
                 onClick={() => handleToggle(id)}
                 key={id}
-                className={`h-full px-3 font-plus relative transition-all duration-300 ease-in-out capitalize ${
+                className={`h-full px-3 font-inter relative transition-all duration-300 ease-in-out capitalize ${
                   id === view
                     ? "text-[#356be5] "
                     : "hover:text-neutral-400 text-neutral-400/70 "
@@ -80,9 +81,9 @@ const Codeblock = ({ template }) => {
         <button
           onClick={handleToggleCopyToggle}
           type="button"
-          className={` text-xl transition-all duration-300 ease-in-out flex items-start justify-center absolute top-1/2 -translate-y-1/2 right-2  py-2 px-3 gap-2   ${copyIsClicked?'text-[#356be5]':'hover:text-neutral-400 text-neutral-400/70'}`}
+          className={` text-xl transition-all duration-300 ease-in-out flex items-start justify-center absolute top-1/2 -translate-y-1/2 right-2  py-2 px-3 gap-2   ${copyIsClicked?'text-blue-500':'hover:text-neutral-400 text-neutral-400/70'}`}
         >
-          <span className={`text-[#356be5] text-sm text-[0.775rem] font-[400]  font-plus  ${!copyIsClicked?'invisible':'visible'}`}>Copied!</span>
+          <span className={`text-[#356be5] text-sm text-[0.775rem] font-[500]  font-inter  ${!copyIsClicked?'invisible':'visible'}`}>Copied!</span>
           {!copyIsClicked ? (
             <TbClipboard></TbClipboard>
           ) : (
@@ -94,7 +95,7 @@ const Codeblock = ({ template }) => {
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines
-        style={nightOwl}
+        style={coldarkDark}
         customStyle={customStyle}
         codeTagProps={codeTagProps}
         
