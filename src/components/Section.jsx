@@ -100,7 +100,7 @@ const Section = ({
     >
       {category && (
         <p
-          className="text-sm leading-[24px] capitalize font-plus font-[600] mb-2 text-[#356be5]"
+          className="text-sm leading-[24px] capitalize font-inter font-[600] mb-2 text-[#356be5]"
         >
           {category}
         </p>
