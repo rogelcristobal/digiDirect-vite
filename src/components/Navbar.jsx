@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { TbBox } from "react-icons/tb";
-import Frame1 from "../svg/Frame1.png";
 
 const Navbar = () => {
   return (
@@ -11,7 +10,7 @@ const Navbar = () => {
       <div className="h-fit   mx-auto items-center w-full justify-between  box-border flex lg:px-8">
         <div className="font-inter font-[600] text-lg">
           <span className="flex w-fit  items-center gap-3 justify-center">
-            <TbBox className="text-blue-500 text-3xl" />
+            <TbBox className="text-blue-500 text-2xl" />
             {/* <img src={Frame1} alt=""  className="h-7"/> */}
             <svg
               className="h-6"

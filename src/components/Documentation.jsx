@@ -3,7 +3,7 @@ import { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
 import { Link } from "react-router-dom";
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronRight,FiHelpCircle } from "react-icons/fi";
 const Documentation = () => {
   const { state } = useContext(DocsContext);
 
@@ -69,7 +69,15 @@ const Documentation = () => {
               className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1"
             >
               <FiChevronRight className="text-[1rem] 0 " />
-              Create product listing
+                Quick create
+            </Link>
+            <Link
+              to=""
+              className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1"
+            >
+              <FiChevronRight className="text-[1rem] 0 " />
+              Create custom template
+              <FiHelpCircle className="text-slate-500/50 ml-2"/>
             </Link>
           </div>
         </nav>
