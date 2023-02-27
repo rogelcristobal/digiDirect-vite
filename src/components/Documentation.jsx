@@ -60,7 +60,7 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      <div className=" w-[26rem]  h-fit py-4 box-border top-28 sticky ">
+      <div className=" w-[26rem] pl-4 h-fit py-4 box-border top-28 sticky ">
         <nav className="relative h-full  pr-[1rem]">
           <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-3">
             Get started
