@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import DropDown from "./DropDown";
-import {FiLayout,FiLayers} from 'react-icons/fi'
+import { FiLayout, FiLayers } from "react-icons/fi";
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
@@ -12,7 +12,11 @@ const Sidebar = () => {
         {/* items */}
         <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
           <div className="w-full box-border  block">
-            <DropDown dropDownTitle={state && state.category} icon={<FiLayout/>} initialState>
+            <DropDown
+              dropDownTitle={state && state.category}
+              icon={<FiLayout />}
+              initialState
+            >
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
@@ -36,7 +40,7 @@ const Sidebar = () => {
                   <a
                     key={id}
                     href={`#${item.title}`}
-                    className={`relative text-[0.875rem] capitalize ml-3 inline-block box-border font-[400] py-1.5 rounded-md  font-inter ${
+                    className={`relative text-[0.875rem]  capitalize pl-3 inline-block box-border font-[400] py-1.5 rounded-md  font-inter ${
                       item.child && "ml-0"
                     }  w-full  cursor-pointer ${
                       !item.viewState
@@ -55,8 +59,10 @@ const Sidebar = () => {
                 </>
               ))}
             </DropDown>
-            <DropDown dropDownTitle='Create product listing' icon={<FiLayers/>} ></DropDown>
-
+            <DropDown
+              dropDownTitle="Create product listing"
+              icon={<FiLayers />}
+            ></DropDown>
           </div>
         </div>
       </nav>

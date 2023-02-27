@@ -12,7 +12,7 @@ const Navbar = () => {
           <span className="flex w-fit  items-center gap-3 justify-center">
             <TbBox className="text-blue-500 text-2xl" />
             {/* <img src={Frame1} alt=""  className="h-7"/> */}
-            <svg
+            {/* <svg
               className="h-6"
               viewBox="0 0 665 166"
               fill="none"
@@ -28,7 +28,7 @@ const Navbar = () => {
                   fill="#242525"
                 />
               </g>
-            </svg>
+            </svg> */}
           </span>
         </div>
         <div className="flex items-center   justify-between space-x-6">
