@@ -37,7 +37,7 @@ const Navbar = () => {
           </p>
 
           <p className="text-sm font-[600] capitalize   py-1.5 px-2.5 rounded-lg ">
-            <Link to="documentation">Tools</Link>
+            <Link to="tools">Tools</Link>
           </p>
           <span className="w-[1px] h-7 bg-slate-300/50 "></span>
           <p className="text-lg  capitalize late-500/70  py-1.5 px-2.5 rounded-lg">

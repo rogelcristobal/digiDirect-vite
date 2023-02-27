@@ -3,7 +3,8 @@ import { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
 import { Link } from "react-router-dom";
-import { FiChevronRight,FiHelpCircle } from "react-icons/fi";
+import { FiChevronRight, FiHelpCircle } from "react-icons/fi";
+import PageContainers from "./PageContainers";
 const Documentation = () => {
   const { state } = useContext(DocsContext);
 
@@ -22,7 +23,8 @@ const Documentation = () => {
   };
 
   return (
-    <div className="h-full box-border lg:pl-16 flex w-full pb-6 pt-10  justify-start    items-start scroll-smooth">
+    <PageContainers>
+    
       {/* content container */}
       <div className="box-border  flex-auto w-full  max-w-3xl ">
         {/* header */}
@@ -41,7 +43,7 @@ const Documentation = () => {
         </div>
 
         {/* content */}
-        <div className=" space-y-14">
+        <div className="box-border space-y-14">
           {state.sections.map((item, id) => (
             <Section
               key={id}
@@ -69,7 +71,7 @@ const Documentation = () => {
               className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1"
             >
               <FiChevronRight className="text-[1rem] 0 " />
-                Quick create
+              Quick create
             </Link>
             <Link
               to=""
@@ -77,12 +79,12 @@ const Documentation = () => {
             >
               <FiChevronRight className="text-[1rem] 0 " />
               Create custom template
-              <FiHelpCircle className="text-slate-500/50 ml-2"/>
+              <FiHelpCircle className="text-slate-500/50 ml-2" />
             </Link>
           </div>
         </nav>
       </div>
-    </div>
+    </PageContainers>
   );
 };
 

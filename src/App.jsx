@@ -6,10 +6,11 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import ListingHelperPage from "./components/ListingHelperPage";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
+import Tools from "./components/Tools";
 import { useEffect } from "react";
 function App() {
-  const location = useLocation()
-    useEffect(() => {
+  const location = useLocation();
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   return (
@@ -21,7 +22,7 @@ function App() {
           <div className="h-auto bg-[#ffffff]  text-slate-900 box-border  font-inter">
             {/* navbar */}
             <Navbar></Navbar>
-            <div className=" md:px-4 lg:px-0  min-h-[150vh] h-auto pt-0  flex  items-start justify-center  box-border">
+            <div className="  min-h-[150vh] h-auto  flex  items-start justify-center  box-border">
               <div className="relative w-full px-0 mx-auto flex items-start   justify-start gap-2   box-border">
                 {/* sidebar */}
                 <Sidebar />
@@ -31,9 +32,10 @@ function App() {
                     path="documentation"
                     element={<Documentation />}
                   ></Route>
+                  <Route path="tools" element={<Tools />}></Route>
                   <Route
                     path="listing-helper"
-                    element={ <ListingHelperPage/>}
+                    element={<ListingHelperPage />}
                   ></Route>
                   <Route path="*" element={<ErrorPage />} />
                 </Routes>
