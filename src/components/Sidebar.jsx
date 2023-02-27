@@ -6,12 +6,12 @@ const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    overflow-y-auto  box-border flex-auto justify-start items-start w-[25.5rem]   ">
+    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    overflow-y-auto  box-border flex-auto justify-start items-start w-[23.5rem]   ">
       {/*sidebar content */}
-      <nav className="relative h-full w-full px-[0rem] mt-8 mb-40  box-border lg:px-[1.5rem] ">
+      <nav className="relative h-full w-full px-[0rem] mt-8 mb-40   box-border lg:px-[1rem] ">
         {/* items */}
-        <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
-          <div className="w-full box-border  block">
+        <div className=" h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
+          <div className="w-full box-border block">
             <DropDown
               dropDownTitle={state && state.category}
               icon={<FiLayout />}
