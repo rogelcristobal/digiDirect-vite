@@ -38,7 +38,7 @@ const Sidebar = () => {
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.850rem] mt-6 lg:mb-3 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
+                    <p className=" text-[0.850rem] mt-6 lg:mb-2 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
                       {item.category}
                     </p>
                   )}
