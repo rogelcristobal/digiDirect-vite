@@ -29,7 +29,7 @@ const DropDown = ({ children, dropDownTitle, icon, initialState }) => {
     <>
     <button
       onClick={handleToggle}
-      className={`relative text-[1rem] w-full  flex-col flex items-start justify-center rounded-md font-[500] py-2.5  px-0 box-border  font-inter  mb-1`}
+      className={`relative text-[1rem] w-full flex-col flex items-start justify-center rounded-md font-[500] py-2.5  px-0 box-border  font-inter  mb-0`}
     >
       <div className="flex items-center  gap-2.5  mb-0 justify-between">
         <motion.div

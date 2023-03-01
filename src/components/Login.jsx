@@ -6,9 +6,14 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../firebase/firebase";
-import {TbBox} from 'react-icons/tb'
+import { TbBox } from "react-icons/tb";
+import { motion } from "framer-motion";
 const Login = () => {
   const navigate = useNavigate();
+  const [focusState, setFocusState] = React.useState({
+    email: false,
+    password: false,
+  });
   const [loginInput, setLoginInput] = useState({
     email: "",
     password: "",
@@ -62,7 +67,52 @@ const Login = () => {
       console.log(error);
     }
   };
-  useEffect(() => {}, []);
+  const handleFocus = (e) => {
+    if (e.target.type === "email" ) {
+      setFocusState((prev) => ({
+        ...prev,
+        email: true,
+      }));
+      console.log(e.target.value)
+    } else if (e.target.type === "password") {
+      setFocusState((prev) => ({
+        ...prev,
+        password: true,
+      }));
+    }
+  };
+  const handleBlur = (e) => {
+    if (e.target.type === "email" ) {
+      setFocusState((prev) => ({
+        ...prev,
+        email: false,
+      }));
+    } else if (e.target.type === "password") {
+      setFocusState((prev) => ({
+        ...prev,
+        password: false,
+      }));
+    }
+  };
+  const placeholderVariants = {
+    initial: {
+      color: "rgb(148, 163, 184)",
+      translateY: "0.6rem",
+      fontSize: "0.875rem",
+      transition: {
+        duration: 0.25,
+      },
+    },
+    animate: {
+      color: "rgb(53, 107, 229)",
+      translateY: "-0.6rem",
+      fontSize: "0.775rem",
+      transition: {
+        duration: 0.25,
+      },
+    },
+  };
+
   return (
     <div className="w-full h-screen flex items-center justify-start box-border">
       <div className="w-[33rem] box-border h-full   bg-white shadow-xl  px-[3rem]">
@@ -73,35 +123,55 @@ const Login = () => {
             </span>
           </div>
           <form
+            autoComplete="off"
             onSubmit={(e) => handleLogin(e)}
-            className="w-full mb-20  h-fit px-2  py-6 flex flex-col items-center  justify-start box-border "
+            className="w-full mb-12  h-fit px-2  py-6 flex flex-col items-center  justify-start box-border "
           >
             <div className="mb-6 flex flex-col items-start justify-center w-full">
               <span className="text-[1.75rem] w-full font-[700] tracking-tight font-plus  text-slate-800 mb-2">
                 Sign in.
               </span>
               <p className="text-[14px] font-[500]  prose text-slate-500/90 font-plus">
-                
                 New at digiCreate?
                 <a className="text-[#356be5] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">
                   Sign up here.
                 </a>
               </p>
             </div>
-            <input
-              type="email"
-              onChange={(e) => handleEmailChange(e)}
-              className="outline-slate-900 border-[1.5px] mb-4 w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem] "
-              placeholder="Email"
-              autocomplete="off"
-            />
-            <input
-              type="password"
-              onChange={(e) => handlePasswordChange(e)}
-              className="outline-slate-900 border-[1.5px] mb-4 w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
-              placeholder="Password"
-              autocomplete="off"
-            />
+            <div className="relative w-full h-fit  mb-4">
+              <input
+                type="email"
+                onFocus={(e) => handleFocus(e)}
+                onBlur={(e) => handleBlur(e)}
+                onChange={(e) => handleEmailChange(e)}
+                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem] "
+                autoComplete="off"
+              />
+              <motion.label
+                variants={placeholderVariants}
+                animate={focusState.email ? "animate" : "initial"}
+                className="absolute text-sm pointer-events-none  font-inter bg-white px-2  left-2 font-[500]"
+              >
+                Email
+              </motion.label>
+            </div>
+            <div className="relative w-full h-fit  mb-4">
+              <input
+                type="password"
+                onFocus={(e) => handleFocus(e)}
+                onBlur={(e) => handleBlur(e)}
+                onChange={(e) => handlePasswordChange(e)}
+                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
+                autoComplete="off"
+              />
+              <motion.label
+                variants={placeholderVariants}
+                animate={focusState.password ? "animate" : "initial"}
+                className="absolute text-sm  font-inter bg-white px-2  left-2 font-[500]"
+              >
+                Password
+              </motion.label>
+            </div>
             <div className="h-8  w-full mb-6 flex items-center justify-between">
               <a
                 href=""
@@ -160,9 +230,7 @@ const Login = () => {
         </div>
       </div>
       {/* image */}
-      <div className="bg-slate-100 box-border  w-full h-full">
-  
-      </div>
+      <div className="bg-slate-100 box-border  w-full h-full"></div>
     </div>
   );
 };

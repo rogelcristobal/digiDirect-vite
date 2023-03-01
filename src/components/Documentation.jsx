@@ -43,7 +43,7 @@ const Documentation = () => {
         </div>
 
         {/* content */}
-        <div className="box-border space-y-14">
+        <div className="box-border space-y-14 pb-52">
           {state.sections.map((item, id) => (
             <Section
               key={id}

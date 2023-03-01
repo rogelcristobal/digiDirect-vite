@@ -20,7 +20,7 @@ const Sidebar = () => {
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
-                className={`relative text-[0.850rem] capitalize  box-border  block font-[400] py-2 rounded-md text-left  pl-6
+                className={`relative text-[0.850rem] capitalize  box-border  block font-[400] py-1.5 rounded-md text-left  pl-6
                  w-full  cursor-pointer ${
                    !state.viewState
                      ? "text-slate-900"
@@ -38,7 +38,7 @@ const Sidebar = () => {
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.850rem] mt-6 lg:mb-2 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
+                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
                       {item.category}
                     </p>
                   )}
