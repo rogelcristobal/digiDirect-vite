@@ -99,6 +99,7 @@ const Login = () => {
       color: "rgb(148, 163, 184)",
       translateY: "0.6rem",
       fontSize: "0.875rem",
+      backgroundColor:'transparent',
       transition: {
         duration: 0.25,
       },
@@ -107,6 +108,7 @@ const Login = () => {
       color: "rgb(53, 107, 229)",
       translateY: "-0.6rem",
       fontSize: "0.775rem",
+      backgroundColor:'white',
       transition: {
         duration: 0.25,
       },
@@ -133,7 +135,7 @@ const Login = () => {
               </span>
               <p className="text-[14px] font-[500]  prose text-slate-500/90 font-plus">
                 New at digiCreate?
-                <a className="text-[#356be5] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">
+                <a className="text-[#2a38d8] cursor-pointer hover:underline underline-offset-2 no-underline ml-1">
                   Sign up here.
                 </a>
               </p>
@@ -144,13 +146,13 @@ const Login = () => {
                 onFocus={(e) => handleFocus(e)}
                 onBlur={(e) => handleBlur(e)}
                 onChange={(e) => handleEmailChange(e)}
-                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem] "
+                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#2a38d8] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem] "
                 autoComplete="off"
               />
               <motion.label
                 variants={placeholderVariants}
                 animate={focusState.email ? "animate" : "initial"}
-                className="absolute text-sm pointer-events-none  font-inter bg-white px-2  left-2 font-[500]"
+                className="absolute text-sm pointer-events-none  font-inter bg-white px-2 py-0 m-0 left-2 font-[500] top-0"
               >
                 Email
               </motion.label>
@@ -161,13 +163,13 @@ const Login = () => {
                 onFocus={(e) => handleFocus(e)}
                 onBlur={(e) => handleBlur(e)}
                 onChange={(e) => handlePasswordChange(e)}
-                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#356be5] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
+                className="outline-slate-900 border-[1.5px]  w-full border-solid border-slate-300 focus:outline-[#2a38d8] rounded-md h-10 px-3 placeholder:font-plus text-sm placeholder:font-[400] placeholder:text-[0.85rem]  "
                 autoComplete="off"
               />
               <motion.label
                 variants={placeholderVariants}
                 animate={focusState.password ? "animate" : "initial"}
-                className="absolute text-sm  font-inter bg-white px-2  left-2 font-[500]"
+                className="absolute text-sm  font-inter bg-white px-2  left-2 font-[500] top-0"
               >
                 Password
               </motion.label>
@@ -175,14 +177,14 @@ const Login = () => {
             <div className="h-8  w-full mb-6 flex items-center justify-between">
               <a
                 href=""
-                className="text-xs font-plus text-[#356be5] font-[600]"
+                className="text-xs font-plus text-[#2a38d8] font-[600]"
               >
                 Forgot your password?
               </a>
             </div>
             <button
               type="submit"
-              className="h-12 w-full bg-[#356be5] hover:bg-[#356be5]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center"
+              className="h-12 w-full bg-[#2a38d8] hover:bg-[#2a38d8]/90 transition-all duration-300 ease-in-out rounded-md text-white font-plus text-sm text-center"
             >
               Login
             </button>

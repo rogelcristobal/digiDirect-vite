@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="h-fit   mx-auto items-center w-full justify-between  box-border flex lg:px-8">
         <div className="font-inter font-[600] text-lg">
           <span className="flex w-fit  items-center gap-3 justify-center">
-            <TbBox className="text-blue-500 text-2xl" />
+            {/* <TbBox className="text-[#2a38d8] text-2xl" /> */}
             {/* <img src={Frame1} alt=""  className="h-7"/> */}
             {/* <svg
               className="h-6"
@@ -32,7 +32,7 @@ const Navbar = () => {
           </span>
         </div>
         <div className="flex items-center   justify-between space-x-6">
-          <p className="text-sm font-[600] capitalize    py-1.5 px-2.5 rounded-lg text-blue-500 ">
+          <p className="text-sm font-[600] capitalize    py-1.5 px-2.5 rounded-lg text-[#2a38d8] ">
             <Link to="documentation">Guides</Link>
           </p>
 

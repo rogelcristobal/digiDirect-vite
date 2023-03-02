@@ -19,7 +19,7 @@ function App() {
       <Route
         path="/product-listing/*"
         element={
-          <div className="h-auto bg-[#ffffff]  text-slate-900 box-border  font-inter">
+          <div className="h-auto bg-[#ffffff]  text-black box-border  font-inter">
             {/* navbar */}
             <Navbar></Navbar>
             <div className="  min-h-[150vh] h-auto  flex  items-start justify-center  box-border">

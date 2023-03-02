@@ -6,9 +6,9 @@ const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]     box-border  w-[24.5rem]   ">
+    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[28rem]   ">
       {/*sidebar content */}
-      <nav className=" h-full w-full px-[0rem] overflow-y-auto  box-border lg:px-[1rem] ">
+      <nav className=" h-full w-full  px-[1.7rem] overflow-y-auto  box-border  ">
         {/* items */}
         <div className=" pt-8  h-full w-full  font-inter ">
           <div className="w-full box-border   h-full ">
@@ -20,25 +20,25 @@ const Sidebar = () => {
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
-                className={`relative text-[0.850rem] capitalize  box-border  block font-[400] py-1.5 rounded-md text-left  pl-6
+                className={`relative text-[0.850rem] capitalize  box-border  block font-[400] py-1.5 rounded-md text-left  px-2.5   
                  w-full  cursor-pointer ${
                    !state.viewState
                      ? "text-slate-900"
-                     : " text-[#356be5] font-[500]"
+                     : " text-[#2a38d8] font-[500]"
                  }`}
               >
                 {state.title}
-                 <div
+                 {/* <div
                     className={`h-[90%] w-[1.4px]   absolute top-1/2 -translate-y-1/2 -left-0 ${
-                      state.viewState ? "bg-[#356be5]" : "bg-slate-100"
+                      state.viewState ? "bg-[#2a38d8]" : "bg-slate-100"
                     }`}
-                  ></div>
+                  ></div> */}
               </a>
               {/* content items */}
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
+                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter  inline-block  font-semibold text-black capitalize ">
                       {item.category}
                     </p>
                   )}
@@ -46,21 +46,21 @@ const Sidebar = () => {
                     key={id}
                     href={`#${item.title}`}
                     
-                    className={` relative text-[0.850rem]  capitalize pl-6   box-border font-[400] text-left py-1.5 rounded-md flex  font-inter ${
+                    className={` relative text-[0.850rem]  capitalize px-2.5   box-border font-[400] text-left py-1.5  rounded-md flex  font-inter ${
                       item.child && "ml-0"
                     }  w-full  cursor-pointer  ${
                       !item.viewState
                         ? "text-slate-700"
-                        : " text-[#356be5] font-[500] "
+                        : " text-[#2a38d8] font-[500] "
                     }`}
                   >
                     {item.title}
 
-                    <div
+                    {/* <div
                     className={`h-[100%] w-[1.4px]   absolute top-1/2 -translate-y-1/2 -left-0 ${
-                      item.viewState ? "bg-[#356be5]" : "bg-slate-200"
+                      item.viewState ? "bg-[#2a38d8]" : "bg-slate-200"
                     }`}
-                  ></div>
+                  ></div> */}
                   </a>
                 </>
               ))}
