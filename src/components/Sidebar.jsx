@@ -6,7 +6,7 @@ const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[28rem]   ">
+    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[26rem]   ">
       {/*sidebar content */}
       <nav className=" h-full w-full  px-[1.7rem] overflow-y-auto  box-border  ">
         {/* items */}
