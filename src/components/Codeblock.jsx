@@ -9,7 +9,7 @@ const Codeblock = ({ template }) => {
     paddingLeft: "1.5rem",
     paddingTop: "1.5rem",
     // paddingBottom:'1.5rem',
-    borderRadius: "10px",
+    // borderRadius: "10px",
     fontSize: "0.785rem",
     lineHeight: "1.4rem",
     whiteSpace: "pre",
@@ -56,7 +56,7 @@ const Codeblock = ({ template }) => {
   }, [copyIsClicked]);
   return (
     <div
-      className="mb-8 mt-4   relative  "
+      className="mb-8 mt-6   relative  "
     >
        <div className="h-12  relative w-full  flex items-center justify-start text-[0.8rem]   gap-0">
         

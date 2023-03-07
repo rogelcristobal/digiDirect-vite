@@ -29,33 +29,27 @@ const DropDown = ({ children, dropDownTitle, icon, initialState }) => {
     <>
     <button
       onClick={handleToggle}
-      className={`relative text-[1rem] w-full flex-col flex items-start justify-center rounded-md font-[500]   py-2.5  px-2.5 box-border  font-inter ${state&&'bg-[#f5f9fa]'}  mb-2`}
+      className={`relative text-[1rem] w-full flex-col flex items-start justify-center rounded-md font-[500]   py-2.5  px-2.5 box-border  font-inter 
+        mb-2`}
     >
-      <div className="flex items-center w-full justify-between">
+      {/* ${state&&'bg-[#f5f9fa]'} */}
+      
+      <div className="flex items-center w-full justify-start">
         <div className="flex items-center gap-2">
-          <div
+          {/* <div
           className={`h-fit w-fit  ${
             state ? "text-[#2a38d8] " : "text-slate-900"
           }`}
         >
           {icon}
-        </div>
+        </div> */}
         <p
           className={` text-[0.85rem] font-[600] box-border   text-left font-inter capitalize `}
         >
           {dropDownTitle}
         </p>
         </div>
-        <motion.div
-          initial={{
-            rotate: -90,
-          }}
-          animate={{
-            rotate: state ? 0 : -90,
-          }}
-        >
-          <FiChevronDown />
-        </motion.div>
+        {/* <motion.dsdiv> */}
       </div>
       
     </button>
@@ -68,7 +62,7 @@ const DropDown = ({ children, dropDownTitle, icon, initialState }) => {
             initial="hidden"
             exit="unMount"
             onClick={(event)=>event.stopPropagation()}
-            className="w-full  block overflow-hidden pl-6 box-border   mb-2"
+            className="w-full  block overflow-hidden pl-4 box-border   mb-2"
           >
             {children}
           </motion.div>

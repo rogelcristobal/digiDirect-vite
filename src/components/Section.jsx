@@ -98,17 +98,17 @@ const Section = ({
       
       className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
-      {category && (
+      {category &&  (
         <p
-          className="text-sm leading-[24px] capitalize font-inter font-[600] mb-2 text-[#2a38d8]"
+          className="text-sm leading-[24px] capitalize font-plus font-[600] mb-3 text-[#2a38d8]"
         >
           {category}
         </p>
       )}
       <h2
         href={hash} //category
-        className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
-        ${header ? "text-3xl" : child ? "text-lg" : "text-2xl"}`}
+        className={`text-slate-900 font-plus capitalize tracking-tight font-[600] mb-6   
+        ${header ? "text-3xl" : child ? "text-lg" : "text-[1.5rem]"}`}
       >
         {title}
       </h2>

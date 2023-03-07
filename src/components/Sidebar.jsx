@@ -8,7 +8,7 @@ const Sidebar = () => {
   return (
     <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[26rem]   ">
       {/*sidebar content */}
-      <nav className=" h-full w-full  px-[1.7rem] overflow-y-auto  box-border  ">
+      <nav className=" h-full w-full  px-[1.250rem] overflow-y-auto  box-border  ">
         {/* items */}
         <div className=" pt-8  h-full w-full  font-inter ">
           <div className="w-full box-border   h-full ">
