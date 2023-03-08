@@ -6,69 +6,60 @@ const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[26rem]   ">
+    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[22rem]   ">
       {/*sidebar content */}
-      <nav className=" h-full w-full  px-[1.250rem] overflow-y-auto  box-border  ">
+      <nav className=" h-full w-full  overflow-y-auto  box-border  ">
         {/* items */}
         <div className=" pt-8  h-full w-full  font-inter ">
           <div className="w-full box-border   h-full ">
-            <DropDown
-              dropDownTitle={state && state.category}
-              icon={<FiLayout />}
-              initialState
-            >
+          
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
-                className={`relative text-[0.850rem] capitalize  box-border  block font-[400] py-1.5 rounded-md text-left  px-2.5   
-                 w-full  cursor-pointer ${
+                className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6  flex  font-inter ${
                    !state.viewState
-                     ? "text-slate-900"
-                     : " text-[#2a38d8] font-[500]"
+                     ? "text-gray-900"
+                     : " text-blue-500 bg-blue-400/10"
                  }`}
               >
                 {state.title}
-                 {/* <div
-                    className={`h-[90%] w-[1.4px]   absolute top-1/2 -translate-y-1/2 -left-0 ${
-                      state.viewState ? "bg-[#2a38d8]" : "bg-slate-100"
+                 <div
+                    className={`h-[100%] w-[3px]   absolute top-1/2 -translate-y-1/2 left-0 ${
+                      state.viewState ? "bg-blue-500" : "bg-gray-100"
                     }`}
-                  ></div> */}
+                  ></div>
               </a>
               {/* content items */}
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter  inline-block  font-semibold text-black capitalize ">
+                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter tracking-tight  inline-block px-6 font-semibold text-gray-900 capitalize ">
                       {item.category}
                     </p>
                   )}
                   <a
                     key={id}
                     href={`#${item.title}`}
-                    
-                    className={` relative text-[0.850rem]  capitalize px-2.5   box-border font-[400] text-left py-1.5  rounded-md flex  font-inter ${
+                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6 tracking-tight flex  font-inter  ${
                       item.child && "ml-0"
                     }  w-full  cursor-pointer  ${
                       !item.viewState
-                        ? "text-slate-700"
-                        : " text-[#2a38d8] font-[500] "
+                        ? "text-gray-600"
+                        : " text-blue-500 bg-blue-500/10"
                     }`}
                   >
                     {item.title}
 
-                    {/* <div
-                    className={`h-[100%] w-[1.4px]   absolute top-1/2 -translate-y-1/2 -left-0 ${
-                      item.viewState ? "bg-[#2a38d8]" : "bg-slate-200"
+                    <div
+                    className={`h-[100%] w-[3px]   absolute top-1/2 -translate-y-1/2 left-0 ${
+                      item.viewState ? "bg-blue-500" : "bg-gray-100"
                     }`}
-                  ></div> */}
+                  ></div>
                   </a>
                 </>
               ))}
-            </DropDown>
-            <DropDown
-              dropDownTitle="Create product listing"
-              icon={<FiLayers />}
-            ></DropDown>
+            
+          
           </div>
         </div>
       </nav>

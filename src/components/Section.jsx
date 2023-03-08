@@ -39,8 +39,8 @@ const Section = ({
   useEffect(() => {
     // whenever the ref mounted
     if (ref.current) {
-      const top = Math.floor(ref.current.offsetTop) - 90;
-      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 100;
+      const top = Math.floor(ref.current.offsetTop) - 60;
+      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 60;
       setElementAttributes({
         top: top,
         bottom: bottom,
@@ -95,25 +95,26 @@ const Section = ({
     <div
       ref={ref}
       id={title}
-      
       className="flex-auto  box-border pb-0   scroll-mt-24  "
     >
       {category &&  (
         <p
-          className="text-sm leading-[24px] capitalize font-plus font-[600] mb-3 text-[#2a38d8]"
+          className="text-sm leading-[24px] capitalize font-inter tracking-tight font-[600] mb-3 text-blue-500"
         >
           {category}
         </p>
       )}
       <h2
         href={hash} //category
-        className={`text-slate-900 font-plus capitalize tracking-tight font-[600] mb-6   
+        className={`text-gray-800 font-inter capitalize tracking-tight font-[600] mb-3   
         ${header ? "text-3xl" : child ? "text-lg" : "text-[1.5rem]"}`}
       >
         {title}
+       
       </h2>
-      <div className="box-border prose leading-7  prose-slate">{children}</div>
-      
+      <div className="box-border prose leading-7  prose-gray">{children}</div>
+       {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
+      <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>
   );
 };

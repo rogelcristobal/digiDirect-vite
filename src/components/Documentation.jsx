@@ -43,13 +43,13 @@ const Documentation = () => {
         </div>
 
         {/* content */}
-        <div className="box-border space-y-20 pb-52">
+        <div className="box-border space-y-16 pb-52">
           {state.sections.map((item, id) => (
             <Section
               key={id}
               itemID={id}
               title={item.title}
-              category={item.category}
+              // category={item.category}
               hash={item.category}
               // threshold={item.viewThreshold}
               {...(item.child && { child: true })}
