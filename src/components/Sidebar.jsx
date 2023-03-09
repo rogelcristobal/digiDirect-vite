@@ -10,13 +10,13 @@ const Sidebar = () => {
       {/*sidebar content */}
       <nav className=" h-full w-full  overflow-y-auto  box-border  ">
         {/* items */}
-        <div className=" pt-8  h-full w-full  font-inter ">
+        <div className=" pt-4   h-full w-full  font-inter ">
           <div className="w-full box-border   h-full ">
           
               {/* title section/href */}
               <a
                 href={`#${state.category}`}
-                className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6  flex  font-inter ${
+                className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-7  flex  font-inter ${
                    !state.viewState
                      ? "text-gray-900"
                      : " text-blue-500 bg-blue-400/10"
@@ -33,18 +33,18 @@ const Sidebar = () => {
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter tracking-tight  inline-block px-6 font-semibold text-gray-900 capitalize ">
+                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter tracking-tight  inline-block px-7 font-semibold text-gray-900 capitalize ">
                       {item.category}
                     </p>
                   )}
                   <a
                     key={id}
                     href={`#${item.title}`}
-                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6 tracking-tight flex  font-inter  ${
+                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-7 tracking-tight flex  font-inter  ${
                       item.child && "ml-0"
                     }  w-full  cursor-pointer  ${
                       !item.viewState
-                        ? "text-gray-600"
+                        ? "text-gray-700"
                         : " text-blue-500 bg-blue-500/10"
                     }`}
                   >

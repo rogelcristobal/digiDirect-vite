@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 
 const Codeblock = ({ template }) => {
@@ -98,7 +98,7 @@ const Codeblock = ({ template }) => {
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines
-        style={ghcolors}
+        style={coldarkDark}
         customStyle={customStyle}
         codeTagProps={codeTagProps}
         

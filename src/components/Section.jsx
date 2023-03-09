@@ -99,20 +99,20 @@ const Section = ({
     >
       {category &&  (
         <p
-          className="text-sm leading-[24px] capitalize font-inter tracking-tight font-[600] mb-3 text-blue-500"
+          className="text-sm leading-[24px] capitalize  font-inter tracking-tight font-[600] mb-3 text-blue-500"
         >
           {category}
         </p>
       )}
       <h2
         href={hash} //category
-        className={`text-gray-800 font-inter capitalize tracking-tight font-[600] mb-3   
+        className={`text-gray-800 font-inter  capitalize tracking-tight font-[600] mb-3   max-w-2xl
         ${header ? "text-3xl" : child ? "text-lg" : "text-[1.5rem]"}`}
       >
         {title}
        
       </h2>
-      <div className="box-border prose leading-7  prose-gray">{children}</div>
+      <div className="box-border prose  leading-7 text-[0.975rem] w-full max-w-2xl prose-gray">{children}</div>
        {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
       <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>

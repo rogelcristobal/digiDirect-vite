@@ -26,7 +26,7 @@ const Documentation = () => {
     <PageContainers>
     
       {/* content container */}
-      <div className="box-border  flex-auto w-full  max-w-3xl ">
+      <div className="box-border  flex-auto w-full  max-w-4xl  ">
         {/* header */}
         <div
           id={state.category}
@@ -43,7 +43,7 @@ const Documentation = () => {
         </div>
 
         {/* content */}
-        <div className="box-border space-y-16 pb-52">
+        <div className="box-border space-y-16 w-full pb-52">
           {state.sections.map((item, id) => (
             <Section
               key={id}
@@ -60,7 +60,7 @@ const Documentation = () => {
         </div>
       </div>
       {/* page navigation */}
-      <div className=" w-[26rem] pl-4 h-fit py-4 box-border top-28 sticky ">
+      {/* <div className=" w-[26rem] pl-4 h-fit py-4 box-border top-28 sticky ">
         <nav className="relative h-full  pr-[1rem]">
           <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-3">
             Get started
@@ -83,7 +83,7 @@ const Documentation = () => {
             </Link>
           </div>
         </nav>
-      </div>
+      </div> */}
     </PageContainers>
   );
 };
