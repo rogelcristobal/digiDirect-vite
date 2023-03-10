@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 
 const Codeblock = ({ template }) => {
@@ -81,7 +81,7 @@ const Codeblock = ({ template }) => {
               </button>
             );
           })}
-        <button
+        {/* <button
           onClick={handleToggleCopyToggle}
           type="button"
           className={`bg-[#0055ff] text-lg transition-all duration-300 ease-in-out flex items-start justify-center absolute -bottom-[2.5rem]  right-2.5  py-1.5 px-[0.5rem] rounded-[5px] gap-2   ${copyIsClicked?'text-white':'text-gray-50'}`}
@@ -93,12 +93,12 @@ const Codeblock = ({ template }) => {
             <TbClipboardCheck></TbClipboardCheck>
           )}
           
-        </button>
+        </button> */}
       </div> 
       <SyntaxHighlighter
         {...(view === 0 ? { language: "html" } : { language: "css" })}
         wrapLongLines
-        style={ghcolors}
+        style={nightOwl}
         customStyle={customStyle}
         codeTagProps={codeTagProps}
         

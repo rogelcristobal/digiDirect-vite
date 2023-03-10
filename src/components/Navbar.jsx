@@ -5,7 +5,7 @@ import { TbBox } from "react-icons/tb";
 
 const Navbar = () => {
   return (
-    <div className="h-[3.8rem] navShadow flex items-center justify-end  bg-inherit z-30 box-border sticky top-0 ">
+    <div className="h-[3.8rem] medium-bottom-divider flex items-center justify-end  bg-inherit z-30 box-border sticky top-0 ">
       {/* items container */}
       <div className="h-fit   mx-auto items-center w-full justify-between  box-border flex lg:px-8">
         <div className="font-inter font-[600] text-lg">
