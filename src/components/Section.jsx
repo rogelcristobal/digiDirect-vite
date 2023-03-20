@@ -95,24 +95,24 @@ const Section = ({
     <div
       ref={ref}
       id={title}
-      className="flex-auto  box-border pb-0   scroll-mt-24  "
+      className="flex-auto  box-border pb-0  px-0 w-full   scroll-mt-24  "
     >
       {category &&  (
         <p
-          className="text-sm leading-[24px] capitalize  font-inter tracking-tight font-[600] mb-3 text-blue-500"
+          className="text-base leading-[24px]  font-plus tracking-tight font-[600] mb-4 text-[#0098FA]"
         >
           {category}
         </p>
       )}
       <h2
         href={hash} //category
-        className={`text-gray-800 font-inter  capitalize tracking-tight font-[600] mb-3   max-w-2xl
-        ${header ? "text-3xl" : child ? "text-lg" : "text-[1.5rem]"}`}
+        className={` font-inter text-slate-700 font-[500] capitalize  mb-4 tracking-tight  max-w-2xl
+        ${header ? "text-[2rem] " : child ? "text-lg " : " text-[1.35rem]"}`}
       >
         {title}
        
       </h2>
-      <div className="box-border prose  leading-7 text-[0.975rem] w-full max-w-2xl prose-gray">{children}</div>
+      <div className="box-border font-inter  leading-7 text-[0.975rem] w-full max-w-[52.5rem] text-slate-800">{children}</div>
        {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
       <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>

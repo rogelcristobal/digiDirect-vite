@@ -5,9 +5,9 @@ import { TbBox } from "react-icons/tb";
 
 const Navbar = () => {
   return (
-    <div className="h-[3.8rem] flex items-center justify-end thin-bottom-divider bg-inherit z-30 box-border sticky top-0 ">
+    <div className="h-[4.5rem] w-full  flex items-center justify-end  bg-transparent z-30 box-border sticky top-0 ">
       {/* items container */}
-      <div className="h-fit   mx-auto items-center w-full justify-between  box-border flex lg:px-8">
+      <div className="h-full  items-center w-fit justify-between bg-[#ffffff]  box-border flex lg:px-8">
         <div className="font-inter font-[600] text-lg">
           <span className="flex w-fit  items-center gap-3 justify-center">
             {/* <TbBox className="text-blue-500 text-2xl" /> */}
@@ -31,15 +31,15 @@ const Navbar = () => {
             </svg> */}
           </span>
         </div>
-        <div className="flex items-center   justify-between space-x-6">
-          <p className="text-sm font-[600] capitalize    py-1.5 px-2.5 rounded-lg text-blue-500 ">
+        <div className="flex items-center text-plus tracking-tight justify-between space-x-6">
+          <p className="text-[0.9rem] font-[500] capitalize    py-1.5 px-2.5 rounded-lg ">
             <Link to="documentation">Guides</Link>
           </p>
 
-          <p className="text-sm font-[600] capitalize   py-1.5 px-2.5 rounded-lg ">
+          <p className="text-[0.9rem] font-[500] capitalize   py-1.5 px-2.5 rounded-lg ">
             <Link to="tools">Tools</Link>
           </p>
-          <span className="w-[1px] h-7 bg-slate-300/50 "></span>
+          {/* <span className="w-[1px] h-7 bg-slate-300/50 "></span> */}
           <p className="text-lg  capitalize late-500/70  py-1.5 px-2.5 rounded-lg">
             <Link
               to="https://github.com/rogelcristobal/digiDirect-vite"

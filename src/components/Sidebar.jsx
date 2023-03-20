@@ -6,17 +6,16 @@ const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    box-border  w-[22rem]   ">
-      {/*sidebar content */}
+    <div className="h-[calc(100vh-3rem)] sticky top-[0rem]  thin-right-divider  box-border  w-[23rem]   ">
+     
       <nav className=" h-full w-full  overflow-y-auto  box-border  ">
-        {/* items */}
-        <div className=" pt-4   h-full w-full  font-inter ">
+
+        {/* <div className=" pt-4   h-full w-full overflow-y-scroll pb-52 box-border ">
           <div className="w-full box-border   h-full ">
-          
-              {/* title section/href */}
-              <a
+              <span className="font-semibold text-sm ml-6 ">On this page</span>
+               <a
                 href={`#${state.category}`}
-                className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-7  flex  font-inter ${
+                className={` relative text-[0.850rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-7  flex  font-inter ${
                    !state.viewState
                      ? "text-gray-900"
                      : " text-blue-500 bg-blue-400/10"
@@ -29,7 +28,7 @@ const Sidebar = () => {
                     }`}
                   ></div>
               </a>
-              {/* content items */}
+   
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
@@ -40,7 +39,7 @@ const Sidebar = () => {
                   <a
                     key={id}
                     href={`#${item.title}`}
-                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-7 tracking-tight flex  font-inter  ${
+                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6 tracking-tight flex  font-inter  ${
                       item.child && "ml-0"
                     }  w-full  cursor-pointer  ${
                       !item.viewState
@@ -61,7 +60,7 @@ const Sidebar = () => {
             
           
           </div>
-        </div>
+        </div> */}
       </nav>
     </div>
   );

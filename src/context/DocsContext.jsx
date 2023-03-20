@@ -27,7 +27,7 @@ export const DocsProvider = ({ children }) => {
     sections: [
       {
         viewState: false,
-        category: "in the box",
+        category: "In the box",
         title: `What's in the box`,
         detail: (
           <div>
@@ -71,8 +71,8 @@ export const DocsProvider = ({ children }) => {
             details that describe the technical characteristics and features of
             a product. They are typically listed in the product description or
             specifications section of a website or catalog. Product
-            specifications can include information such as <Hightlight>dimensions, weight,
-            materials, power requirements, and any other technical details </Hightlight>  that
+            specifications can include information such as dimensions, weight,
+            materials, power requirements, and any other technical details  that
             are relevant to the product.
             <br />
             <Codeblock template={specsMarkup}></Codeblock>
