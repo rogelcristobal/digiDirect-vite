@@ -112,7 +112,7 @@ const Section = ({
         {title}
        
       </h2>
-      <div className="box-border font-inter  leading-7 text-[0.975rem] w-full max-w-[52.5rem] text-slate-800">{children}</div>
+      <div className="box-border font-inter  leading-7 text-[0.925rem] w-full max-w-[45rem] text-slate-800">{children}</div>
        {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
       <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>

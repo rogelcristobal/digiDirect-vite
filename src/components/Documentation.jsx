@@ -25,7 +25,7 @@ const Documentation = () => {
   return (
     <PageContainers>
       {/* page navigation */}
-      <div className=" w-[23rem] h-[calc(100vh-16rem)]   box-border top-32 sticky ">
+      <div className=" w-[20rem] h-[calc(100vh-16rem)]   box-border top-28 sticky ">
         {/* other page nav */}
 
         {/* on page links */}
@@ -37,7 +37,7 @@ const Documentation = () => {
           <div className=" text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-inter ">
             <a
               href={`#${state.category}`}
-              className={` relative text-[0.875rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
+              className={` relative text-[0.825rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
                 !state.viewState ? "text-gray-900" : " text-blue-500 "
               }`}
             >
@@ -48,8 +48,8 @@ const Documentation = () => {
               <a
                 key={id}
                 href={`#${item.title}`}
-                className={` py-1.5 text-[0.875rem] font-[400] text-[#0098FA]  flex items-center justify-between gap-1 ${
-                  item.child && "ml-4"
+                className={` py-1.5 text-[0.825rem] font-[400] text-[#0098FA]  flex items-center justify-between gap-1  ${
+                  item.child && "pl-4"
                 }  w-full  cursor-pointer  ${
                   !item.viewState ? "text-gray-700" : " text-blue-500 "
                 }`}
@@ -61,7 +61,7 @@ const Documentation = () => {
         </nav>
       </div>
       {/* content container */}
-      <div className="box-border flex-col  flex items-center justify-start  pt-6 px-8 max-w-full w-full">
+      <div className="box-border flex-col  flex items-center justify-start  pt-2 px-8 max-w-full w-full">
         {/* header */}
         <div
           id={state.category}
