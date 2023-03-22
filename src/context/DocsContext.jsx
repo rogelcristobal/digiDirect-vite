@@ -149,7 +149,7 @@ export const DocsProvider = ({ children }) => {
       {
         viewState: false,
 
-        title: "kit/bundled description",
+        title: "Kit/bundled description",
         child: true,
         detail: (
           <div>
@@ -162,7 +162,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "product overview",
+        category: "Product overview",
         title: "Product overview",
         detail: (
           <div>
@@ -182,7 +182,7 @@ export const DocsProvider = ({ children }) => {
       {
         viewState: false,
 
-        title: "kit/bundled product overview",
+        title: "Kit/bundled product overview",
         child: true,
         detail: (
           <div>

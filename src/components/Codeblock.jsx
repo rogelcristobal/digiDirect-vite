@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { TbClipboard, TbClipboardCheck } from "react-icons/tb";
 
 const Codeblock = ({ template }) => {
@@ -13,7 +13,7 @@ const Codeblock = ({ template }) => {
     // paddingBottom:'1.5rem',
     borderRadius: "10px",
     maxWidth: "45rem",
-    minHeight:"3.4rem",
+    minHeight: "3.5rem",
     fontSize: "0.785rem",
     lineHeight: "1.4rem",
     whiteSpace: "pre",
@@ -58,7 +58,7 @@ const Codeblock = ({ template }) => {
     };
   }, [copyIsClicked]);
   return (
-    <div className="mb-16 mt-12   relative  max-w-[45rem]">
+    <div className="mb-12 mt-8   relative  max-w-[45rem]">
       <div className="h-12   relative w-full  flex items-center pl-2 justify-start text-[0.8rem]  bg-[#fffff] gap-0">
         {Object.keys(template)
           .reverse()
@@ -78,10 +78,12 @@ const Codeblock = ({ template }) => {
               </button>
             );
           })}
-        <button
+      </div>
+      <div className="relative">
+         <button
           onClick={handleToggleCopyToggle}
           type="button"
-          className={`bg-blue-500 text-lg transition-all duration-300 ease-in-out flex items-start justify-center absolute -bottom-[4rem] -translate-y-1/2 right-2.5  py-2.5 px-[0.675rem] rounded-md gap-2   ${
+          className={`bg-blue-500 text-lg transition-all duration-300 ease-in-out flex items-start justify-center z-10 absolute top-2  -right-5  p-3.5  rounded-full gap-2   ${
             copyIsClicked ? "text-white" : "text-gray-50"
           }`}
         >
@@ -97,21 +99,23 @@ const Codeblock = ({ template }) => {
             </div>
           )}
         </button>
+        <SyntaxHighlighter
+          {...(view === 0 ? { language: "html" } : { language: "css" })}
+          wrapLongLines
+          style={nightOwl}
+          customStyle={customStyle}
+          codeTagProps={codeTagProps}
+        >
+          {/* {...(template.text?  (view == 0?template.tags:template.styles):template.text )} */}
+          {!template.text
+            ? view == 0
+              ? template.tags
+              : template.styles
+            : template.text}
+            
+        </SyntaxHighlighter>
+       
       </div>
-      <SyntaxHighlighter
-        {...(view === 0 ? { language: "html" } : { language: "css" })}
-        wrapLongLines
-        style={ghcolors}
-        customStyle={customStyle}
-        codeTagProps={codeTagProps}
-      >
-        {/* {...(template.text?  (view == 0?template.tags:template.styles):template.text )} */}
-        {!template.text
-          ? view == 0
-            ? template.tags
-            : template.styles
-          : template.text}
-      </SyntaxHighlighter>
     </div>
   );
 };

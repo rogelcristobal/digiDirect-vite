@@ -24,8 +24,44 @@ const Documentation = () => {
 
   return (
     <PageContainers>
+      {/* page navigation */}
+      <div className=" w-[23rem] h-[calc(100vh-16rem)]   box-border top-32 sticky ">
+        {/* other page nav */}
+
+        {/* on page links */}
+        <nav className="relative h-full rounded-md pr-[0rem] pl-6 py-2">
+          <p className=" text-sm  text-left   font-[600] capitalize ">
+            On this page
+          </p>
+
+          <div className=" text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-inter ">
+            <a
+              href={`#${state.category}`}
+              className={` relative text-[0.875rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
+                !state.viewState ? "text-gray-900" : " text-blue-500 "
+              }`}
+            >
+              {state.title}
+            </a>
+
+            {state.sections.map((item, id) => (
+              <a
+                key={id}
+                href={`#${item.title}`}
+                className={` py-1.5 text-[0.875rem] font-[400] text-[#0098FA]  flex items-center justify-between gap-1 ${
+                  item.child && "ml-4"
+                }  w-full  cursor-pointer  ${
+                  !item.viewState ? "text-gray-700" : " text-blue-500 "
+                }`}
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </div>
       {/* content container */}
-      <div className="box-border flex-col  flex items-center justify-start  pt-6 mx-auto max-w-full w-full">
+      <div className="box-border flex-col  flex items-center justify-start  pt-6 px-8 max-w-full w-full">
         {/* header */}
         <div
           id={state.category}
@@ -56,70 +92,6 @@ const Documentation = () => {
             </Section>
           ))}
         </div>
-      </div>
-      {/* page navigation */}
-      <div className=" w-[23rem] rounded-md   h-fit  box-border top-32 sticky ">
-        {/* other page nav */}
-
-        {/* on page links */}
-        <nav className="relative h-full rounded-md  pr-[1rem] pl-6 py-2">
-          <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-3">
-            On this page
-          </p>
-          <div className="space-y-1.5 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-inter ">
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[500] text-[#0098FA]  flex items-center justify-between gap-1"
-            >
-              Overview
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Included in the box
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Product description
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Product Specification
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Search Engine Optimization
-            </Link>
-          </div>
-        </nav>
-
-        <nav className="relative h-full rounded-md mt-8 pr-[1rem] pl-6 py-2 ">
-          <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-3">
-            Get started
-          </p>
-          <div className="space-y-1.5 text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-inter ">
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Quick create
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#0098FA] text-slate-700 flex items-center justify-between gap-1"
-            >
-              Create custom template
-              <FiHelpCircle className="text-slate-500/50 ml-2" />
-            </Link>
-          </div>
-        </nav>
       </div>
     </PageContainers>
   );
