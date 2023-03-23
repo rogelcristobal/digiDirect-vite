@@ -11,7 +11,7 @@ const Codeblock = ({ template }) => {
     paddingTop: "1rem",
     paddingRight: "3rem",
     // paddingBottom:'1.5rem',
-    // borderRadius: "10px",
+    borderRadius: "0px",
     maxWidth: "45rem",
     minHeight: "3.5rem",
     fontSize: "0.785rem",
@@ -20,8 +20,8 @@ const Codeblock = ({ template }) => {
     tabSize: "4",
     border: "none",
     margin: "0",
-    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
-    // boxShadow: "rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px"
+    // boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
+    boxShadow: "rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px"
   };
   const codeTagProps = {
     style: {
@@ -58,8 +58,8 @@ const Codeblock = ({ template }) => {
     };
   }, [copyIsClicked]);
   return (
-    <div className="mb-12 mt-8   relative  max-w-[45rem]">
-      <div className="h-12   relative w-full  flex items-center pl-2 justify-start text-[0.8rem]  bg-[#fffff] gap-0">
+    <div className="my-10  drop-shadow-xl decoration-[#0a1c40] relative  max-w-[45rem]">
+      {/* <div className="h-12   relative w-full  flex items-center pl-2 justify-start text-[0.8rem]  bg-[#fffff] gap-0">
         {Object.keys(template)
           .reverse()
           .map((item, id) => {
@@ -78,9 +78,9 @@ const Codeblock = ({ template }) => {
               </button>
             );
           })}
-      </div>
+      </div> */}
       <div className="relative">
-         <button
+         {/* <button
           onClick={handleToggleCopyToggle}
           type="button"
           className={`bg-[#29334C] text-lg transition-all duration-300 ease-in-out flex items-start justify-center z-10 absolute top-2  right-2  p-2.5  rounded-md gap-2   ${
@@ -89,16 +89,14 @@ const Codeblock = ({ template }) => {
         >
           {!copyIsClicked ? (
             <div className="flex items-center justify-center gap-2">
-              {/* <span className="text-xs capitalize"> copy</span> */}
-              <TbClipboard></TbClipboard>
+               <TbClipboard></TbClipboard>
             </div>
           ) : (
             <div className="flex items-center justify-center gap-2">
-              {/* <span className="text-xs capitalize"> copied!</span> */}
               <TbClipboardCheck></TbClipboardCheck>
             </div>
           )}
-        </button>
+        </button> */}
         <SyntaxHighlighter
           {...(view === 0 ? { language: "html" } : { language: "css" })}
           wrapLongLines

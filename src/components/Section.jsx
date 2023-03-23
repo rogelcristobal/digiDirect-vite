@@ -97,22 +97,22 @@ const Section = ({
       id={title}
       className="flex-auto  box-border pb-0  px-0 w-full   scroll-mt-24  "
     >
-      {category &&  (
+      {/* {category &&  (
         <p
           className="text-base leading-[24px]  font-plus tracking-tight font-[600] mb-4 text-[#0098FA]"
         >
           {category}
         </p>
-      )}
+      )} */}
       <h2
         href={hash} //category
-        className={` font-inter text-black font-[500] capitalize  mb-4   max-w-2xl
-        ${header ? "text-[2rem] " : child ? "text-lg " : " text-[1.45rem]"}`}
+        className={` font-plus text-[#0a1c40]       max-w-2xl
+        ${header ? "text-[2.1rem] font-semibold mb-6" : child ? "text-lg font-semibold mb-4" : " text-2xl font-semibold mb-8"}`}
       >
         {title}
        
       </h2>
-      <div className="box-border font-inter  leading-[1.85rem] text-[16px] w-full max-w-[45rem] text-slate-700 font-[400]">{children}</div>
+      <div className="box-border font-inter prose  text-[16px] text-[#7c8494] w-full max-w-[50rem] font-[400]">{children}</div>
        {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
       <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>
