@@ -25,20 +25,20 @@ const Documentation = () => {
   return (
     <PageContainers>
       {/* page navigation */}
-      <div className=" w-[20rem] h-[calc(100vh-16rem)]   box-border top-28 sticky ">
+      <div className=" w-[22rem] thin-box-divider h-[calc(100vh-16rem)]   box-border top-28 sticky ">
         {/* other page nav */}
 
         {/* on page links */}
         <nav className="relative h-full rounded-md pr-[0rem] pl-6 py-2">
-          <p className=" text-sm  text-left   font-[600] capitalize ">
+          <p className=" text-sm  text-left text-gray-700  font-[600] capitalize ">
             On this page
           </p>
 
-          <div className=" text-slate-700 pl-0 text-left flex items-start flex-col justify-start  font-inter ">
+          <div className="  pl-0 text-left flex items-start flex-col justify-start  font-inter ">
             <a
               href={`#${state.category}`}
-              className={` relative text-[0.825rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
-                !state.viewState ? "text-gray-900" : " text-blue-500 "
+              className={` relative text-[1rem] mt-3 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
+                !state.viewState ? "text-gray-800" : " text-blue-500 "
               }`}
             >
               {state.title}
@@ -48,13 +48,13 @@ const Documentation = () => {
               <a
                 key={id}
                 href={`#${item.title}`}
-                className={` py-1.5 text-[0.825rem] font-[400] text-[#0098FA]  flex items-center justify-between gap-1  ${
-                  item.child && "pl-4"
+                className={` py-1 text-[14px] font-[400] text-[#0098FA]  flex items-center justify-between gap-1 font-inter  ${
+                  item.child ? "pl-4 ": "mt-3"
                 }  w-full  cursor-pointer  ${
-                  !item.viewState ? "text-gray-700" : " text-blue-500 "
+                  !item.viewState ? "text-[#333f48]" : " text-blue-500 "
                 }`}
               >
-                {item.title}
+              {item.title}
               </a>
             ))}
           </div>

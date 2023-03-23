@@ -11,7 +11,7 @@ const Codeblock = ({ template }) => {
     paddingTop: "1rem",
     paddingRight: "3rem",
     // paddingBottom:'1.5rem',
-    borderRadius: "10px",
+    // borderRadius: "10px",
     maxWidth: "45rem",
     minHeight: "3.5rem",
     fontSize: "0.785rem",

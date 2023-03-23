@@ -106,13 +106,13 @@ const Section = ({
       )}
       <h2
         href={hash} //category
-        className={` font-inter text-slate-700 font-[500] capitalize  mb-4 tracking-tight  max-w-2xl
-        ${header ? "text-[2rem] " : child ? "text-lg " : " text-[1.35rem]"}`}
+        className={` font-inter text-black font-[500] capitalize  mb-4   max-w-2xl
+        ${header ? "text-[2rem] " : child ? "text-lg " : " text-[1.45rem]"}`}
       >
         {title}
        
       </h2>
-      <div className="box-border font-inter  leading-7 text-[0.925rem] w-full max-w-[45rem] text-slate-800">{children}</div>
+      <div className="box-border font-inter  leading-[1.85rem] text-[16px] w-full max-w-[45rem] text-slate-700 font-[400]">{children}</div>
        {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
       <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>
