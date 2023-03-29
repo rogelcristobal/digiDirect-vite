@@ -15,7 +15,7 @@ const Item = ({ id, item }) => {
       onClick={handleClick}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`rounded-xl flex-shrink-0 w-[25rem] relative  px-5 py-6 cursor-pointer ${
+      className={`rounded-xl flex-shrink-0 w-[25rem] relative  px-5 py-4 cursor-pointer ${
         !state ? "bg-[#fbfbfb] " : "bg-[#f6f6f6]/90 "
       }`}
     >
@@ -27,14 +27,14 @@ const Item = ({ id, item }) => {
         19 apr
       </p>
       <p
-        className={`font-[600] mt-2 text-[1rem] ${
+        className={`font-[600] mt-3 text-[0.975rem] ${
           state ? "text-gray-700" : "text-gray-400"
         }`}
       >
         {item.title}
       </p>
       <p
-        className={` text-sm mt-2 truncate	overflow-hidden ${
+        className={` text-[0.85rem] mt-2 truncate	overflow-hidden ${
           state ? "text-gray-400" : "text-gray-500/40"
         }`}
       >
