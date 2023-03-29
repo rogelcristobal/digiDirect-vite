@@ -114,11 +114,11 @@ export const DocsProvider = ({ children }) => {
             information about the product's dimensions, weight, and any other
             relevant technical specifications.
             <br />
-            <Codeblock template={descriptionSimple}></Codeblock>
+            {/* <Codeblock template={descriptionSimple}></Codeblock> */}
             As demonstrated by the examples provided, the product description
             includes the product name, its key features, the Global Trade Item
             Number (GTIN) and the Manufacturer Part Number (MPIN).
-            <br />
+           
             <br />
             The product description should be written in a clear, concise, and
             easy-to-understand manner, and should be presented in a way that is
