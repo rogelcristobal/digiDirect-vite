@@ -1,64 +1,66 @@
 import React, { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import DropDown from "./DropDown";
-import {FiLayout,FiLayers} from 'react-icons/fi'
+import { FiLayout, FiLayers } from "react-icons/fi";
 const Sidebar = () => {
   const { state } = useContext(DocsContext);
 
   return (
-    <div className="h-[calc(100vh-3rem)] sticky top-[3.8rem]    overflow-y-auto  box-border flex-auto justify-start items-start w-[25.5rem]   ">
-      {/*sidebar content */}
-      <nav className="relative h-full w-full px-[0rem] mt-8 mb-40  box-border lg:px-[1.5rem] ">
-        {/* items */}
-        <div className="  h-full w-full text-left flex items-center flex-col justify-start  font-inter space-y-4">
-          <div className="w-full box-border  block">
-            <DropDown dropDownTitle={state && state.category} icon={<FiLayout/>} initialState>
-              {/* title section/href */}
-              <a
+    <div className="h-[calc(100vh-3rem)] sticky top-[0rem]  thin-right-divider  box-border  w-[23rem]   ">
+     
+      <nav className=" h-full w-full  overflow-y-auto  box-border  ">
+
+        {/* <div className=" pt-4   h-full w-full overflow-y-scroll pb-52 box-border ">
+          <div className="w-full box-border   h-full ">
+              <span className="font-semibold text-sm ml-6 ">On this page</span>
+               <a
                 href={`#${state.category}`}
-                className={`relative text-[0.875rem] capitalize  box-border  block font-[400] py-2 rounded-md
-                 w-full  cursor-pointer ${
+                className={` relative text-[0.850rem] mt-2 capitalize   box-border font-[400] text-left py-2 px-7  flex  font-inter ${
                    !state.viewState
-                     ? "text-slate-900"
-                     : " text-[#356be5] font-[500]"
+                     ? "text-gray-900"
+                     : " text-blue-500 bg-blue-400/10"
                  }`}
               >
                 {state.title}
+                 <div
+                    className={`h-[100%] w-[3px]   absolute top-1/2 -translate-y-1/2 left-0 ${
+                      state.viewState ? "bg-blue-500" : "bg-gray-100"
+                    }`}
+                  ></div>
               </a>
-              {/* content items */}
+   
               {state.sections.map((item, id) => (
                 <>
                   {item.category && (
-                    <p className=" text-[0.85rem] mt-4 lg:mb-3 box-border  text-left font-inter  font-semibold text-slate-900 capitalize ">
+                    <p className=" text-[0.850rem] mt-6 mb-2 box-border  text-left font-inter tracking-tight  inline-block px-7 font-semibold text-gray-900 capitalize ">
                       {item.category}
                     </p>
                   )}
                   <a
                     key={id}
                     href={`#${item.title}`}
-                    className={`relative text-[0.875rem] capitalize ml-3 inline-block box-border font-[400] py-1.5 rounded-md  font-inter ${
+                    className={` relative text-[0.850rem]  capitalize   box-border font-[400] text-left py-2 px-6 tracking-tight flex  font-inter  ${
                       item.child && "ml-0"
-                    }  w-full  cursor-pointer ${
+                    }  w-full  cursor-pointer  ${
                       !item.viewState
-                        ? "text-slate-700"
-                        : " text-[#356be5] font-[500] "
+                        ? "text-gray-700"
+                        : " text-blue-500 bg-blue-500/10"
                     }`}
                   >
                     {item.title}
 
-                    {/* <div
-                    className={`h-[90%] w-[1.5px]   absolute top-1/2 -translate-y-1/2 -left-5 ${
-                      item.viewState ? "bg-[#356be5]" : "bg-slate-100"
+                    <div
+                    className={`h-[100%] w-[3px]   absolute top-1/2 -translate-y-1/2 left-0 ${
+                      item.viewState ? "bg-blue-500" : "bg-gray-100"
                     }`}
-                  ></div> */}
+                  ></div>
                   </a>
                 </>
               ))}
-            </DropDown>
-            <DropDown dropDownTitle='Create product listing' icon={<FiLayers/>} ></DropDown>
-
+            
+          
           </div>
-        </div>
+        </div> */}
       </nav>
     </div>
   );

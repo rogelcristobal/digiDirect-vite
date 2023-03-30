@@ -4,7 +4,7 @@ const template = () => {
   <li> item1 </li>
   <li> item2 </li>
   <li> item3 </li>
-</ul> `,
+</ul>`,
   };
   const bundleInTheBox={
     tags:`<ul>
@@ -24,8 +24,7 @@ const template = () => {
   <li> Product Accessories </li>
   <li> Product Accessories </li>
   <li> Product Accessories </li>
-</ul>
-    `
+</ul>`
   }
 
   const specsMarkup = {
@@ -128,12 +127,10 @@ const template = () => {
     tags: `<p class="mText">
   The <strong class="h1Lit"> ProductName </strong> decription
 </p>     
-
 <h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
-  <li> Product Features </li>
+  <li> ProductFeatures </li>
 </ul>
-
 <p></p>
 <ul class="mpn">
   <li> MPN - Barcode1 </li>
@@ -183,25 +180,22 @@ const template = () => {
   The <strong class="h1Lit"> ProductName </strong> description.
 </p>
 <br/>
-
 <h2 class="h2Lit"> Key Features of the ProductName</h2>
 <ul>
-  <li> Product Features </li>
+  <li> ProductFeatures </li>
 </ul>
 <br />
-
 <div class="gText">
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> ProductFeatures </h2>
     <p> details </p>
   </div>
   <div>
-    <h2 class="h2Lit"><span class="h2Lit"> Product Features </h2>
+    <h2 class="h2Lit"><span class="h2Lit"> ProductFeatures </h2>
     <p> details </p>
   </div>
 </div>
 <br/>
-
 <ul class="mpn">
   <li> MPN - Barcode1 </li>
   <li>  GTIN - Barcode2 </li>
@@ -254,15 +248,14 @@ const template = () => {
 <br/>
 <h2 class="h2Lit"> Key Features of the ProductName </h2>
 <ul>
-  <li> Product Features </li>
-  <li> Product Features </li>
-  <li> Product Features </li>
-  <li> Product Features </li>
-  <li> Product Features </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
 </ul>
 <br/>
 <div class="l1div"></div>
-
 <h2 class="h2Lit">
   <strong> AdditionalProductName1 </strong>
 </h2>
@@ -270,7 +263,6 @@ const template = () => {
   The <strong class="h1Lit"> ProductName </strong> description </p>
   <p class="mText"> description</p>
 <br/>
-
 <div class="l1div"></div>
 <h2 class="h2Lit">
   <strong> AdditionalProductName2 </strong>
@@ -279,7 +271,6 @@ const template = () => {
   The <strongclass="h1Lit"> ProductName </strong> description </p>
   <pclass="mText"> description </p>
 <br/>
-
 <div class="l1div"></div>
 <h2 class="h2Lit">
   <strong> AdditionalProductName3 </strong>
@@ -288,7 +279,6 @@ const template = () => {
   The <strong class="h1Lit"> ProductName </strong> description </p>
   <p class="mText" description </p>
 <br/>
-
 <ul class="mpn">
 <li> MPN - Barcode1</li>
 <li> GTIN - Barcode2</li>
@@ -297,9 +287,9 @@ const template = () => {
 
   const shortDescription={
     tags:`<ul>
-  <li> Product Features </li>
-  <li> Product Features </li>
-  <li> Product Features </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
+  <li> ProductFeatures </li>
 </ul>`
   }
   const shortDescriptionKit={
@@ -307,30 +297,29 @@ const template = () => {
   <li>
     <strong> ComponentProductTitle </strong>
   </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
 </ul>
 <ul>
   <li>
     <strong> ComponentProductTitle </strong>
   </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
 </ul>
 <ul>
   <li>
     <strong> ComponentProductTitle </strong>
   </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-  <li> Product Features </ul>
-</ul>
-    `
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+  <li> ProductFeatures </ul>
+</ul>`
   }
   const seoMetaTitle = {
     text: `ProductName | Buy at digiDirect`,

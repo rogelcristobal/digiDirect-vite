@@ -6,6 +6,12 @@
   * {
     @apply box-border;
   }
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  background-color: transparent;
+  /* Change this to your desired color */
+}
 
   /* ::-webkit-scrollbar {
     @apply w-2 bg-neutral-300/40;

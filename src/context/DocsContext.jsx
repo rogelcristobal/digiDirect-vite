@@ -27,7 +27,7 @@ export const DocsProvider = ({ children }) => {
     sections: [
       {
         viewState: false,
-        category: "in the box",
+        category: "In the box",
         title: `What's in the box`,
         detail: (
           <div>
@@ -71,8 +71,8 @@ export const DocsProvider = ({ children }) => {
             details that describe the technical characteristics and features of
             a product. They are typically listed in the product description or
             specifications section of a website or catalog. Product
-            specifications can include information such as <Hightlight>dimensions, weight,
-            materials, power requirements, and any other technical details </Hightlight>  that
+            specifications can include information such as dimensions, weight,
+            materials, power requirements, and any other technical details  that
             are relevant to the product.
             <br />
             <Codeblock template={specsMarkup}></Codeblock>
@@ -114,11 +114,11 @@ export const DocsProvider = ({ children }) => {
             information about the product's dimensions, weight, and any other
             relevant technical specifications.
             <br />
-            <Codeblock template={descriptionSimple}></Codeblock>
+            {/* <Codeblock template={descriptionSimple}></Codeblock> */}
             As demonstrated by the examples provided, the product description
             includes the product name, its key features, the Global Trade Item
             Number (GTIN) and the Manufacturer Part Number (MPIN).
-            <br />
+           
             <br />
             The product description should be written in a clear, concise, and
             easy-to-understand manner, and should be presented in a way that is
@@ -149,7 +149,7 @@ export const DocsProvider = ({ children }) => {
       {
         viewState: false,
 
-        title: "kit/bundled description",
+        title: "Kit/bundled description",
         child: true,
         detail: (
           <div>
@@ -162,7 +162,7 @@ export const DocsProvider = ({ children }) => {
       },
       {
         viewState: false,
-        category: "product overview",
+        category: "Product overview",
         title: "Product overview",
         detail: (
           <div>
@@ -182,7 +182,7 @@ export const DocsProvider = ({ children }) => {
       {
         viewState: false,
 
-        title: "kit/bundled product overview",
+        title: "Kit/bundled product overview",
         child: true,
         detail: (
           <div>
@@ -199,6 +199,7 @@ export const DocsProvider = ({ children }) => {
         title: "Search engine optimization",
         detail: (
           <div>
+            
             Search Engine Optimization (SEO) is the process of optimizing a
             website or product listing to improve its visibility and ranking in
             search engine results pages (SERPs). This can be accomplished

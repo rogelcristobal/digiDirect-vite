@@ -39,8 +39,8 @@ const Section = ({
   useEffect(() => {
     // whenever the ref mounted
     if (ref.current) {
-      const top = Math.floor(ref.current.offsetTop) - 90;
-      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 100;
+      const top = Math.floor(ref.current.offsetTop) - 60;
+      const bottom = Math.floor(ref.current.getBoundingClientRect().height) + top + 60;
       setElementAttributes({
         top: top,
         bottom: bottom,
@@ -95,25 +95,26 @@ const Section = ({
     <div
       ref={ref}
       id={title}
-      
-      className="flex-auto  box-border pb-0   scroll-mt-24  "
+      className="flex-auto  box-border pb-0  px-0 w-full   scroll-mt-24  "
     >
-      {category && (
+      {/* {category &&  (
         <p
-          className="text-sm leading-[24px] capitalize font-inter font-[600] mb-2 text-[#356be5]"
+          className="text-base leading-[24px]  font-plus tracking-tight font-[600] mb-4 text-[#0098FA]"
         >
           {category}
         </p>
-      )}
+      )} */}
       <h2
         href={hash} //category
-        className={`text-slate-800  capitalize tracking-tight font-[600] mb-4   
-        ${header ? "text-3xl" : child ? "text-lg" : "text-2xl"}`}
+        className={` font-plus text-[#0a1c40]       max-w-2xl
+        ${header ? "text-[2.1rem] font-semibold mb-6" : child ? "text-lg font-semibold mb-4" : " text-2xl font-semibold mb-8"}`}
       >
         {title}
+       
       </h2>
-      <div className="box-border prose leading-7  prose-slate">{children}</div>
-      
+      <div className="box-border font-inter prose  text-[16px] text-[#7c8494] w-full max-w-[50rem] font-[400]">{children}</div>
+       {/* <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.top,left:0}}>{title} top</div>
+      <div className="bg-blue-300/10 text-red-600 z-50 absolute w-full" style={{top:elementAttributes.bottom ,left:0}}>{title} bottom</div> */}
     </div>
   );
 };

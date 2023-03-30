@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
       plus: ["Plus Jakarta Sans", "sans-serif"],
+      readex:["Readex Pro", "sans-serif"],
 
       // e-ukraine
       "ukraine-light": ["ukraine-light", "sans-serif"],

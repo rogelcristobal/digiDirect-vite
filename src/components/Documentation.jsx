@@ -3,7 +3,8 @@ import { useContext } from "react";
 import DocsContext from "../context/DocsContext";
 import Section from "./Section";
 import { Link } from "react-router-dom";
-import { FiChevronRight,FiHelpCircle } from "react-icons/fi";
+import { FiChevronRight, FiHelpCircle } from "react-icons/fi";
+import PageContainers from "./PageContainers";
 const Documentation = () => {
   const { state } = useContext(DocsContext);
 
@@ -22,34 +23,35 @@ const Documentation = () => {
   };
 
   return (
-    <div className="h-full box-border lg:pl-16 flex w-full pb-6 pt-10  justify-start    items-start scroll-smooth">
+    <PageContainers>
+      {/* page navigation */}
+      <div className="h-96 w-32"></div>
       {/* content container */}
-      <div className="box-border  flex-auto w-full  max-w-3xl ">
+      <div className="box-border flex-col  flex items-center justify-start  pt-2 px-8 max-w-[60rem] w-full">
         {/* header */}
         <div
           id={state.category}
-          className="scroll-mt-28  relative flex-auto mb-16  box-border"
+          className="scroll-mt-28 w-full  relative flex-auto mb-12  box-border"
         >
           <Section
-            title={state.title}
-            category={state.category}
+            title={'Product listing'}
+            // category={state.category}
             hash={state.category}
             header
           >
-            {state.detail}
+            {/* {state.detail} */}
           </Section>
         </div>
 
         {/* content */}
-        <div className=" space-y-14">
+        <div className="box-border   space-y-16 flex flex-col items-center justify-start w-full pb-72">
           {state.sections.map((item, id) => (
             <Section
               key={id}
               itemID={id}
               title={item.title}
-              category={item.category}
               hash={item.category}
-              // threshold={item.viewThreshold}
+              category={item.category}
               {...(item.child && { child: true })}
             >
               {item.detail}
@@ -57,32 +59,44 @@ const Documentation = () => {
           ))}
         </div>
       </div>
-      {/* page navigation */}
-      <div className=" w-[26rem]  h-fit py-4 box-border top-28 sticky ">
-        <nav className="relative h-full  pr-[1rem]">
-          <p className=" text-sm  text-left font-inter  font-[600] capitalize mb-3">
-            Get started
+
+
+       <div className=" w-[22rem] h-[calc(100vh-16rem)]    box-border top-32 mt-32 sticky ">
+        <nav className="relative h-full rounded-md pr-[0rem] pl-6 py-2">
+          <p className=" text-sm  text-left text-[#0a1c40] mb-3 font-[600] capitalize ">
+            On this page
           </p>
-          <div className="space-y-2 text-slate-700 pl-4 text-left flex items-start flex-col justify-start  font-inter ">
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1"
+
+          <div className="  pl-4 text-left flex items-start flex-col justify-start  font-inter ">
+            {/* <a
+              href={`#${state.category}`}
+              className={` relative text-[14px] mt-3 capitalize   box-border font-[400] text-left py-2 px-0  flex  font-inter ${
+                !state.viewState ? "text-gray-800" : " text-blue-500 "
+              }`}
             >
-              <FiChevronRight className="text-[1rem] 0 " />
-                Quick create
-            </Link>
-            <Link
-              to=""
-              className=" py-1 text-[0.85rem] font-[400] hover:text-[#356be5] text-slate-700 flex items-center justify-between gap-1"
-            >
-              <FiChevronRight className="text-[1rem] 0 " />
-              Create custom template
-              <FiHelpCircle className="text-slate-500/50 ml-2"/>
-            </Link>
+              {state.title}
+            </a> */}
+
+            {state.sections.map((item, id) => (
+              <>
+                {/* {item.category&& <span className="mt-4 mb-2 text-[14px] text-[#7c8494]  font-[400] flex items-center justify-between gap-1 font-inter">{item.category}</span>} */}
+                <a
+                key={id}
+                href={`#${item.title}`}
+                className={` py-1 text-[14px] font-[400] text-[#0098FA]  flex items-center justify-between gap-1 font-inter  ${
+                  item.child ? "pl-5 ": "mt-2"
+                }  w-full  cursor-pointer  ${
+                  !item.viewState ? "text-[#7c8494]" : " text-blue-500 font-medium"
+                }`}
+              >
+              {item.title}
+              </a>
+              </>
+            ))}
           </div>
         </nav>
       </div>
-    </div>
+    </PageContainers>
   );
 };
 
