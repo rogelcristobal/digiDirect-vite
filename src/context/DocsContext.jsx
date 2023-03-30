@@ -199,6 +199,7 @@ export const DocsProvider = ({ children }) => {
         title: "Search engine optimization",
         detail: (
           <div>
+            
             Search Engine Optimization (SEO) is the process of optimizing a
             website or product listing to improve its visibility and ranking in
             search engine results pages (SERPs). This can be accomplished

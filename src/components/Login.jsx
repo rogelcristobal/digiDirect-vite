@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import {
   BiGridSmall,
   BiListUl,
+  BiNote,
   BiBookOpen,
   BiLeftArrowAlt,
   BiCategory,
 } from "react-icons/bi";
-import { Routes, Route, useNavigate, Link } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Content from "./Content";
 import DocsContext from "../context/DocsContext";
 import Searchbar from "./Searchbar";
 import Item from "./Item";
+import ItemContainer from "./ItemContainer";
 const Login = () => {
   const navigate = useNavigate();
   const { state } = React.useContext(DocsContext);
@@ -19,24 +21,33 @@ const Login = () => {
       <Route
         path="/*"
         element={
-          <div className="font-plus bg-[#ffffff] text-gray-900 racking-tight h-screen flex items-start justify-start">
-            {/* <div className=" h-screen w-[25rem] thin-right-divider"></div> */}
-            <div className="pt-20  container mx-auto h-full">
+          <div className="font-plus thin-box-divider bg-[#131415] text-gray-100  h-screen relative flex items-start justify-start">
+            {/* sidebar */}
+            <div className=" h-screen w-[20rem] flex-shrink-0  bg-[#1e1f21] flex">
+             
+              <div className="pt-20 h-full  w-full px-4">
+                <div className="text-[0.85rem] font-medium bg-[#131415]  px-[1.25rem] py-2.5 rounded-md flex items-center justify-start gap-3 cursor-pointer"> 
+                 {/* <BiNote className="text-lg"/> */}
+                 <div className="rounded-full h-2.5 w-2.5 bg-blue-500"></div>
+                <span>My Notes</span>
+                </div>
+              </div>
+            </div>
+            <div className=" w-full px-8  pt-24 h-full">
               {/* content here */}
-              <div className="w-full mx-auto max-w-6xl">
+              <div className="w-full  max-w-7xl h-full  ">
                 <div
                   onClick={() => navigate("/")}
-                  className="text-[1.7rem] font-semibold cursor-pointer relative"
+                  className="text-[1.45rem] font-medium w-fit cursor-pointer relative"
                 >
                   My Notes
                 </div>
-
-                <div className="mt-12 flex items-center just-center gap-3">
+                <div className="mt-8 flex items-center just-center gap-3">
                   <Searchbar></Searchbar>
-                  <div className="text-2xl h-10 px-2.5 cursor-pointer  hover:bg-[#fbfbfb] rounded-lg flex items-center justify-center ">
+                  <div className="text-2xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
                     <BiGridSmall />
                   </div>
-                  <div className="text-xl h-10 px-2.5 cursor-pointer  hover:bg-[#fbfbfb] rounded-lg flex items-center justify-center ">
+                  <div className="text-xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
                     <BiListUl />
                   </div>
                 </div>
@@ -45,46 +56,7 @@ const Login = () => {
                   <Route
                     path="/"
                     element={
-                      // <div className="flex-shrink-0 h-[29rem] mt-6 grid grid-flow-col w-fit gap-5 grid-cols-4">
-
-                      //     <div
-                      //     onClick={()=>navigate('/newstel')}
-                      //       className={`flex flex-col items-start justify-around px-5 w-56 pb-5 h-40 rounded-xl cursor-pointer medium-box-divider  `}
-                      //     >
-                      //       <div className=" w-full h-full flex items-center justify-start">
-                      //         <BiBookOpen className="text-[1.5rem]" />
-                      //       </div>
-                      //       <div className="  w-full h-full">
-                      //         <p className=" font-semibold">Newstel</p>
-                      //         <p className="mt-2 text-[#7c8494] text-xs">
-                      //           High-quality contact center based in Hamburg,
-                      //           Germany.
-                      //         </p>
-                      //       </div>
-                      //     </div>
-
-                      //     <div
-                      //       onClick={()=>navigate('/digiDirect')}
-                      //       className={`flex  flex-col items-start justify-around px-5 w-56 pb-5 h-40 rounded-xl cursor-pointer medium-box-divider`}
-                      //     >
-                      //       <div className=" w-full h-full flex items-center justify-start">
-                      //         <BiBookOpen className="text-[1.5rem] " />
-                      //       </div>
-                      //       <div className="  w-full h-full">
-                      //         <p className=" font-semibold">DigiDirect</p>
-                      //         <p className="mt-2 text-[#7c8494] text-xs">
-                      //           digiDirect Templates and tools for product
-                      //           listings.
-                      //         </p>
-                      //       </div>
-                      //     </div>
-
-                      // </div>
-                      <div className="flex flex-col font-plus h-screen overflow-y-scroll w-[28rem] mt-6 items-start justify-start  pt-2 space-y-3.5 ">
-                        {state.sections.map((item, id) => (
-                          <Item item={item}></Item>
-                        ))}
-                      </div>
+                      <ItemContainer state={state}/>
                     }
                   ></Route>
                   <Route path="/digiDirect" element={<Content />}></Route>

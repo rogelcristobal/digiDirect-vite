@@ -15,27 +15,29 @@ const Item = ({ id, item }) => {
       onClick={handleClick}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`rounded-xl flex-shrink-0 w-[25rem] relative  px-5 py-4 cursor-pointer ${
-        !state ? "bg-[#fbfbfb] " : "bg-[#f6f6f6]/90 "
-      }`}
+      className={`rounded-lg flex-shrink-0 w-[24rem] my-3.5 relative  px-4 py-4  cursor-pointer 
+      ${
+        !state ? "bg-[#131415] " : "bg-[#0c0c0d] box-border border-[2px] border-solid border-white"
+      }
+      `}
     >
       <p
-        className={`capitalize text-sm ${
-          state ? "text-gray-900" : "text-gray-400/50"
+        className={`capitalize text-[0.8rem] ${
+          state ? "text-neutral-500" : "text-neutral-200/50"
         }`}
       >
         19 apr
       </p>
       <p
-        className={`font-[600] mt-3 text-[0.975rem] ${
-          state ? "text-gray-700" : "text-gray-400"
+        className={`font-[500] mt-3 text-[0.9rem] ${
+          state ? "text-neutral-100" : "text-neutral-400"
         }`}
       >
         {item.title}
       </p>
       <p
         className={` text-[0.85rem] mt-2 truncate	overflow-hidden ${
-          state ? "text-gray-400" : "text-gray-500/40"
+          state ? "text-neutral-500" : "text-neutral-500/40"
         }`}
       >
         {item.detail.props.children[0]}
@@ -43,7 +45,7 @@ const Item = ({ id, item }) => {
       {/* {item.category && (
         <div
           className={`text-[0.85rem] mt-6 ${
-            state ? "bg-[#f0eeee] text-gray-500" : "text-gray-300 bg-[#f7f7f7]"
+            state ? "bg-[#f0eeee] text-neutral-500" : "text-neutral-300 bg-[#f7f7f7]"
           }  py-1.5 rounded-md px-3 w-fit`}
         >
           {item.category}
@@ -52,10 +54,10 @@ const Item = ({ id, item }) => {
 
       <div
       onClick={(e)=>e.stopPropagation()}
-        className={`absolute top-3.5 right-3 text-xl rounded-full p-2  ${
+        className={`absolute top-2 right-2 text-xl rounded-full p-2  ${
           state
-            ? "text-gray-300 hover:text-gray-400 hover:bg-[#f0eeee]"
-            : "text-gray-300 hover:bg-[#f7f7f7]"
+            ? "text-neutral-400 hover:text-neutral-400 hover:bg-[#1b1c1d]"
+            : "text-neutral-400/40 hover:bg-[#1b1c1d]"
         }`}
       >
         <BiDotsVerticalRounded />
