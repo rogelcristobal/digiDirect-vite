@@ -14,6 +14,10 @@ module.exports = {
       "ukraine-medium": ["ukraine-medium", "sans-serif"],
       "ukraine-bold": ["ukraine-bold", "sans-serif"],
 
+      "liberationRegular": ["liberationRegular", "sans-serif"],
+      "liberationBold": ["liberationBold", "sans-serif"],
+
+
       "ukraineHead-bold": ["ukraineHead-bold", "sans-serif"],
       "ukraineHead-light": ["ukraineHead-light", "sans-serif"],
       "ukraineHead-title": ["ukraineHead-title", "sans-serif"],

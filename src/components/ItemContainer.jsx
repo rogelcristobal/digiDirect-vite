@@ -17,9 +17,9 @@ const ItemContainer = ({ state }) => {
             background-color: red;
         }
       `;
-        Scrollbar.detachStyle();
+      Scrollbar.detachStyle();
 
-    //   scrollbar.attachStyle(myStyles);
+      //   scrollbar.attachStyle(myStyles);
     }
     // return () => {
     //   if (ref.current) {
@@ -35,6 +35,9 @@ const ItemContainer = ({ state }) => {
       {state.sections.map((item, id) => (
         <Item key={id} item={item}></Item>
       ))}
+      {/* <Item item={state.sections[0]}></Item>
+      <Item item={state.sections[1]}></Item>
+      <Item item={state.sections[2]}></Item> */}
     </div>
   );
 };

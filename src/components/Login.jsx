@@ -21,28 +21,28 @@ const Login = () => {
       <Route
         path="/*"
         element={
-          <div className="font-plus thin-box-divider bg-[#131415] text-gray-100  h-screen relative flex items-start justify-start">
+          <div className="font-inter thin-box-divider bg-[#131415] text-gray-100  h-screen relative flex items-start justify-start ">
             {/* sidebar */}
-            <div className=" h-screen w-[20rem] flex-shrink-0  bg-[#1e1f21] flex">
+            <div className=" h-screen w-[16rem] flex-shrink-0  bg-[#1a1b1d] flex">
              
-              <div className="pt-20 h-full  w-full px-4">
-                <div className="text-[0.85rem] font-medium bg-[#131415]  px-[1.25rem] py-2.5 rounded-md flex items-center justify-start gap-3 cursor-pointer"> 
+              <div className="pt-12 h-full  w-full px-3">
+                <div className="text-[0.75rem] font-medium bg-[#1e1f21]  px-[1rem] py-2 rounded-md flex items-center justify-start gap-2 cursor-pointer"> 
                  {/* <BiNote className="text-lg"/> */}
-                 <div className="rounded-full h-2.5 w-2.5 bg-blue-500"></div>
+                 <div className="rounded-full h-2 w-2 bg-blue-500"></div>
                 <span>My Notes</span>
                 </div>
               </div>
             </div>
-            <div className=" w-full px-8  pt-24 h-full">
+            <div className=" w-full px-8  pt-16 h-full">
               {/* content here */}
               <div className="w-full  max-w-7xl h-full  ">
                 <div
                   onClick={() => navigate("/")}
-                  className="text-[1.45rem] font-medium w-fit cursor-pointer relative"
+                  className="text-[1.3rem] text-[rgb(255,255,255)] font-medium w-fit cursor-pointer relative"
                 >
                   My Notes
                 </div>
-                <div className="mt-8 flex items-center just-center gap-3">
+                <div className="mt-4 flex items-center just-center gap-3">
                   <Searchbar></Searchbar>
                   <div className="text-2xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
                     <BiGridSmall />

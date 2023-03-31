@@ -15,29 +15,29 @@ const Item = ({ id, item }) => {
       onClick={handleClick}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`rounded-lg flex-shrink-0 w-[24rem] my-3.5 relative  px-4 py-4  cursor-pointer 
+      className={`rounded-lg flex-shrink-0 w-[23rem] my-2.5 relative  px-3 py-3  cursor-pointer 
       ${
-        !state ? "bg-[#131415] " : "bg-[#0c0c0d] box-border border-[2px] border-solid border-white"
+        !state ? "bg-inherit " : "bg-[#0c0c0d]"
       }
       `}
     >
       <p
-        className={`capitalize text-[0.8rem] ${
-          state ? "text-neutral-500" : "text-neutral-200/50"
+        className={`capitalize text-[0.7rem] font-liberationRegular tracking-tighter ${
+          state ? "text-neutral-200/20" : "text-neutral-200/20"
         }`}
       >
         19 apr
       </p>
       <p
-        className={`font-[500] mt-3 text-[0.9rem] ${
-          state ? "text-neutral-100" : "text-neutral-400"
+        className={`font-[500] mt-2 text-[0.85rem] ${
+          state ? "text-neutral-200" : "text-[rgb(178,179,182)]"
         }`}
       >
         {item.title}
       </p>
       <p
-        className={` text-[0.85rem] mt-2 truncate	overflow-hidden ${
-          state ? "text-neutral-500" : "text-neutral-500/40"
+        className={`tracking-tighter text-[0.8rem] mt-2 truncate font-liberationRegular	overflow-hidden ${
+          state ? "text-[rgb(113,113,113)]" : "text-[rgb(113,113,113)]/50"
         }`}
       >
         {item.detail.props.children[0]}
