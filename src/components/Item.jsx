@@ -1,6 +1,7 @@
 import React from "react";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-const Item = ({ id, item }) => {
+import { BiDotsVerticalRounded,BiNote } from "react-icons/bi";
+
+const Item = ({ dateUpdate, title, description }) => {
   const [hover, setHover] = React.useState(false);
   const handleHover = () => {
     setHover(!hover);
@@ -11,53 +12,27 @@ const Item = ({ id, item }) => {
   };
   return (
     <div
-      key={id}
       onClick={handleClick}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`rounded-lg flex-shrink-0 w-[23rem] my-2.5 relative  px-3 py-3  cursor-pointer 
-      ${
-        !state ? "bg-inherit " : "bg-[#0c0c0d]"
-      }
+      className={`rounded-lg flex items-center justify-start flex-shrink-0 w-[15rem] my-2 relative  px-6 py-4 cursor-pointer overflow-hidden 
+      ${!state ? "dark:bg-inherit " : "dark:bg-[#0c0c0d] bg-[#f6f6f6]/80"}
       `}
     >
-      <p
-        className={`capitalize text-[0.7rem] font-liberationRegular tracking-tighter ${
-          state ? "text-neutral-200/20" : "text-neutral-200/20"
-        }`}
+      
+      <p className={`font-medium tracking-tight font-inter flex items-center justify-start gap-3 max-w-[90%] text-[0.9rem] ${state ? " text-gray-900" : "dark:text-[#d3d3d3] text-gray-300"}`}
       >
-        19 apr
+        <BiNote className={`text-lg ${state?'text-gray-900':'text-gray-300'}`}/>
+        {title}
       </p>
-      <p
-        className={`font-[500] mt-2 text-[0.85rem] ${
-          state ? "text-neutral-200" : "text-[rgb(178,179,182)]"
-        }`}
-      >
-        {item.title}
-      </p>
-      <p
-        className={`tracking-tighter text-[0.8rem] mt-2 truncate font-liberationRegular	overflow-hidden ${
-          state ? "text-[rgb(113,113,113)]" : "text-[rgb(113,113,113)]/50"
-        }`}
-      >
-        {item.detail.props.children[0]}
-      </p>
-      {/* {item.category && (
-        <div
-          className={`text-[0.85rem] mt-6 ${
-            state ? "bg-[#f0eeee] text-neutral-500" : "text-neutral-300 bg-[#f7f7f7]"
-          }  py-1.5 rounded-md px-3 w-fit`}
-        >
-          {item.category}
-        </div>
-      )} */}
+    
 
       <div
-      onClick={(e)=>e.stopPropagation()}
-        className={`absolute top-2 right-2 text-xl rounded-full p-2  ${
+        onClick={(e) => e.stopPropagation()}
+        className={`absolute top-1/2 -translate-y-1/2 right-1.5 text-xl rounded-full p-2  ${
           state
-            ? "text-neutral-400 hover:text-neutral-400 hover:bg-[#1b1c1d]"
-            : "text-neutral-400/40 hover:bg-[#1b1c1d]"
+            ? "text-gray-100 hover:bg-[#2f4570] "
+            : "text-gray-400/40 hover:dark:bg-[#1b1c1d]"
         }`}
       >
         <BiDotsVerticalRounded />

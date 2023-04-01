@@ -21,7 +21,7 @@ const Searchbar = () => {
     };
     const handleKeyDown = (e) => {
       if (e.ctrlKey && e.key === "k") {
-        setState(!state);
+        setState(true);
         inputRef.current.focus();
         e.preventDefault();
       }
@@ -37,15 +37,15 @@ const Searchbar = () => {
     <div
       ref={ref}
       onClick={handleClick}
-      className={`text-lg h-9 pl-3 gap-3 cursor-pointer  flex items-center justify-center rounded-lg w-fit bg-inherit
+      className={`text-lg h-11 thin-box-divider px-3 gap-3 cursor-pointer flex-shrink-0 flex items-center justify-center rounded-lg w-fit ${state?'':''}
       }`}
     >
-      <BiSearch className={`flex-shrink-0 ${state ? "text-blue-500":"text-[#7c8494]/50"}`} />
+      <BiSearch className={`flex-shrink-0 text-[1.275rem] ${state ? "text-blue-500":"text-[#7c8494]/50"}`} />
       <input
         ref={inputRef}
         type="text"
-        className="placeholder:text-[0.8rem]  placeholder:text-[#7c8494]/50 px-2 text-sm h-full focus:outline-none w-52 cursor-pointer rounded-r-lg"
-        placeholder="Press CTRL + 'K' to search"
+        className="placeholder:text-[0.875rem] placeholder:font-medium placeholder:text-[#7c8494]/40 px-2 text-sm h-full focus:outline-none w-96 cursor-pointer rounded-r-lg placeholder:font-plus"
+        placeholder="Quick search"
         onChange={handleInput}
         value={query}
       />

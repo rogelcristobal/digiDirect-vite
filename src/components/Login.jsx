@@ -1,66 +1,107 @@
-import React, { useState, useEffect } from "react";
-import {
-  BiGridSmall,
-  BiListUl,
-  BiNote,
-  BiBookOpen,
-  BiLeftArrowAlt,
-  BiCategory,
-} from "react-icons/bi";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Content from "./Content";
-import DocsContext from "../context/DocsContext";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { BiFolder, BiNote, BiChevronRight, BiCog } from "react-icons/bi";
 import Searchbar from "./Searchbar";
-import Item from "./Item";
-import ItemContainer from "./ItemContainer";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+import { key } from "localforage";
+
 const Login = () => {
-  const navigate = useNavigate();
-  const { state } = React.useContext(DocsContext);
+  const ref = React.useRef(null);
+  React.useEffect(() => {}, [ref]);
+
+  const userCollectionRef = collection(db, "notes");
+ 
+  const [users, setUsers] = React.useState([]);
+
+  React.useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getUsers();
+  }, []);
+  if(users){console.log(users[0]?.categories[0].data)}
+
+
+  
+
   return (
     <Routes>
       <Route
         path="/*"
         element={
-          <div className="font-inter thin-box-divider bg-[#131415] text-gray-100  h-screen relative flex items-start justify-start ">
+          <div className="font-plus tracking-tight bg-[#ffffff] text-[#122132]/90  h-screen relative flex  items-start justify-start ">
+            
             {/* sidebar */}
-            <div className=" h-screen w-[16rem] flex-shrink-0  bg-[#1a1b1d] flex">
-             
-              <div className="pt-12 h-full  w-full px-3">
-                <div className="text-[0.75rem] font-medium bg-[#1e1f21]  px-[1rem] py-2 rounded-md flex items-center justify-start gap-2 cursor-pointer"> 
-                 {/* <BiNote className="text-lg"/> */}
-                 <div className="rounded-full h-2 w-2 bg-blue-500"></div>
-                <span>My Notes</span>
+            <div className="h-screen bg-gray-50 w-fit flex-shrink-0  dark:bg-[#1a1b1d] flex items-start justify-start">
+              {/* category */}
+              <div className="flex-shrink-0 h-full w-[4.5rem] flex flex-col items-center justify-start py-8 thin-right-divider">
+                <div className="flex flex-col items-start justify-start h-full">
+                  <div className="h-11 w-[3rem] text-gray-100 rounded-lg bg-blue-500 p-1.5 flex flex-col items-end justify-end">
+                    <span className="text-sm font-medium">Ne</span>
+                  </div>
+                </div>
+                <div>
+                  <BiCog className="text-2xl text-[#a8a7a7]" />
+                </div>
+              </div>
+              {/* links */}
+              <div className="h-full w-[20rem] flex-shrink-0">
+                <div className=" mt-28 min-h-[4rem] px-6  w-full">
+                  <div className="px-0 text-[0.875rem] mb-6 font-semibold flex items-center justify-start gap-3">
+                    <BiFolder className="text-xl" />
+                    <span>Collections</span>
+                  </div>
+                  {/* items */}
+                  {users[0]?.categories.map((item,id) => (
+                    <div key={id} className=" cursor-pointer  bg-[#f4f4f4] py-3 rounded-lg px-4 text-[0.85rem] my-2 flex items-center justify-start gap-3 font-semibold">
+                      <div className="flex items-center justify-start gap-3 w-full">
+                        <BiNote className="text-lg " />
+                        <span>{item.category}</span>
+                      </div>
+                      <BiChevronRight className="text-xl" />
+                    </div>
+                  ))}
+                  {/* <p>
+
+                    {sample.split('\n').map((item,id)=>(
+                      <React.Fragment key={id}>
+                        {item}
+                        <br />
+                      </React.Fragment>
+                      ))}
+                      </p> */}
                 </div>
               </div>
             </div>
-            <div className=" w-full px-8  pt-16 h-full">
-              {/* content here */}
-              <div className="w-full  max-w-7xl h-full  ">
-                <div
-                  onClick={() => navigate("/")}
-                  className="text-[1.3rem] text-[rgb(255,255,255)] font-medium w-fit cursor-pointer relative"
-                >
-                  My Notes
+
+            {/* content */}
+            <div className="w-fit h-full ">
+              <div className="flex items-start pt-20 justify-start px-10 w-full flex-col">
+                <span className="text-[1.6rem] font-semibold">My Notes</span>
+                <div className="mt-8">
+                  <Searchbar />
                 </div>
-                <div className="mt-4 flex items-center just-center gap-3">
-                  <Searchbar></Searchbar>
-                  <div className="text-2xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
-                    <BiGridSmall />
-                  </div>
-                  <div className="text-xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
-                    <BiListUl />
-                  </div>
+                <div className=" mt-2 rounded-lg py-3 h-[75vh] w-full flex flex-col items-center justify-start overflow-y-scroll pr-4">
+                  {users[0]?.categories[0].data.map((item, id) => (
+                    <div
+                      key={id}
+                      className="h-fit px-4 py-5 bg-[#f6f6f6]/70 w-96 rounded-lg  cursor-pointer my-1.5"
+                    >
+                      <p className="font-semibold capitalize mb-5 text-[0.9rem]  text-[#122132]/90">
+                        {item.title}
+                      </p>
+                      {/* <p className="text-[0.9rem] font-medium overflow-hidden truncate font-libreationRegular tracking-tight text-[#122132]/40">{item.detail.split(/<br\s*\/?>/).map((item,id)=>(
+                        <React.Fragment key={id}>
+                        {item}
+                        <br />
+                      </React.Fragment>
+                      ))}</p> */}
+                    </div>
+                  ))}
+                 
                 </div>
-                {/* content */}
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <ItemContainer state={state}/>
-                    }
-                  ></Route>
-                  <Route path="/digiDirect" element={<Content />}></Route>
-                </Routes>
               </div>
             </div>
           </div>
