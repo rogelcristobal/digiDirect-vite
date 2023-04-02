@@ -48,7 +48,9 @@ const Login = () => {
                     <span>Collections</span>
                   </div>
                   {/* items */}
-                  {users[0]?.categories.map((item, id) => (
+                  {
+                    users&&
+                    users[0]?.categories.map((item, id) => (
                     <div
                       key={id}
                       className={` cursor-pointer   py-3 rounded-lg px-4 text-[0.85rem] my-2 flex items-center justify-start gap-3 font-semibold ${
@@ -63,7 +65,8 @@ const Login = () => {
                       </div>
                       <BiChevronRight className="text-xl" />
                     </div>
-                  ))}
+                  ))
+                  }
                 </div>
               </div>
             </div>
