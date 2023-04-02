@@ -5,27 +5,21 @@ import Searchbar from "./Searchbar";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import Item from "./Item";
-import Scrollbar from "smooth-scrollbar";
+import NoteSelectContainer from "./NoteSelectContainer";
 const Login = () => {
   const ref = React.useRef(null);
-  const scrollRef = React.useRef(null);
 
   const userCollectionRef = collection(db, "notes");
 
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(() => {
-    
-    Scrollbar.init(scrollRef.current)
-    
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getUsers();
-    
   }, []);
-
 
   return (
     <Routes>
@@ -34,7 +28,7 @@ const Login = () => {
         element={
           <div className="font-plus tracking-tight bg-[#eaeced] text-[#102031]  h-screen relative flex  items-start justify-start ">
             {/* sidebar */}
-            <div className="h-screen bg-gray-50 w-fit sample flex-shrink-0   flex items-start justify-start">
+            <div className="h-screen bg-gray-50 w-fit  flex-shrink-0   flex items-start justify-start">
               {/* category */}
               <div className="flex-shrink-0 h-full w-[4.5rem] flex flex-col items-center justify-start py-8 thin-right-divider">
                 <div className="flex flex-col items-start justify-start h-full">
@@ -75,18 +69,15 @@ const Login = () => {
             </div>
 
             {/* content */}
-            <div className="w-full h-full flex items-center justify-start py-6">
-              <div className="flex h-full rounded-lg  sample bg-white mx-4 items-start pt-0 justify-start px-0 w-[25rem]  flex-col">
+            <div className="w-full h-full flex items-center justify-start pb-6 pt-28">
+              <div className="flex h-full rounded-lg   bg-white mx-4 items-start pt-0 justify-start px-0 w-[25rem]  flex-col">
                 <span className="text-[1.075rem] ml-6 mt-6 mb-6 tracking-tight font-semibold">
                   Select notes
                 </span>
                 <div className="pb-4 thin-bottom-divider w-full px-2">
                   <Searchbar />
                 </div>
-                <div
-                  ref={scrollRef}
-                  className="  py-2 h-screen w-full flex flex-col items-center justify-start  px-1 overflow-auto"
-                >
+                <NoteSelectContainer deps={users[0]}>
                   {/* items */}
                   {/* {Array.from({length:10},(item,id)=>(
                     <div key={id} className="h-52 flex-shrink-0 w-full my-2 bg-blue-500"></div>
@@ -94,10 +85,9 @@ const Login = () => {
                   {users[0]?.categories[0].data.map((item, id) => (
                     <Item key={id} id={id} item={item}></Item>
                   ))}
-                  {users[0]?.categories[0].data.map((item, id) => (
-                    <Item key={id} id={id} item={item}></Item>
-                  ))}
-                </div>
+                  
+                 
+                </NoteSelectContainer>
               </div>
             </div>
           </div>

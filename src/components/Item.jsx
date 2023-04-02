@@ -1,5 +1,5 @@
 import React from "react";
-import { BiDetail } from "react-icons/bi";
+import { BiNote } from "react-icons/bi";
 const Item = ({ item, id }) => {
   return (
     <div
@@ -8,11 +8,11 @@ const Item = ({ item, id }) => {
       } relative px-5 py-6 cursor-pointer my-0  flex-shrink-0`}
     >
       <div className="font-bold flex items-center justify-start relative mb-3 text-[0.875rem]  text-[#122132]/80">
-        {/* <BiDetail
+        <BiNote
           className={`text-xl mr-3  ${
-            id == 0 ? "text-blue-500" : "text-[#122132]/20"
+            id == 0 ? "text-[#122132]/20" : "text-[#122132]/20"
           }`}
-        /> */}
+        />
         <span
           className={`max-w-[75%] w-full  overflow-hidden truncate ${
             !id == 0 ? "text-[#122132]/30 " : ""
@@ -22,7 +22,7 @@ const Item = ({ item, id }) => {
         </span>
       </div>
       <p
-        className={`text-[0.825rem] mx-0 font-semibold overflow-hidden truncate font-libreationRegular tracking-tight ${id==0?"text-[#122132]/50":"text-[#122132]/30"} `}
+        className={`text-[0.825rem] mx-8 font-semibold overflow-hidden truncate font-libreationRegular tracking-tight ${id==0?"text-[#122132]/50":"text-[#122132]/30"} `}
       >
         {item.detail}
         {/* {item.detail.split(/<br\s*\/?>/).map((item, id) => (
@@ -32,13 +32,9 @@ const Item = ({ item, id }) => {
           </React.Fragment>
         ))} */}
       </p>
-      {/* {id==0&&<p className={`mt-3 text-sm text-blue-500`}>Copy text</p>} */}
       {id == 0 ? (
         <div className="absolute h-full w-1 bg-[#3286fb] top-0 -left-1"></div>
       ) : null}
-        
-        
-      
     </div>
   );
 };
