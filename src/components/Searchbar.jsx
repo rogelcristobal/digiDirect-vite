@@ -28,23 +28,23 @@ const Searchbar = () => {
     };
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("mousedown", handleDocumentClick);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("mousedown", handleDocumentClick);
-    };
+    // return () => {
+    //   document.removeEventListener("keydown", handleKeyDown);
+    //   document.removeEventListener("mousedown", handleDocumentClick);
+    // };
   }, [ref && inputRef]);
   return (
     <div
       ref={ref}
       onClick={handleClick}
-      className={`text-lg h-11 thin-box-divider px-3 gap-3 cursor-pointer flex-shrink-0 flex items-center justify-center rounded-lg w-fit ${state?'':''}
+      className={`text-lg h-11  px-3 gap-3 cursor-pointer flex-shrink-0 flex items-center justify-center rounded-lg w-ful ${state?'':''}
       }`}
     >
-      <BiSearch className={`flex-shrink-0 text-[1.275rem] ${state ? "text-blue-500":"text-[#7c8494]/50"}`} />
+      <BiSearch className={`flex-shrink-0 text-[1.325rem] ${state ? "text-[#3286f9]":"text-[#7c8494]/50"}`} />
       <input
         ref={inputRef}
         type="text"
-        className="placeholder:text-[0.875rem] placeholder:font-medium placeholder:text-[#7c8494]/40 px-2 text-sm h-full focus:outline-none w-96 cursor-pointer rounded-r-lg placeholder:font-plus"
+        className="placeholder:text-[0.9rem] placeholder:font-medium placeholder:text-[#7c8494]/40 px-2 text-sm h-full focus:outline-none w-full cursor-pointer rounded-r-lg placeholder:font-plus"
         placeholder="Quick search"
         onChange={handleInput}
         value={query}

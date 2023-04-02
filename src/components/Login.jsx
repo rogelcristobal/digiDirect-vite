@@ -4,41 +4,41 @@ import { BiFolder, BiNote, BiChevronRight, BiCog } from "react-icons/bi";
 import Searchbar from "./Searchbar";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-import { key } from "localforage";
-
+import Item from "./Item";
+import Scrollbar from "smooth-scrollbar";
 const Login = () => {
   const ref = React.useRef(null);
-  React.useEffect(() => {}, [ref]);
+  const scrollRef = React.useRef(null);
 
   const userCollectionRef = collection(db, "notes");
- 
+
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(() => {
+    
+    Scrollbar.init(scrollRef.current)
+    
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getUsers();
+    
   }, []);
-  if(users){console.log(users[0]?.categories[0].data)}
 
-
-  
 
   return (
     <Routes>
       <Route
         path="/*"
         element={
-          <div className="font-plus tracking-tight bg-[#ffffff] text-[#122132]/90  h-screen relative flex  items-start justify-start ">
-            
+          <div className="font-plus tracking-tight bg-[#eaeced] text-[#102031]  h-screen relative flex  items-start justify-start ">
             {/* sidebar */}
-            <div className="h-screen bg-gray-50 w-fit flex-shrink-0  dark:bg-[#1a1b1d] flex items-start justify-start">
+            <div className="h-screen bg-gray-50 w-fit sample flex-shrink-0   flex items-start justify-start">
               {/* category */}
               <div className="flex-shrink-0 h-full w-[4.5rem] flex flex-col items-center justify-start py-8 thin-right-divider">
                 <div className="flex flex-col items-start justify-start h-full">
-                  <div className="h-11 w-[3rem] text-gray-100 rounded-lg bg-blue-500 p-1.5 flex flex-col items-end justify-end">
+                  <div className="h-[3rem] flex-shrink-0 box-border w-[3rem] text-gray-100 rounded-lg bg-[#3286fb] p-1.5 flex flex-col items-end justify-end">
                     <span className="text-sm font-medium">Ne</span>
                   </div>
                 </div>
@@ -54,8 +54,15 @@ const Login = () => {
                     <span>Collections</span>
                   </div>
                   {/* items */}
-                  {users[0]?.categories.map((item,id) => (
-                    <div key={id} className=" cursor-pointer  bg-[#f4f4f4] py-3 rounded-lg px-4 text-[0.85rem] my-2 flex items-center justify-start gap-3 font-semibold">
+                  {users[0]?.categories.map((item, id) => (
+                    <div
+                      key={id}
+                      className={` cursor-pointer   py-3 rounded-lg px-4 text-[0.85rem] my-2 flex items-center justify-start gap-3 font-semibold ${
+                        id === 0
+                          ? "bg-[#f4f4f4]/50"
+                          : "bg-inherit text-[#122132]/30 "
+                      }`}
+                    >
                       <div className="flex items-center justify-start gap-3 w-full">
                         <BiNote className="text-lg " />
                         <span>{item.category}</span>
@@ -63,44 +70,33 @@ const Login = () => {
                       <BiChevronRight className="text-xl" />
                     </div>
                   ))}
-                  {/* <p>
-
-                    {sample.split('\n').map((item,id)=>(
-                      <React.Fragment key={id}>
-                        {item}
-                        <br />
-                      </React.Fragment>
-                      ))}
-                      </p> */}
                 </div>
               </div>
             </div>
 
             {/* content */}
-            <div className="w-fit h-full ">
-              <div className="flex items-start pt-20 justify-start px-10 w-full flex-col">
-                <span className="text-[1.6rem] font-semibold">My Notes</span>
-                <div className="mt-8">
+            <div className="w-full h-full flex items-center justify-start py-6">
+              <div className="flex h-full rounded-lg  sample bg-white mx-4 items-start pt-0 justify-start px-0 w-[25rem]  flex-col">
+                <span className="text-[1.075rem] ml-6 mt-6 mb-6 tracking-tight font-semibold">
+                  Select notes
+                </span>
+                <div className="pb-4 thin-bottom-divider w-full px-2">
                   <Searchbar />
                 </div>
-                <div className=" mt-2 rounded-lg py-3 h-[75vh] w-full flex flex-col items-center justify-start overflow-y-scroll pr-4">
+                <div
+                  ref={scrollRef}
+                  className="  py-2 h-screen w-full flex flex-col items-center justify-start  px-1 overflow-auto"
+                >
+                  {/* items */}
+                  {/* {Array.from({length:10},(item,id)=>(
+                    <div key={id} className="h-52 flex-shrink-0 w-full my-2 bg-blue-500"></div>
+                  ))} */}
                   {users[0]?.categories[0].data.map((item, id) => (
-                    <div
-                      key={id}
-                      className="h-fit px-4 py-5 bg-[#f6f6f6]/70 w-96 rounded-lg  cursor-pointer my-1.5"
-                    >
-                      <p className="font-semibold capitalize mb-5 text-[0.9rem]  text-[#122132]/90">
-                        {item.title}
-                      </p>
-                      {/* <p className="text-[0.9rem] font-medium overflow-hidden truncate font-libreationRegular tracking-tight text-[#122132]/40">{item.detail.split(/<br\s*\/?>/).map((item,id)=>(
-                        <React.Fragment key={id}>
-                        {item}
-                        <br />
-                      </React.Fragment>
-                      ))}</p> */}
-                    </div>
+                    <Item key={id} id={id} item={item}></Item>
                   ))}
-                 
+                  {users[0]?.categories[0].data.map((item, id) => (
+                    <Item key={id} id={id} item={item}></Item>
+                  ))}
                 </div>
               </div>
             </div>
@@ -110,112 +106,5 @@ const Login = () => {
     </Routes>
   );
 };
-// text-[#7c8494]
 
 export default Login;
-
-// const navigate = useNavigate();
-// const [focusState, setFocusState] = React.useState({
-//   email: false,
-//   password: false,
-// });
-// const [loginInput, setLoginInput] = useState({
-//   email: "",
-//   password: "",
-// });
-// const handleEmailChange = (e) => {
-//   setLoginInput((prev) => {
-//     return { ...prev, email: e.target.value };
-//   });
-// };
-// const handlePasswordChange = (e) => {
-//   setLoginInput((prev) => {
-//     return { ...prev, password: e.target.value };
-//   });
-// };
-// const [isChecked, setIsChecked] = useState(false);
-// const handleToggleCheckbox = () => {
-//   setIsChecked((prev) => (prev = !isChecked));
-// };
-
-// const handleLogin = async (e) => {
-//   e.preventDefault();
-//   try {
-//     const user = await signInWithEmailAndPassword(
-//       auth,
-//       loginInput.email,
-//       loginInput.password
-//     );
-//     console.log(user);
-//     if (user) {
-//       navigate("product-listing/documentation");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleGoogleLogin = async (e) => {
-//   try {
-//     const user = signInWithPopup(auth, googleProvider);
-//     console.log(user);
-//     if (user) {
-//       navigate("product-listing/documentation");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleSignout = async () => {
-//   try {
-//     await signOut(auth);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleFocus = (e) => {
-//   if (e.target.type === "email" ) {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       email: true,
-//     }));
-//     console.log(e.target.value)
-//   } else if (e.target.type === "password") {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       password: true,
-//     }));
-//   }
-// };
-// const handleBlur = (e) => {
-//   if (e.target.type === "email" ) {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       email: false,
-//     }));
-//   } else if (e.target.type === "password") {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       password: false,
-//     }));
-//   }
-// };
-// const placeholderVariants = {
-//   initial: {
-//     color: "rgb(148, 163, 184)",
-//     translateY: "0.6rem",
-//     fontSize: "0.875rem",
-//     backgroundColor:'transparent',
-//     transition: {
-//       duration: 0.25,
-//     },
-//   },
-//   animate: {
-//     color: "rgb(53, 107, 229)",
-//     translateY: "-0.6rem",
-//     fontSize: "0.775rem",
-//     backgroundColor:'white',
-//     transition: {
-//       duration: 0.25,
-//     },
-//   },
-// };
