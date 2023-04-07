@@ -1,5 +1,6 @@
 import React from "react";
-import { BiNote ,BiDotsVerticalRounded} from "react-icons/bi";
+import { BiFile ,BiDotsVerticalRounded,BiCheck} from "react-icons/bi";
+import {TbDotsVertical} from 'react-icons/tb'
 const Item = ({ item, id }) => {
   const [state,setState]=React.useState(false)
   const handleClickItem=()=>{
@@ -9,38 +10,43 @@ const Item = ({ item, id }) => {
     <div
       onClick={handleClickItem}
       className={`w-full ${
-        state ? "" : null
-      } relative px-4 py-5 cursor-pointer my-0  flex-shrink-0`}
+        state ? "bg-[#1a1c1e]" : 'bg-[#101213] '
+      } relative px-5 py-5 cursor-pointer rounded-xl box-border my-3 w-[21.9rem] flex-shrink-0`}
     >
-      <div className="font-bold flex items-center justify-start relative mb-3 text-[0.875rem]  text-[#122132]/80">
-        <BiNote
-          className={`text-xl mr-3  ${
-            state ? "text-[#122132]/50" : "text-[#122132]/20"
-          }`}
-        />
+      <div className="font-bold flex items-center justify-between relative mb-6 text-[0.875rem]  text-[#122132]/80">
+       
         <span
-          className={`max-w-[75%] w-full  overflow-hidden truncate ${
-            !state && "text-[#122132]/30"
+          className={`max-w-[75%] text-[0.975rem] w-full font-medium  overflow-hidden truncate ${
+            !state ? "text-[#7c7c7c] ":"text-gray-100/90"
           }`}
         >
           {item.title}
         </span>
+        <div className={`${
+            !state ? "text-[#7c7c7c] ":"text-gray-100/90"
+          } text-xl`}><TbDotsVertical /></div>
       </div>
       <p
-        className={`text-[0.825rem] mx-8 font-semibold overflow-hidden truncate font-libreationRegular tracking-tight ${state?"text-[#122132]/50":"text-[#122132]/30"} `}
+        className={`text-[0.885rem] ml-0 mr-2  tracking-wide overflow-hidden truncate font-libreationRegular  ${state?"text-[#7c7c7c]":"text-[#7c7c7c]/70 "}`}
       >
-        {item.detail}
+        {/* {item.details} */}
         {/* use logic when displaying */}
-        {/* {item.detail.split(/<br\s*\/?>/).map((item, id) => (
+        {item.details.split(/<br\s*\/?>/).map((item, id) => (
           <React.Fragment key={id}>
             {item}
             <br />
           </React.Fragment>
-        ))} */}
+        ))}
       </p>
-      {state ? (
-        <div className="absolute h-full w-1 bg-[#3286fb] top-0 -left-1"></div>
-      ) : null}
+      {/* {state ? (
+        <div className="absolute p-1 rounded-full text-white bg-[#3286fb] -top-3 right-1">
+          <BiCheck />
+        </div>
+      ) : null} */}
+     {/* {state ? (
+        <div className="absolute w-[1px] h-full rounded-l-lg text-white bg-[#3286fb] top-0 -right-2">
+          </div>
+      ) : null}  */}
 
       
     </div>

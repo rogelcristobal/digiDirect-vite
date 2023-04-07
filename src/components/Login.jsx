@@ -1,97 +1,125 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { BiFolder, BiNote, BiChevronRight, BiCog } from "react-icons/bi";
+import {
+  BiFolder,
+  BiNote,
+  BiChevronRight,
+  BiCog,
+  BiMoon,
+  BiPlus
+} from "react-icons/bi";
+import { TbFolder } from "react-icons/tb";
 import Searchbar from "./Searchbar";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs,onSnapshot } from "firebase/firestore";
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { db } from "../firebase/firebase";
 import Item from "./Item";
 import NoteSelectContainer from "./NoteSelectContainer";
 const Login = () => {
-  const ref = React.useRef(null);
+  const query = collection(db, "notes");
+  const [docs, loading, error] = useCollectionData(query);
+  if(!loading){
+      console.log(docs[2].data)
+  }
 
-  const userCollectionRef = collection(db, "notes");
 
-  const [users, setUsers] = React.useState([]);
 
-  React.useEffect(() => {
-    const getUsers = async () => {
-      const data = await getDocs(userCollectionRef);
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getUsers();
-  }, []);
+  const createNotes=async()=>{
+  }
+
 
   return (
     <Routes>
       <Route
         path="/*"
         element={
-          <div className="font-plus tracking-tight bg-[#eaeced] text-[#102031]  h-screen relative flex  items-start justify-start ">
+          <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
             {/* sidebar */}
-            <div className="h-screen bg-gray-50 w-fit  flex-shrink-0   flex items-start justify-start">
+            <div className="h-screen bg-[#101213] w-fit  flex-shrink-0   flex items-start justify-start">
               {/* category */}
-              <div className="flex-shrink-0 h-full w-[4.5rem] flex flex-col items-center justify-start py-8 thin-right-divider">
+              <div className="flex-shrink-0 h-full w-[4.5rem] bg-[#000000] flex flex-col items-center justify-start py-8 thin-right-divider">
                 <div className="flex flex-col items-start justify-start h-full">
                   <div className="h-[3rem] flex-shrink-0 box-border w-[3rem] text-gray-100 rounded-lg bg-[#3286fb] p-1.5 flex flex-col items-end justify-end">
                     <span className="text-sm font-medium">Ne</span>
                   </div>
                 </div>
-                <div>
-                  <BiCog className="text-2xl text-[#a8a7a7]" />
+                <div className="text-2xl text-[#a8a7a7] gap-2 flex items-center justify-around flex-col">
+                  <div className="cursor-pointer hover:bg-[#a8a7a7]/10 rounded-full p-2.5 ">
+                    <BiMoon />
+                  </div>
+                  <div className="cursor-pointer hover:bg-[#a8a7a7]/10 rounded-full p-2.5 ">
+                    <BiCog />
+                  </div>
                 </div>
               </div>
               {/* links */}
-              <div className="h-full w-[20rem] flex-shrink-0">
-                <div className=" mt-28 min-h-[4rem] px-6  w-full">
-                  <div className="px-0 text-[0.875rem] mb-6 font-semibold flex items-center justify-start gap-3">
-                    <BiFolder className="text-xl" />
-                    <span>Collections</span>
+              <div className="h-full w-[22rem] flex-shrink-0">
+                <div className=" mt-32 min-h-[4rem] px-6  w-full">
+                  <div className="px-0 text-[0.9rem] mb-6   font-bold flex items-center justify-start gap-3">
+                    {/* <TbFolder className="text-xl " /> */}
+                    <span>Collection</span>
                   </div>
                   {/* items */}
-                  {
-                    users&&
-                    users[0]?.categories.map((item, id) => (
-                    <div
-                      key={id}
-                      className={` cursor-pointer   py-3 rounded-lg px-4 text-[0.85rem] my-2 flex items-center justify-start gap-3 font-semibold ${
-                        id === 0
-                          ? "bg-[#f4f4f4]/50"
-                          : "bg-inherit text-[#122132]/30 "
-                      }`}
-                    >
-                      <div className="flex items-center justify-start gap-3 w-full">
-                        <BiNote className="text-lg " />
-                        <span>{item.category}</span>
+                  {!loading &&
+                    docs?.map((item, id) => (
+                      <div
+                        key={id}
+                        className={` cursor-pointer  py-3.5 rounded-lg px-6 text-[1.025rem] my-2 flex items-center justify-start gap-4 font-medium ${
+                          id === 0
+                            ? " bg-[#1d1f20] text-[#dad8db]"
+                            : "bg-inherit text-[#7c7c7c]"
+                        }`}
+                      >
+                        <div className="flex items-center justify-start gap-3 w-full">
+                            <TbFolder className="text-lg " />
+                            {/* <div className="h-2 w-2 rounded-full bg-blue-500"></div> */}
+                          <span>{item.name}</span>
+                        </div>
+                        <BiChevronRight className="text-2xl" />
                       </div>
-                      <BiChevronRight className="text-xl" />
-                    </div>
-                  ))
-                  }
+                    ))}
                 </div>
               </div>
             </div>
 
             {/* content */}
-            <div className="w-full h-full flex items-center justify-start pb-6 pt-28">
-              <div className="flex h-full rounded-lg   bg-white mx-4 items-start pt-0 justify-start px-0 w-[25rem]  flex-col">
-                <span className="text-[1.075rem] ml-6 mt-6 mb-6 tracking-tight font-semibold">
-                  Select notes
-                </span>
-                <div className="pb-4 thin-bottom-divider w-full px-2">
-                  <Searchbar />
+            <div className="w-full h-full gap-4 px-4 flex items-start justify-start pb-6 pt-16">
+            
+
+             <div className="container h-full flex items-start justify-start ">
+               {/* selector */}
+              <div className="flex h-full rounded-xl  items-start pt-4 justify-start  w-[24rem] flex-shrink-0 flex-col">
+                <div className=" mb-6 w-full px-5 flex items-center justify-between ">
+                  <span className="text-[1.75rem]  text-[#dadada]  font-medium">
+                     My Notes
+                  </span>
+                    <BiPlus onClick={createNotes} className="text-3xl   hover:text-[#3c82f5] cursor-pointer text-[#122132]/10"/>
                 </div>
-                <NoteSelectContainer deps={users[0]}>
-                  {/* items */}
-                  {/* {Array.from({length:10},(item,id)=>(
-                    <div key={id} className="h-52 flex-shrink-0 w-full my-2 bg-blue-500"></div>
-                  ))} */}
-                  {users[0]?.categories[0].data.map((item, id) => (
+                
+                <div className="pb-4 relative pt-0 w-full px-2 ">
+                
+
+                  <Searchbar />
+                  <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[70%]"></div>
+                </div>
+                <NoteSelectContainer deps={loading}>
+                 
+                  {!loading && docs[2].data.map((item, id) => (
+                    <Item key={id} id={id} item={item}></Item>
+                  ))}
+                   {!loading && docs[2].data.map((item, id) => (
+                    <Item key={id} id={id} item={item}></Item>
+                  ))}
+                   {!loading && docs[2].data.map((item, id) => (
                     <Item key={id} id={id} item={item}></Item>
                   ))}
                   
-                 
                 </NoteSelectContainer>
               </div>
+              <div className="w-full pt-40 h-full">
+                <div className="h-full w-full bg-[#101213] rounded-xl mt-2"></div>
+              </div>
+             </div>
             </div>
           </div>
         }

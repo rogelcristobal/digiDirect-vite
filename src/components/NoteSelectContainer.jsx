@@ -8,16 +8,15 @@ const NoteSelectContainer = ({ children,deps }) => {
     renderByPizels:true
   }
   React.useEffect(() => {
-    if (ref.current && deps) {
-      const scrollbar = Scrollbar.init(ref.current,option);
-   
+    if (ref.current && !deps) {
+      Scrollbar.init(ref.current,option);
+      Scrollbar.detachStyle()
     }
-  
   }, [ref.current,deps]);
   return (
     <div
       ref={ref}
-      className=" py-2 h-screen w-[25rem] flex flex-col items-center justify-start  px-1 "
+      className=" pb-2 pt-4  h-screen w-full  flex flex-col items-center justify-start  px-3 "
     >
       {children}
     </div>
