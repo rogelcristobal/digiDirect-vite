@@ -37,7 +37,7 @@ const Searchbar = () => {
     <div
       ref={ref}
       onClick={handleClick}
-      className={`text-lg h-[3rem] px-2 mb-8  thin-box-divider cursor-pointer flex-shrink-0 flex items-center justify-center rounded-lg w-full ${
+      className={`text-lg h-[3rem] px-2 mt-8  thin-box-divider cursor-pointer flex-shrink-0 flex items-center justify-center rounded-lg w-full ${
         state ? "" : ""
       }
       }`}

@@ -1,8 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import AddItemComponent from "./AddItemComponent";
 import {
-  BiFolder,
-  BiNote,
   BiChevronRight,
   BiCog,
   BiMoon,
@@ -89,41 +88,37 @@ const Login = () => {
             </div>
 
             {/* content */}
-            <div className="w-full h-full  px-4 flex items-start justify-start pb-6 pt-14">
+            <div className="w-full h-full  px-6    flex items-start justify-start pb-6 pt-14">
             
 
              <div className="container h-full flex items-start gap-2 justify-start ">
                {/* selector */}
               <div className="flex h-full rounded-xl  items-start pt-4 justify-start  w-[24rem] flex-shrink-0 flex-col">
                 <div className=" mb-4 w-full px-5 flex items-center justify-between ">
-                  <span className="text-[1.75rem]  text-[#dadada]  font-medium">
+                  <span className="text-[1.8rem]  text-[#dadada]  font-semibold">
                     Chats
                   </span>
                     
                 </div>
                 
-                <div className="pb-6 relative pt-2 w-full px-2 ">
+                <div className="pb-4 relative pt-12 w-full px-2 ">
                 
 
-                  <Searchbar />
-                  <span className="text-[#7c7c7c] ml-4 ">My Notes</span>
-                  <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[35%]"></div>
+                  <span className="text-[#dadada]  font-semibold ml-4 ">My Notes <span className="text-[#7c7c7c]/70 ml-3 font-semibold">
+                    {!loading && docs[2].data.length}
+                  </span></span>
+                  {/* <Searchbar /> */}
+                  {/* <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[30%]"></div> */}
                 </div>
                 <NoteSelectContainer deps={loading}>
-                 
+                  {/* <AddItemComponent /> */}
                   {!loading && docs[2].data.map((item, id) => (
-                    <Item key={id} id={id} item={item}></Item>
-                  ))}
-                   {!loading && docs[2].data.map((item, id) => (
-                    <Item key={id} id={id} item={item}></Item>
-                  ))}
-                   {!loading && docs[2].data.map((item, id) => (
                     <Item key={id} id={id} item={item}></Item>
                   ))}
                   
                 </NoteSelectContainer>
               </div>
-              <div className="w-full pt-52 h-full">
+              <div className="w-full pt-44 h-full">
                 
                 <div className="h-full w-full bg-[#101213] rounded-xl "></div>
               </div>
