@@ -8,7 +8,7 @@ import {
   BiMoon,
   BiPlus
 } from "react-icons/bi";
-import { TbFolder } from "react-icons/tb";
+import { TbFolder,TbUser } from "react-icons/tb";
 import Searchbar from "./Searchbar";
 import { addDoc, collection, getDocs,onSnapshot } from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -34,6 +34,12 @@ const Login = () => {
         path="/*"
         element={
           <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
+            {/* nav */}
+            <div className="fixed top-0 right-0 w-[calc(100%-26.5rem)] h-24 px-12 flex items-end justify-end">
+              <div className="rounded-full h-12 w-12 bg-[#101213] grid place-content-center text-xl">
+                <TbUser />
+              </div>
+            </div>
             {/* sidebar */}
             <div className="h-screen bg-[#101213] w-fit  flex-shrink-0   flex items-start justify-start">
               {/* category */}
@@ -83,24 +89,25 @@ const Login = () => {
             </div>
 
             {/* content */}
-            <div className="w-full h-full gap-4 px-4 flex items-start justify-start pb-6 pt-16">
+            <div className="w-full h-full  px-4 flex items-start justify-start pb-6 pt-14">
             
 
-             <div className="container h-full flex items-start justify-start ">
+             <div className="container h-full flex items-start gap-2 justify-start ">
                {/* selector */}
               <div className="flex h-full rounded-xl  items-start pt-4 justify-start  w-[24rem] flex-shrink-0 flex-col">
-                <div className=" mb-6 w-full px-5 flex items-center justify-between ">
+                <div className=" mb-4 w-full px-5 flex items-center justify-between ">
                   <span className="text-[1.75rem]  text-[#dadada]  font-medium">
-                     My Notes
+                    Chats
                   </span>
-                    <BiPlus onClick={createNotes} className="text-3xl   hover:text-[#3c82f5] cursor-pointer text-[#122132]/10"/>
+                    
                 </div>
                 
-                <div className="pb-4 relative pt-0 w-full px-2 ">
+                <div className="pb-6 relative pt-2 w-full px-2 ">
                 
 
                   <Searchbar />
-                  <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[70%]"></div>
+                  <span className="text-[#7c7c7c] ml-4 ">My Notes</span>
+                  <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[35%]"></div>
                 </div>
                 <NoteSelectContainer deps={loading}>
                  
@@ -116,8 +123,9 @@ const Login = () => {
                   
                 </NoteSelectContainer>
               </div>
-              <div className="w-full pt-40 h-full">
-                <div className="h-full w-full bg-[#101213] rounded-xl mt-2"></div>
+              <div className="w-full pt-52 h-full">
+                
+                <div className="h-full w-full bg-[#101213] rounded-xl "></div>
               </div>
              </div>
             </div>

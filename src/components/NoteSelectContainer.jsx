@@ -16,7 +16,7 @@ const NoteSelectContainer = ({ children,deps }) => {
   return (
     <div
       ref={ref}
-      className=" pb-2 pt-4  h-screen w-full  flex flex-col items-center justify-start  px-3 "
+      className=" pb-2 pt-0  h-screen w-full  flex flex-col items-center justify-start  px-3 "
     >
       {children}
     </div>
