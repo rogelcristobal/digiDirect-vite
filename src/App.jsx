@@ -20,10 +20,9 @@ function App() {
         element={
           <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
             {/* nav */}
-            <Navbar />
+            {/* <Navbar /> */}
             {/* sidebar */}
             <Sidebar docs={docs} loading={loading} />
-
             {/* content */}
             <div className="w-full h-full  px-8 flex items-start justify-start pb-6 pt-16">
               <Routes>
@@ -31,7 +30,7 @@ function App() {
                   <Route
                     key={id}
                     path={`/${item.name}`}
-                    element={<Content docs={item} loading={loading}></Content>}
+                    element={<Content id={id}></Content>}
                   ></Route>
                 ))}
               </Routes>
