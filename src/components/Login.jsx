@@ -88,13 +88,13 @@ const Login = () => {
             </div>
 
             {/* content */}
-            <div className="w-full h-full  px-6    flex items-start justify-start pb-6 pt-14">
+            <div className="w-full h-full  px-8    flex items-start justify-start pb-6 pt-14">
             
 
-             <div className="container h-full flex items-start gap-2 justify-start ">
+             <div className="container h-full flex items-start gap-4 justify-start ">
                {/* selector */}
               <div className="flex h-full rounded-xl  items-start pt-4 justify-start  w-[24rem] flex-shrink-0 flex-col">
-                <div className=" mb-4 w-full px-5 flex items-center justify-between ">
+                <div className=" mb-4 w-full px-2 flex items-center justify-between ">
                   <span className="text-[1.8rem]  text-[#dadada]  font-semibold">
                     Chats
                   </span>
@@ -104,7 +104,7 @@ const Login = () => {
                 <div className="pb-4 relative pt-12 w-full px-2 ">
                 
 
-                  <span className="text-[#dadada]  font-semibold ml-4 ">My Notes <span className="text-[#7c7c7c]/70 ml-3 font-semibold">
+                  <span className="text-[#dadada]  font-semibold ml-0 ">My Notes <span className="text-[#7c7c7c]/70 ml-3 font-semibold">
                     {!loading && docs[2].data.length}
                   </span></span>
                   {/* <Searchbar /> */}
@@ -113,7 +113,10 @@ const Login = () => {
                 <NoteSelectContainer deps={loading}>
                   {/* <AddItemComponent /> */}
                   {!loading && docs[2].data.map((item, id) => (
-                    <Item key={id} id={id} item={item}></Item>
+                    <Item key={id} id={id} title={item.title} details={item.details}></Item>
+                  ))}
+                   {!loading && docs[2].data.map((item, id) => (
+                    <Item key={id} id={id} title={item.title} details={item.details}></Item>
                   ))}
                   
                 </NoteSelectContainer>

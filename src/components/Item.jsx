@@ -1,17 +1,22 @@
 import React from "react";
 import { BiFile, BiDotsVerticalRounded, BiCheck } from "react-icons/bi";
 import { TbDotsVertical } from "react-icons/tb";
-const Item = ({ item, id }) => {
+const Item = ({ title,details, id }) => {
   const [state, setState] = React.useState(false);
+  const ref = React.useRef(null)
   const handleClickItem = () => {
     setState(!state);
   };
+  React.useEffect(()=>{
+    ref.current.style.width="23rem"
+  },[title,details])
   return (
     <div
+    ref={ref}
       onClick={handleClickItem}
       className={`w-full ${
         state ? "bg-[#1a1c1e] " : "bg-[#101213] "
-      } relative px-5 py-5 cursor-pointer rounded-xl box-border mb-[0.875rem] w-[21.7rem] flex-shrink-0`}
+      } relative px-5 py-5 cursor-pointer rounded-xl box-border mb-[0.875rem] flex-shrink-0`}
     >
       <div className="font-bold flex items-center justify-between relative mb-6 text-[0.875rem]  text-[#122132]/80">
         <span
@@ -19,7 +24,7 @@ const Item = ({ item, id }) => {
             !state ? "text-[#7c7c7c] " : "text-gray-100/90"
           }`}
         >
-          {item.title}
+          {title}
         </span>
         <div
           className={`${
@@ -36,18 +41,18 @@ const Item = ({ item, id }) => {
       >
         {/* {item.details} */}
         {/* use logic when displaying */}
-        {item.details.split(/<br\s*\/?>/).map((item, id) => (
+        {details.split(/<br\s*\/?>/).map((item, id) => (
           <React.Fragment key={id}>
             {item}
             <br />
           </React.Fragment>
         ))}
       </p>
-      {state ? (
+      {/* {state ? (
         <div className="absolute p-1 rounded-full text-white bg-[#3286fb] -top-3 right-3">
           <BiCheck />
         </div>
-      ) : null}
+      ) : null} */}
       {/* {state ? (
         <div className="absolute w-[1px] h-full rounded-l-lg text-white bg-[#3286fb] top-0 -right-2">
           </div>
