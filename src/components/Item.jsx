@@ -10,24 +10,24 @@ const Item = ({ item, id }) => {
     <div
       onClick={handleClickItem}
       className={`w-full ${
-        state ? "bg-[#1a1c1e] " : "bg-[#101213] "
-      } relative px-5 py-5 cursor-pointer rounded-xl box-border mb-[0.875rem] w-[21.7rem] flex-shrink-0`}
+        state ? "bg-[#1a1c1e]" : "bg-[#101213] "
+      } relative px-5 py-5 cursor-pointer rounded-xl box-border mb-[0.875rem] w-[23.7rem] flex-shrink-0`}
     >
       <div className="font-bold flex items-center justify-between relative mb-6 text-[0.875rem]  text-[#122132]/80">
         <span
-          className={`max-w-[75%] text-[0.95rem] w-full font-medium tracking-wide  overflow-hidden truncate ${
+          className={`max-w-[75%] text-[1.1rem] w-full font-medium tracking-wide  overflow-hidden truncate ${
             !state ? "text-[#7c7c7c] " : "text-gray-100/90"
           }`}
         >
-          {item.title}
+          {item.name}
         </span>
-        <div
+        {/* <div
           className={`${
             !state ? "text-[#7c7c7c] " : "text-gray-100/90"
           } text-xl`}
         >
           <TbDotsVertical />
-        </div>
+        </div> */}
       </div>
       <p
         className={`text-[0.885rem] ml-0 mr-2  tracking-wide overflow-hidden truncate font-libreationRegular  ${
@@ -36,12 +36,12 @@ const Item = ({ item, id }) => {
       >
         {/* {item.details} */}
         {/* use logic when displaying */}
-        {item.details.split(/<br\s*\/?>/).map((item, id) => (
+        {/* {item.details.split(/<br\s*\/?>/).map((item, id) => (
           <React.Fragment key={id}>
             {item}
             <br />
           </React.Fragment>
-        ))}
+        ))} */}
       </p>
       {state ? (
         <div className="absolute p-1 rounded-full text-white bg-[#3286fb] -top-3 right-3">
