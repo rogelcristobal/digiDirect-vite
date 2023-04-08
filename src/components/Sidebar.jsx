@@ -29,24 +29,25 @@ const Sidebar = ({ docs, loading }) => {
             <span>Collection</span>
           </div>
           {/* items */}
+          {/* // bg-[#1d1f20] text-[#dad8db] */}
           {!loading &&
             docs.map((item, id) => (
-              <NavLink
-              key={id}
-              to={`/${item.name}`}>
-                <div
-                // bg-[#1d1f20] text-[#dad8db]
-                key={id}
-                className={` cursor-pointer  py-3.5 rounded-lg px-6 text-[1.025rem] my-2.5 flex items-center justify-start gap-4 font-medium 
-                    `}
-              >
-                <div className="flex items-center justify-start gap-3 w-full">
-                  <TbFolder className="text-lg " />
-                  {/* <div className="h-2 w-2 rounded-full bg-blue-500"></div> */}
-                  <span>{item.name}</span>
-                </div>
-                <BiChevronRight className="text-2xl" />
-              </div>
+              <NavLink key={id} to={`/${item.name}`}>
+                {({ isActive }) => (
+                  <div
+                    key={id}
+                    className={
+                      `cursor-pointer  py-3.5 rounded-lg px-6 ${isActive&&'bg-[#1d1f20] text-[#dad8db]'} my-2.5 flex items-center justify-start gap-4 font-medium `
+                    }
+                  >
+                    <div className="flex items-center justify-start gap-3 w-full">
+                      <TbFolder className="text-lg " />
+                      {/* <div className="h-2 w-2 rounded-full bg-blue-500"></div> */}
+                      <span>{item.name}</span>
+                    </div>
+                    <BiChevronRight className="text-2xl" />
+                  </div>
+                )}
               </NavLink>
             ))}
         </div>

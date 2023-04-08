@@ -13,9 +13,6 @@ import Navbar from "./components/Navbar";
 function App() {
   const query = collection(db, "my-notes");
   const [docs, loading, error] = useCollectionData(query);
-  // if (!loading) {
-  //   console.log(docs);
-  // }
   return (
     <Routes>
       <Route

@@ -1,7 +1,7 @@
 import React from "react";
 import { BiFile, BiDotsVerticalRounded, BiCheck } from "react-icons/bi";
 import { TbDotsVertical } from "react-icons/tb";
-const Item = ({ title,details,loading }) => {
+const Item = ({ title,details }) => {
   const [state, setState] = React.useState(false);
   const ref = React.useRef(null)
   const handleClickItem = () => {
@@ -14,7 +14,7 @@ const Item = ({ title,details,loading }) => {
   },[ref.current])
   return (
     <div
-    ref={ref}
+      ref={ref}
       onClick={handleClickItem}
       className={`w-full ${
         state ? "bg-[#1a1c1e]" : "bg-[#101213] "
