@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 const Debug = () => {
   const [query, setQuery] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const notesCollectionRef = collection(db, "notes");
+  const notesCollectionRef = collection(db, "notes"); // get the root collection
 
   React.useEffect(() => {
     const fetch = async () => {
