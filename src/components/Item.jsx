@@ -10,7 +10,6 @@ const Item = ({ title,details }) => {
   React.useEffect(()=>{
     if(ref.current){
       ref.current.style.width = "23rem"
-
     }
   },[ref.current])
   return (

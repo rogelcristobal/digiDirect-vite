@@ -12,7 +12,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 function App() {
   const query = collection(db, "my-notes");
-  const [docs, loading] = useCollectionData(query);
+  const [snapshot, loading] = useCollectionData(query);
   return (
     <Routes>
       <Route
@@ -20,10 +20,10 @@ function App() {
         element={
           <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
             {/* <Navbar /> */}
-            <Sidebar docs={docs} loading={loading} />
+            <Sidebar docs={snapshot} loading={loading} />
             <div className="w-full h-full  px-8 flex items-start justify-start pb-6 pt-16">
               <Routes>
-                {!loading && docs.map((item, id) => (
+                {!loading && snapshot.map((item, id) => (
                   <Route
                     key={id}
                     path={`/${item.name}`}
