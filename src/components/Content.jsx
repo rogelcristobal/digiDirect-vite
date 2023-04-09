@@ -5,6 +5,7 @@ import { db } from "../firebase/firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import AddItemComponent from "./AddItemComponent";
 import Debug from "./Debug";
+import Item from "./Item";
 const Content = ({ id, path, title }) => {
   // const query = collection(db, "my-notes");
   // const [docs, loading] = useCollectionData(query);
@@ -16,7 +17,7 @@ const Content = ({ id, path, title }) => {
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(noteCollectionRef, (snapshot) => {
-      setQuery(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a,b)=> a.title.localeCompare(b.title)));
+      setQuery(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a,b)=> a.createdAt - b.createdAt));
       
       setLoading(false);
     });
@@ -50,18 +51,7 @@ const Content = ({ id, path, title }) => {
           <AddItemComponent path={path}/>
           {!loading &&
             query.map((item, id) => (
-              <div
-                key={id}
-                className="py-5 px-5 min-h-[6rem] flex-shrink-0 w-full hover:bg-[#1a1c1e] bg-[#101213] rounded-lg mb-3 cursor-pointer"
-              >
-                <p className="mb-4 text-[#fcfcfc]/80">{item.title}</p>
-                {item?.details.split(/<br\s*\/?>/).map((item, id) => (
-                  <React.Fragment key={id}>
-                    {item}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </div>
+              <Item key={id} id={id} item={item}></Item>
             ))}
         </div>
       </div>
