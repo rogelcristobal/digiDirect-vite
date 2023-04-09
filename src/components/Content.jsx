@@ -16,7 +16,8 @@ const Content = ({ id, path, title }) => {
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(noteCollectionRef, (snapshot) => {
-      setQuery(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setQuery(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a,b)=> a.title.localeCompare(b.title)));
+      
       setLoading(false);
     });
     // cleanup function
