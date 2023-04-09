@@ -42,7 +42,7 @@ function App() {
                     <Route
                       key={id}
                       path={`/${item.name}`}
-                      element={<Content id={id}></Content>}
+                      element={<Content id={id} path={`notes/${item.id}/data`} title={item.name}></Content>}
                     ></Route>
                   ))}
               </Routes>

@@ -2,42 +2,45 @@ import React from "react";
 import { TbPlus } from "react-icons/tb";
 import { useDocument } from "react-firebase-hooks/firestore";
 import { db } from "../firebase/firebase";
-import { collection } from "firebase/firestore";
-const AddItemComponent = () => {
+import { collection, addDoc ,serverTimestamp } from "firebase/firestore";
+const AddItemComponent = ({ path }) => {
+  const [title, setTitle] = React.useState("");
+  const [details, setDetails] = React.useState("");
 
-  const dataInput = {
-    title: "USPS contact local post",
-    details: `Thanks for your email.
-​<br /><br />
-I apologize for the inconvenience caused. 
-<br /><br />
-When I checked, your order was shipped out on the 18th of February 2023. 
-<br /><br />
-Please allow 3-7 working days for the delivery. 
-<br /><br />
-It is expected to be delivered on or before the 1st of March 2023 through your local post.
-<br /><br />
-Your USPS tracking number is: 9274890313101106940550
-<br /><br />
-You may also contact your local post office about the delivery status of your order. 
-<br /><br />
-If you have any further questions, please don't hesitate to contact us again.
-`,
+  const noteCollectionRef = collection(db, path);
+  const handleOnClick = async () => {
+    await addDoc(noteCollectionRef, { title: title, details: details, createdAt: serverTimestamp()});
+    setDetails("");
+    setTitle("");
   };
-    const query = collection(db, "my-notes");
-
-  const [snapshot, loading, error] = useDocument(db, query);
-
-  console.log(snapshot)
 
   return (
-    <div
-      // onClick={handleOnClick}
-      className={` cursor-pointer px-5 rounded-xl mb-3.5 w-full text-[#dadada]/30 bg-[#101213] hover:bg-[#1a1c1e] h-fit py-6 flex-shrink-0 flex  items-center justify-start gap-3`}
-    >
-      <TbPlus className="text-2xl " />
-      Add new item
-    </div>
+    <>
+      <button
+        // onClick={handleOnClick}
+        // type="submit"
+        className={` cursor-pointer px-5 rounded-xl mb-3.5 w-full text-[#fcfcfc]/50  bg-[#101213] hover:bg-[#1a1c1e] h-fit py-6 flex-shrink-0 flex  items-center justify-start gap-3`}
+      >
+        <TbPlus className="text-2xl " />
+        Add new item
+      </button>
+      {/* <div className="w-full h-fit bg-gray-100 flex flex-col items-center justify-center">
+        <input
+          type="text"
+          placeholder="title"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className="h-12 text-black my-3 block w-full"
+        />
+        <input
+          type="text"
+          placeholder="details"
+          onChange={(e) => setDetails(e.target.value)}
+          value={details}
+          className="h-12 text-black my-3 block w-full"
+        />
+      </div> */}
+    </>
   );
 };
 

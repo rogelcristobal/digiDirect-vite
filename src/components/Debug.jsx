@@ -15,9 +15,9 @@ const Debug = () => {
     };
     fetch();
   }, []);
-    if (!loading) {
-      console.log("Debug.jsx",query);
-    }
+    // if (!loading) {
+    //   console.log("Debug.jsx",query);
+    // }
 
 
   const handleClick = () => {};

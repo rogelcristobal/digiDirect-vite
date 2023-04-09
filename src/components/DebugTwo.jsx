@@ -15,9 +15,9 @@ const DebugTwo = ({path}) => {
     }
     fetch()
   },[])
-    if (!loading) {
-      console.log("DebugTwo.jsx",query);
-    }
+    // if (!loading) {
+    //   console.log("DebugTwo.jsx",query);
+    // }
 
 
   return (
