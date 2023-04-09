@@ -1,15 +1,25 @@
 import React from 'react';
 import { db } from '../firebase/firebase';
-import { collection } from 'firebase/firestore';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { collection,getDocs } from 'firebase/firestore';
 const DebugTwo = ({path}) => {
  
 
-    const query = collection(db, path)
-    const [docs,loading] = useCollectionData(query)
-    if(!loading){
-        console.log("DebugTwo.jsx",docs)
+  const [query, setQuery] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const noteItemCollectionRef = collection(db, path)
+  React.useEffect(()=>{
+    const fetch=async()=>{
+        const data = await getDocs(noteItemCollectionRef)
+         setQuery(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+         setLoading(false);  
     }
+    fetch()
+  },[])
+    if (!loading) {
+      console.log("DebugTwo.jsx",query);
+    }
+
+
   return (
     <div>
       

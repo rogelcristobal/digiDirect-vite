@@ -16,7 +16,7 @@ const Debug = () => {
     fetch();
   }, []);
     if (!loading) {
-      console.log("Debug.jsx",query[0]);
+      console.log("Debug.jsx",query);
     }
 
 
