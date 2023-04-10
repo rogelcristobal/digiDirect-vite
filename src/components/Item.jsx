@@ -6,21 +6,21 @@ const Item = ({ id, title, details, createdAt }) => {
   return (
     <div
       key={id}
-      className="py-4 px-5 min-h-[6rem] flex-shrink-0 w-full hover:bg-[#1a1c1e] bg-[#101213] rounded-lg mb-3 cursor-pointer"
+      className="pt-3 px-6 min-h-fit flex-shrink-0 w-full thin-bottom-divider  mb-0 cursor-pointer"
     >
-      <div className="flex mb-4 items-center justify-between">
-        <p className=" text-sm text-[#fcfcfc]/20">{date}</p>
+      <div className="flex mb-3 items-center text-[#1b2838]/40 justify-between">
+        <p className=" text-[0.8rem] font-bold ">{date}</p>
 
-        <p className=" text-sm text-[#fcfcfc]/20">{time}</p>
+        <p className=" text-[0.8rem] font-bold">{time}</p>
       </div>
-      <p className="mb-6 text-[#fcfcfc]/80 text-[1.05rem]">{title}</p>
+      <p className="mb-6  text-[0.975rem] text-[#1b2838]/80 font-bold">{title}</p>
       
-      {details?.split(/<br\s*\/?>/).map((item, id) => (
+      {/* {details?.split(/<br\s*\/?>/).map((item, id) => (
         <React.Fragment key={id}>
           {item}
           <br />
         </React.Fragment>
-      ))}
+      ))} */}
       
     </div>
   );

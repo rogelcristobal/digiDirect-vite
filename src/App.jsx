@@ -4,7 +4,7 @@ import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase/firebase";
 import Sidebar from "./components/Sidebar";
 import Content from './components/Content'
-
+import Navbar from "./components/Navbar";
 function App() {
   const [query, setQuery] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
@@ -32,10 +32,10 @@ function App() {
       <Route
         path={`/*`}
         element={
-          <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
+          <div className="font-plus bg-[#fbfbfb] text-[#1b2838] h-screen relative flex  items-start justify-start ">
             {/* <Navbar /> */}
             <Sidebar docs={query} loading={loading} />
-            <div className="w-full h-full  px-8 flex items-start justify-start pb-6 pt-16">
+            <div className="w-full h-full  px-7 flex items-start justify-start py-0 rounded-xl   ">
               <Routes>
                 {!loading &&
                   query.map((item, id) => (

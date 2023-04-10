@@ -6,6 +6,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import AddItemComponent from "./AddItemComponent";
 import Debug from "./Debug";
 import Item from "./Item";
+import { BiChevronRight } from "react-icons/bi";
 const Content = ({ id, path, title }) => {
   // const query = collection(db, "my-notes");
   // const [docs, loading] = useCollectionData(query);
@@ -32,32 +33,39 @@ const Content = ({ id, path, title }) => {
   }
 
   return (
-    <div className="container h-full flex items-start gap-3 justify-start ">
-      <div className="flex h-full rounded-xl  items-start pt-4 justify-start w-[24rem] flex-shrink-0 flex-col">
-        <div className="  w-full px-2 flex items-center justify-between ">
-          <span className="text-[1.7rem]  text-[#fcfcfc]  font-semibold">
-              {title}
+    <div className="container h-screen flex items-start gap-0 rounded-xl  justify-start ">
+      <div className="flex h-full items-start pt-20  justify-start w-[32rem]  flex-shrink-0 flex-col">
+        <div className="w-full px-3 mb-10 flex flex-col items-start justify-between ">
+          <span className="mb-2 font-semibold text-[#1b2838]/50 flex items-center">My Notes  <BiChevronRight className="text-xl" /></span>
+          <span className="text-[1.9rem]  font-bold">
+            {title}
           </span>
         </div>
-        <div className="pb-4 relative pt-12 w-full px-0 ">
-          <span className="text-[#fcfcfc]   text-[0.9rem] font-medium ml-1  ">
+        <div className="py-0 rounded-xl  mb-5  relative w-full px-2 ">
+          <span className=" text-[#1b2838]/50  text-[0.9rem] font-bold pl-2 py-6  ">
             Notes
-            <span className="text-[#fcfcfc]/40 ml-2 font-semibold">
+            <span className=" ml-1 font-bold">
               {query.length}
             </span>
           </span>
         </div>
-        <div className=" pb-2 pt-4 pr-[0.7rem] pl-0  h-screen  w-full overflow-y-scroll  flex flex-col items-center justify-start">
-          <AddItemComponent path={path}/>
+        <div className="h-[76vh]  bg-[#ffffff] px-0 pt-12 flex flex-col  rounded-xl w-full">
+          
+          <div className=" py-0    h-full  w-full overflow-y-scroll  flex flex-col items-center justify-start">
+          {/* <AddItemComponent path={path}/> */}
           {!loading &&
             query.map((item, id) => (
               <Item key={id} id={id} title={item.title} details={item.details} createdAt={item.createdAt}></Item>
             ))}
         </div>
+        </div>
       </div>
-      <div className="w-full pt-40 h-full">
+      <div className="w-full   pt-40 h-full">
         <div className="h-full  w-full rounded-lg ">
-          <Debug />
+          <div className="flex items-center justify-end px-8">
+            <button className="capitalize bg-[#3286fb] text-white text-md rounded-xl px-6 py-3">add item</button>
+          </div>
+          {/* <Debug /> */}
         </div>
       </div>
     </div>
