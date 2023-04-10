@@ -1,67 +1,131 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import AddItemComponent from "./AddItemComponent";
 import {
-  BiGridSmall,
-  BiListUl,
-  BiNote,
-  BiBookOpen,
-  BiLeftArrowAlt,
-  BiCategory,
+  BiChevronRight,
+  BiCog,
+  BiMoon,
+  BiPlus
 } from "react-icons/bi";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Content from "./Content";
-import DocsContext from "../context/DocsContext";
+import { TbFolder,TbUser } from "react-icons/tb";
 import Searchbar from "./Searchbar";
+import { addDoc, collection, getDocs,onSnapshot } from "firebase/firestore";
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { db } from "../firebase/firebase";
 import Item from "./Item";
-import ItemContainer from "./ItemContainer";
+import NoteSelectContainer from "./NoteSelectContainer";
 const Login = () => {
-  const navigate = useNavigate();
-  const { state } = React.useContext(DocsContext);
+  const query = collection(db, "notes");
+  const [docs, loading, error] = useCollectionData(query);
+  if(!loading){
+      console.log(docs[2].data)
+  }
+
+
+
+  const createNotes=async()=>{
+  }
+
+
   return (
     <Routes>
       <Route
         path="/*"
         element={
-          <div className="font-plus thin-box-divider bg-[#131415] text-gray-100  h-screen relative flex items-start justify-start">
+          <div className="font-plus bg-[#000000] text-[#7c7c7c] h-screen relative flex  items-start justify-start ">
+            {/* nav */}
+            <div className="fixed top-0 right-0 w-[calc(100%-26.5rem)] h-24 px-12 flex items-end justify-end">
+              <div className="rounded-full h-12 w-12 bg-[#101213] grid place-content-center text-xl">
+                <TbUser />
+              </div>
+            </div>
             {/* sidebar */}
-            <div className=" h-screen w-[20rem] flex-shrink-0  bg-[#1e1f21] flex">
-             
-              <div className="pt-20 h-full  w-full px-4">
-                <div className="text-[0.85rem] font-medium bg-[#131415]  px-[1.25rem] py-2.5 rounded-md flex items-center justify-start gap-3 cursor-pointer"> 
-                 {/* <BiNote className="text-lg"/> */}
-                 <div className="rounded-full h-2.5 w-2.5 bg-blue-500"></div>
-                <span>My Notes</span>
+            <div className="h-screen bg-[#101213] w-fit  flex-shrink-0   flex items-start justify-start">
+              {/* category */}
+              <div className="flex-shrink-0 h-full w-[4.5rem] bg-[#000000] flex flex-col items-center justify-start py-8 thin-right-divider">
+                <div className="flex flex-col items-start justify-start h-full">
+                  <div className="h-[3rem] flex-shrink-0 box-border w-[3rem] text-gray-100 rounded-lg bg-[#3286fb] p-1.5 flex flex-col items-end justify-end">
+                    <span className="text-sm font-medium">Ne</span>
+                  </div>
+                </div>
+                <div className="text-2xl text-[#a8a7a7] gap-2 flex items-center justify-around flex-col">
+                  <div className="cursor-pointer hover:bg-[#a8a7a7]/10 rounded-full p-2.5 ">
+                    <BiMoon />
+                  </div>
+                  <div className="cursor-pointer hover:bg-[#a8a7a7]/10 rounded-full p-2.5 ">
+                    <BiCog />
+                  </div>
+                </div>
+              </div>
+              {/* links */}
+              <div className="h-full w-[22rem] flex-shrink-0">
+                <div className=" mt-32 min-h-[4rem] px-6  w-full">
+                  <div className="px-0 text-[0.9rem] mb-6   font-bold flex items-center justify-start gap-3">
+                    {/* <TbFolder className="text-xl " /> */}
+                    <span>Collection</span>
+                  </div>
+                  {/* items */}
+                  {!loading &&
+                    docs?.map((item, id) => (
+                      <div
+                        key={id}
+                        className={` cursor-pointer  py-3.5 rounded-lg px-6 text-[1.025rem] my-2 flex items-center justify-start gap-4 font-medium ${
+                          id === 0
+                            ? " bg-[#1d1f20] text-[#dad8db]"
+                            : "bg-inherit text-[#7c7c7c]"
+                        }`}
+                      >
+                        <div className="flex items-center justify-start gap-3 w-full">
+                            <TbFolder className="text-lg " />
+                            {/* <div className="h-2 w-2 rounded-full bg-blue-500"></div> */}
+                          <span>{item.name}</span>
+                        </div>
+                        <BiChevronRight className="text-2xl" />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
-            <div className=" w-full px-8  pt-24 h-full">
-              {/* content here */}
-              <div className="w-full  max-w-7xl h-full  ">
-                <div
-                  onClick={() => navigate("/")}
-                  className="text-[1.45rem] font-medium w-fit cursor-pointer relative"
-                >
-                  My Notes
+
+            {/* content */}
+            <div className="w-full h-full  px-8    flex items-start justify-start pb-6 pt-14">
+            
+
+             <div className="container h-full flex items-start gap-4 justify-start ">
+               {/* selector */}
+              <div className="flex h-full rounded-xl  items-start pt-4 justify-start  w-[24rem] flex-shrink-0 flex-col">
+                <div className=" mb-4 w-full px-2 flex items-center justify-between ">
+                  <span className="text-[1.8rem]  text-[#dadada]  font-semibold">
+                    Chats
+                  </span>
+                    
                 </div>
-                <div className="mt-8 flex items-center just-center gap-3">
-                  <Searchbar></Searchbar>
-                  <div className="text-2xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
-                    <BiGridSmall />
-                  </div>
-                  <div className="text-xl h-10 px-2.5 cursor-pointer  hover:bg-[#1b1c1d] text-[#7c8494]/50 hover:text-neutral-200 rounded-lg flex items-center justify-center ">
-                    <BiListUl />
-                  </div>
+                
+                <div className="pb-4 relative pt-12 w-full px-2 ">
+                
+
+                  <span className="text-[#dadada]  font-semibold ml-0 ">My Notes <span className="text-[#7c7c7c]/70 ml-3 font-semibold">
+                    {!loading && docs[2].data.length}
+                  </span></span>
+                  {/* <Searchbar /> */}
+                  {/* <div className="h-12 left-0 w-full bg-gradient-to-b from-[#000000] via-[#000000]/10 to-transparent absolute z-10 -bottom-[30%]"></div> */}
                 </div>
-                {/* content */}
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <ItemContainer state={state}/>
-                    }
-                  ></Route>
-                  <Route path="/digiDirect" element={<Content />}></Route>
-                </Routes>
+                <NoteSelectContainer deps={loading}>
+                  {/* <AddItemComponent /> */}
+                  {!loading && docs[2].data.map((item, id) => (
+                    <Item key={id} id={id} title={item.title} details={item.details}></Item>
+                  ))}
+                   {!loading && docs[2].data.map((item, id) => (
+                    <Item key={id} id={id} title={item.title} details={item.details}></Item>
+                  ))}
+                  
+                </NoteSelectContainer>
               </div>
+              <div className="w-full pt-44 h-full">
+                
+                <div className="h-full w-full bg-[#101213] rounded-xl "></div>
+              </div>
+             </div>
             </div>
           </div>
         }
@@ -69,112 +133,5 @@ const Login = () => {
     </Routes>
   );
 };
-// text-[#7c8494]
 
 export default Login;
-
-// const navigate = useNavigate();
-// const [focusState, setFocusState] = React.useState({
-//   email: false,
-//   password: false,
-// });
-// const [loginInput, setLoginInput] = useState({
-//   email: "",
-//   password: "",
-// });
-// const handleEmailChange = (e) => {
-//   setLoginInput((prev) => {
-//     return { ...prev, email: e.target.value };
-//   });
-// };
-// const handlePasswordChange = (e) => {
-//   setLoginInput((prev) => {
-//     return { ...prev, password: e.target.value };
-//   });
-// };
-// const [isChecked, setIsChecked] = useState(false);
-// const handleToggleCheckbox = () => {
-//   setIsChecked((prev) => (prev = !isChecked));
-// };
-
-// const handleLogin = async (e) => {
-//   e.preventDefault();
-//   try {
-//     const user = await signInWithEmailAndPassword(
-//       auth,
-//       loginInput.email,
-//       loginInput.password
-//     );
-//     console.log(user);
-//     if (user) {
-//       navigate("product-listing/documentation");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleGoogleLogin = async (e) => {
-//   try {
-//     const user = signInWithPopup(auth, googleProvider);
-//     console.log(user);
-//     if (user) {
-//       navigate("product-listing/documentation");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleSignout = async () => {
-//   try {
-//     await signOut(auth);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// const handleFocus = (e) => {
-//   if (e.target.type === "email" ) {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       email: true,
-//     }));
-//     console.log(e.target.value)
-//   } else if (e.target.type === "password") {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       password: true,
-//     }));
-//   }
-// };
-// const handleBlur = (e) => {
-//   if (e.target.type === "email" ) {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       email: false,
-//     }));
-//   } else if (e.target.type === "password") {
-//     setFocusState((prev) => ({
-//       ...prev,
-//       password: false,
-//     }));
-//   }
-// };
-// const placeholderVariants = {
-//   initial: {
-//     color: "rgb(148, 163, 184)",
-//     translateY: "0.6rem",
-//     fontSize: "0.875rem",
-//     backgroundColor:'transparent',
-//     transition: {
-//       duration: 0.25,
-//     },
-//   },
-//   animate: {
-//     color: "rgb(53, 107, 229)",
-//     translateY: "-0.6rem",
-//     fontSize: "0.775rem",
-//     backgroundColor:'white',
-//     transition: {
-//       duration: 0.25,
-//     },
-//   },
-// };

@@ -1,67 +1,62 @@
 import React from "react";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-const Item = ({ id, item }) => {
-  const [hover, setHover] = React.useState(false);
-  const handleHover = () => {
-    setHover(!hover);
-  };
+import { BiFile, BiDotsVerticalRounded, BiCheck } from "react-icons/bi";
+import { TbDotsVertical } from "react-icons/tb";
+const Item = ({ title,details, id }) => {
   const [state, setState] = React.useState(false);
-  const handleClick = () => {
+  const ref = React.useRef(null)
+  const handleClickItem = () => {
     setState(!state);
   };
+  React.useEffect(()=>{
+    ref.current.style.width="23rem"
+  },[title,details])
   return (
     <div
-      key={id}
-      onClick={handleClick}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-      className={`rounded-lg flex-shrink-0 w-[24rem] my-3.5 relative  px-4 py-4  cursor-pointer 
-      ${
-        !state ? "bg-[#131415] " : "bg-[#0c0c0d] box-border border-[2px] border-solid border-white"
-      }
-      `}
+    ref={ref}
+      onClick={handleClickItem}
+      className={`w-full ${
+        state ? "bg-[#1a1c1e] " : "bg-[#101213] "
+      } relative px-5 py-5 cursor-pointer rounded-xl box-border mb-[0.875rem] flex-shrink-0`}
     >
-      <p
-        className={`capitalize text-[0.8rem] ${
-          state ? "text-neutral-500" : "text-neutral-200/50"
-        }`}
-      >
-        19 apr
-      </p>
-      <p
-        className={`font-[500] mt-3 text-[0.9rem] ${
-          state ? "text-neutral-100" : "text-neutral-400"
-        }`}
-      >
-        {item.title}
-      </p>
-      <p
-        className={` text-[0.85rem] mt-2 truncate	overflow-hidden ${
-          state ? "text-neutral-500" : "text-neutral-500/40"
-        }`}
-      >
-        {item.detail.props.children[0]}
-      </p>
-      {/* {item.category && (
-        <div
-          className={`text-[0.85rem] mt-6 ${
-            state ? "bg-[#f0eeee] text-neutral-500" : "text-neutral-300 bg-[#f7f7f7]"
-          }  py-1.5 rounded-md px-3 w-fit`}
+      <div className="font-bold flex items-center justify-between relative mb-6 text-[0.875rem]  text-[#122132]/80">
+        <span
+          className={`max-w-[75%] text-[0.95rem] w-full font-medium tracking-wide  overflow-hidden truncate ${
+            !state ? "text-[#7c7c7c] " : "text-gray-100/90"
+          }`}
         >
-          {item.category}
+          {title}
+        </span>
+        <div
+          className={`${
+            !state ? "text-[#7c7c7c] " : "text-gray-100/90"
+          } text-xl`}
+        >
+          <TbDotsVertical />
         </div>
-      )} */}
-
-      <div
-      onClick={(e)=>e.stopPropagation()}
-        className={`absolute top-2 right-2 text-xl rounded-full p-2  ${
-          state
-            ? "text-neutral-400 hover:text-neutral-400 hover:bg-[#1b1c1d]"
-            : "text-neutral-400/40 hover:bg-[#1b1c1d]"
+      </div>
+      <p
+        className={`text-[0.885rem] ml-0 mr-2  tracking-wide overflow-hidden truncate font-libreationRegular  ${
+          state ? "text-[#7c7c7c]" : "text-[#7c7c7c]/70 "
         }`}
       >
-        <BiDotsVerticalRounded />
-      </div>
+        {/* {item.details} */}
+        {/* use logic when displaying */}
+        {details.split(/<br\s*\/?>/).map((item, id) => (
+          <React.Fragment key={id}>
+            {item}
+            <br />
+          </React.Fragment>
+        ))}
+      </p>
+      {/* {state ? (
+        <div className="absolute p-1 rounded-full text-white bg-[#3286fb] -top-3 right-3">
+          <BiCheck />
+        </div>
+      ) : null} */}
+      {/* {state ? (
+        <div className="absolute w-[1px] h-full rounded-l-lg text-white bg-[#3286fb] top-0 -right-2">
+          </div>
+      ) : null}  */}
     </div>
   );
 };

@@ -1,12 +1,6 @@
-import Documentation from "./components/Documentation";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ErrorPage from "./components/ErrorPage";
-import { useLocation, Routes, Route } from "react-router-dom";
-import ListingHelperPage from "./components/ListingHelperPage";
+
+import { useLocation} from "react-router-dom";
 import Login from "./components/Login";
-import Sidebar from "./components/Sidebar";
-import Tools from "./components/Tools";
 import { useEffect } from "react";
 function App() {
   const location = useLocation();
@@ -19,38 +13,3 @@ function App() {
 }
 
 export default App;
-
-// <Routes>
-//       <Route path="/" element={<Login />} />
-//       <Route
-//         path="/product-listing/*"
-//         element={
-//           <div className="h-auto bg-[#ffffff]  text-[#0a1c40] box-border  font-inter">
-//             {/* navbar */}
-//             <Navbar></Navbar>
-//             <div className="  min-h-[150vh] h-auto   mt-2   box-border">
-//               <div className="relative  container mx-auto flex p-0  flex-col  justify-start  items-center box-border">
-//                 {/* sidebar */}
-//                 {/* <Sidebar /> */}
-//                 {/* content */}
-//                 <Routes>
-//                   <Route
-//                     path="documentation"
-//                     element={<Documentation />}
-//                   ></Route>
-//                   <Route path="tools" element={<Tools />}></Route>
-//                   <Route
-//                     path="listing-helper"
-//                     element={<ListingHelperPage />}
-//                   ></Route>
-//                   <Route path="*" element={<ErrorPage />} />
-//                 </Routes>
-//               </div>
-//             </div>
-//             {/* footer */}
-//             <Footer></Footer>
-//           </div>
-//         }
-//       ></Route>
-//       <Route path="*" element={<ErrorPage />} />
-//     </Routes>
