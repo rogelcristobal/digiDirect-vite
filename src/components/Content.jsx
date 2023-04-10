@@ -35,8 +35,8 @@ const Content = ({ id, path, title }) => {
     <div className="container h-full flex items-start gap-3 justify-start ">
       <div className="flex h-full rounded-xl  items-start pt-4 justify-start w-[24rem] flex-shrink-0 flex-col">
         <div className="  w-full px-2 flex items-center justify-between ">
-          <span className="text-[1.7rem]  text-[#fcfcfc]  font-medium">
-            Collection / {title}
+          <span className="text-[1.7rem]  text-[#fcfcfc]  font-semibold">
+              {title}
           </span>
         </div>
         <div className="pb-4 relative pt-12 w-full px-0 ">
@@ -51,7 +51,7 @@ const Content = ({ id, path, title }) => {
           <AddItemComponent path={path}/>
           {!loading &&
             query.map((item, id) => (
-              <Item key={id} id={id} item={item}></Item>
+              <Item key={id} id={id} title={item.title} details={item.details} createdAt={item.createdAt}></Item>
             ))}
         </div>
       </div>

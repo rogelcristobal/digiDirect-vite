@@ -1,8 +1,8 @@
 import React from "react";
 
-const Item = ({ id, item }) => {
-  const date = item.createdAt.toDate().toLocaleDateString();
-  const time = item.createdAt.toDate().toLocaleTimeString();
+const Item = ({ id, title, details, createdAt }) => {
+  const date = createdAt?.toDate().toLocaleDateString();
+  const time = createdAt?.toDate().toLocaleTimeString();
   return (
     <div
       key={id}
@@ -13,13 +13,15 @@ const Item = ({ id, item }) => {
 
         <p className=" text-sm text-[#fcfcfc]/20">{time}</p>
       </div>
-      <p className="mb-6 text-[#fcfcfc]/80 text-[1.05rem]">{item.title}</p>
-      {item?.details.split(/<br\s*\/?>/).map((item, id) => (
+      <p className="mb-6 text-[#fcfcfc]/80 text-[1.05rem]">{title}</p>
+      
+      {details?.split(/<br\s*\/?>/).map((item, id) => (
         <React.Fragment key={id}>
           {item}
           <br />
         </React.Fragment>
       ))}
+      
     </div>
   );
 };

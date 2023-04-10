@@ -18,7 +18,6 @@ const AddItemComponent = ({ path }) => {
     <>
       <button
         // onClick={handleOnClick}
-        // type="submit"
         className={` cursor-pointer px-5 rounded-xl mb-3.5 w-full text-[#fcfcfc]/50  bg-[#101213] hover:bg-[#1a1c1e] h-fit py-6 flex-shrink-0 flex  items-center justify-start gap-3`}
       >
         <TbPlus className="text-2xl " />
