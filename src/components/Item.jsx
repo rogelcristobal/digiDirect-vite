@@ -2,7 +2,7 @@ import React from "react";
 
 const Item = ({ id, title, details, createdAt }) => {
   const date = createdAt?.toDate().toLocaleDateString();
-  const time = createdAt?.toDate().toLocaleTimeString();
+  const time = createdAt?.toDate().toLocaleTimeString([], {hour:"numeric", minute:"numeric",hour12:true});
   return (
     <div
       key={id}
@@ -13,7 +13,7 @@ const Item = ({ id, title, details, createdAt }) => {
 
         <p className=" text-[0.8rem] font-bold">{time}</p>
       </div>
-      <p className="mb-6  text-[0.975rem] text-[#1b2838]/80 font-bold">{title}</p>
+      <p className="mb-6  text-[0.95rem] text-[#1b2838]/80 font-bold">{title}</p>
       
       {/* {details?.split(/<br\s*\/?>/).map((item, id) => (
         <React.Fragment key={id}>

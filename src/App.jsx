@@ -8,7 +8,6 @@ import Navbar from "./components/Navbar";
 function App() {
   const [query, setQuery] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-
   //root collection
   const notesCollectionRef = collection(db, "notes");
   // fetch onload
