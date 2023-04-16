@@ -43,7 +43,7 @@ const Content = ({ id, path, title }) => {
           <span className="mb-2 font-bold text-[#1b2838]/30 text-sm flex items-center">
             My Notes <BiChevronRight className="text-xl" />
           </span>
-          <span className="text-[2.1rem]  font-bold">{title}</span>
+          <span className="text-[1.9rem]  capitalize font-semibold">{title.toLowerCase()}</span>
         </div>
         {/* note count total */}
         <div className="py-0 rounded-xl  mb-5  relative w-full px-2 ">
@@ -54,12 +54,12 @@ const Content = ({ id, path, title }) => {
             </span>
           </span>
         </div>
-        <div className="h-[76vh]  bg-[#ffffff] items-center  flex flex-col justify-start rounded-2xl w-full">
-          <div className="w-full py-5 px-2 thin-bottom-divider flex items-center justify-start">
+        <div className="h-[76vh] pt-16 bg-[#ffffff] items-center  flex flex-col justify-start rounded-2xl w-full">
+          {/* <div className="w-full py-5 px-2 thin-bottom-divider flex items-center justify-start">
             <Searchbar />
             
-          </div>
-          <div className=" py-0    h-full  w-full overflow-y-scroll  flex flex-col items-center justify-start">
+          </div> */}
+          <div className=" py-0  thin-top-divider  h-full  w-full overflow-y-scroll  flex flex-col items-center justify-start">
             {!loading &&
               query.map((item, id) => (
                 <Item
