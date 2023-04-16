@@ -31,7 +31,7 @@ function App() {
       <Route
         path={`/*`}
         element={
-          <div className="font-plus bg-[#fbfbfb] text-[#1b2838] h-screen relative flex  items-start justify-start ">
+          <div className="font-plus bg-[#fafafa] text-[#0a0b3d] h-screen relative flex  items-start justify-start ">
             {/* <Navbar /> */}
             <Sidebar docs={query} loading={loading} />
             <div className="w-full h-full  px-7 flex items-start justify-start py-0 rounded-xl   ">

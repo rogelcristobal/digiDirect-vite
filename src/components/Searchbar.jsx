@@ -42,21 +42,21 @@ const Searchbar = () => {
     <div
       ref={ref}
       onClick={handleClick}
-      className={`text-lg h-[3rem]  px-1   cursor-pointer flex-shrink-0 flex items-center justify-start rounded-xl w-full ${
+      className={`text-lg h-10  px-1 py-1.5  cursor-pointer flex-shrink-0 flex items-center justify-start rounded-xl w-full ${
         state ? "" : ""
       }
       }`}
     >
-      <div className=" p-3 mr-1 rounded-full ">
+      <div className=" p-3 mr-0 rounded-full ">
         <TbSearch
-          className={`flex-shrink-0 text-[1.25rem] `}
+          className={`flex-shrink-0 text-[1.25rem] ${state&&'text-[#2c84fb]'} `}
         />
       </div>
-      <div className={`w-full bg-[#f6f6f6]/30  rounded-xl mr-2  h-full  ${state? '':''}`}>
+      <div className={`w-full   rounded-xl mr-0  h-full  ${state? '':''}`}>
         <input
           ref={inputRef}
           type="text"
-          className="placeholder:text-[1rem]  placeholder:font-medium placeholder:text-[#1b2838]/20  px-4 text-md h-full  focus:outline-none w-full cursor-pointer text-[0.975rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus"
+          className={`placeholder:text-[1rem]  placeholder:font-medium placeholder:text-[#1b2838]/20  px-4 text-md h-full  focus:outline-none w-full cursor-pointer text-[0.975rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus `}
           placeholder={`Search  `}
           onChange={handleInput}
           value={query}
