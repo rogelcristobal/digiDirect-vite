@@ -31,10 +31,10 @@ function App() {
       <Route
         path={`/*`}
         element={
-          <div className="font-plus bg-[#fafafa] text-[#0a0b3d] h-screen relative flex  items-start justify-start ">
-            {/* <Navbar /> */}
+          <div className="font-plus bg-[#eef0f4]/50 text-[#060a32] pt-0 h-full relative flex  items-start justify-start ">
+
             <Sidebar docs={query} loading={loading} />
-            <div className="w-full h-full  px-7 flex items-start justify-start py-0 rounded-xl   ">
+            <div className="w-full h-full  pt-0 flex items-start justify-start py-0 rounded-xl   ">
               <Routes>
                 {!loading &&
                   query.map((item, id) => (

@@ -1,28 +1,36 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Item = ({ id, title, details, createdAt }) => {
   const date = createdAt?.toDate().toLocaleDateString();
-  const time = createdAt?.toDate().toLocaleTimeString([], {hour:"numeric", minute:"numeric",hour12:true});
+  const time = createdAt
+    ?.toDate()
+    .toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
   return (
-    <div
+    <NavLink
       key={id}
-      className="pt-3 px-6 min-h-fit flex-shrink-0 w-full thin-bottom-divider  mb-0 rounded-lg cursor-pointer"
+      to={`/${title}`}
+      className="py-6 thin-bottom-divider hover:bg-[#fafbfe] text-gray-900/50 hover:text-gray-900/80 pl-8 pr-6 min-h-fit flex-shrink-0 w-full flex items-center justify-between  mb-0 rounded-lg cursor-pointer"
     >
-      <div className="flex mb-3 items-center text-[#1b2838]/30 justify-between">
-        <p className=" text-[0.8rem] font-bold ">{date}</p>
+      <p className=" text-lg   font-bold capitalize  ">
+        {title.toLowerCase()}
+      </p>
+      <div className="flex mb-3 items-center gap-12 text-gray-900/40 justify-between">
+        <p className=" text-[0.9rem] font-bold">{time}</p>
+        <p className=" text-[0.9rem] font-bold ">{date}</p>
 
-        <p className=" text-[0.8rem] font-bold">{time}</p>
       </div>
-      <p className="mb-6  text-[0.9rem] text-[#0a0b3d]/70 font-bold  tracking-wide">{title}</p>
-      
+
       {/* {details?.split(/<br\s*\/?>/).map((item, id) => (
         <React.Fragment key={id}>
-          {item}
+        {item}
           <br />
         </React.Fragment>
       ))} */}
-      
-    </div>
+    </NavLink>
   );
 };
 
