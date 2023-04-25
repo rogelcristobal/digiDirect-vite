@@ -15,10 +15,10 @@ const Item = ({ id, title, details, createdAt }) => {
       to={`/${title}`}
       className="py-6 thin-bottom-divider hover:bg-[#fafbfe] text-gray-900/50 hover:text-gray-900/80 pl-8 pr-6 min-h-fit flex-shrink-0 w-full flex items-center justify-between  mb-0 rounded-lg cursor-pointer"
     >
-      <p className=" text-lg   font-bold capitalize  ">
+      <p className=" text-lg   max-w-[26rem] overflow-hidden truncate font-bold capitalize  ">
         {title.toLowerCase()}
       </p>
-      <div className="flex mb-3 items-center gap-12 text-gray-900/40 justify-between">
+      <div className="flex mb-0 items-center  gap-16 text-gray-900/40 justify-between">
         <p className=" text-[0.9rem] font-bold">{time}</p>
         <p className=" text-[0.9rem] font-bold ">{date}</p>
 
