@@ -32,7 +32,7 @@ function App() {
         path={`/*`}
         element={
           <div className="font-plus bg-[#f9f9f9]  text-[#060a32] pt-0 h-full relative flex  items-start justify-start ">
-
+            <Navbar></Navbar>
             <Sidebar docs={query} loading={loading} />
             <div className="w-full h-full  pt-0 flex items-start justify-start py-0 rounded-xl   ">
               <Routes>

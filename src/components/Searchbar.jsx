@@ -59,12 +59,12 @@ const Searchbar = () => {
         <input
           ref={inputRef}
           type="text"
-          className={`placeholder:text-[1.2rem]  placeholder:font-semibold placeholder:text-[#1b2838]/30  px-4 text-md h-full  focus:outline-none w-full cursor-pointer text-[1.2rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus `}
+          className={`placeholder:text-[1.2rem] max-w-[90%] placeholder:font-semibold placeholder:text-[#1b2838]/30  px-4 text-md h-full  focus:outline-none w-full cursor-pointer text-[1.2rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus `}
           placeholder={`Search  `}
           onChange={handleInput}
           value={query}
         />
-        {query&& <div onClick={(e)=>handleClear(e)} className="absolute  text-xl rounded-full p-1.5 top-1/2 -translate-y-1/2 hover:text-[#2c84fb] text-[#1b2838]/20 bg-[#f9f9f9] hover:bg-[#f5f5f5] right-0 "><FiX /></div>}
+        {query&& <div onClick={(e)=>handleClear(e)} className="absolute  text-xl rounded-full p-1.5 top-1/2 -translate-y-1/2 hover:text-[#2c84fb] text-[#1b2838]/20 medium-box-divider  right-2 "><FiX /></div>}
       </div>
     </div>
   );
