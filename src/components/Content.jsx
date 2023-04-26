@@ -1,5 +1,5 @@
 import React from "react";
-import Scrollbar from "smooth-scrollbar";
+import { FiEdit } from "react-icons/fi";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { NavLink, Routes, Route } from "react-router-dom";
@@ -38,27 +38,32 @@ const Content = ({ id, path, title }) => {
 
   return (
     <div className=" h-full w-full px-12 flex items-start  gap-8  justify-center ">
-      <div className="flex h-full items-start pt-16 box-border justify-start w-[40rem] flex-shrink-0 flex-col">
-        <span className="text-[2rem] ml-4 mb-12 capitalize font-semibold">
-            {title.toLowerCase()} 
+      <div className="flex h-full items-start pt-16 box-border justify-start w-[37rem] flex-shrink-0 flex-col">
+        <span className="text-[2rem] ml-4 flex items-end justify-start gap-2 mb-12 capitalize font-semibold">
+          {title.toLowerCase()}
+          <button className="text-[1.3rem] text-[#060a32]/20 p-2.5  cursor-pointer hover:text-[#2c84fb]">
+            <FiEdit />
+          </button>
         </span>
-        <div className="w-full mb-6 flex items-center justify-start">
-          <span className="font-bold text-gray-900/30 pl-3 text-[1rem]">
-            Total notes:
-          </span>
-          <span className="font-bold text-gray-900 pl-2  text-[1rem]">
-            {query.length}
-          </span>
+        <div className=" rounded-xl bg-[#ffffff] px-2 py-2 w-full mb-6">
+          <Searchbar></Searchbar>
         </div>
-        <div className="h-[80vh] pt-0 px-0 bg-[#ffffff] rounded-xl overflow-y-scroll items-center  flex flex-col justify-center  w-full">
-          <div className="pt-4 pb-0 thin-bottom-divider flex flex-col items-start justify-start px-2  w-full">
-            <div className="w-full  flex items-center justify-between">
-              <span className="font-bold text-gray-900 pl-4 tracking-tight text-[1.1rem]">
+          {/* total notes */}
+          <div className="w-full mb-4 flex items-center justify-start">
+            <span className="font-bold text-gray-900/30 pl-3 text-[1rem]">
+              Total notes:
+            </span>
+            <span className="font-bold text-gray-900/30 pl-2  text-[1rem]">
+              {query.length}
+            </span>
+          </div>
+
+        <div className="h-[73vh] pt-0 px-0 bg-[#ffffff] rounded-xl overflow-y-scroll items-center  flex flex-col justify-center  w-full">
+          <div className="pt-6 pb-0 thin-bottom-divider flex flex-col items-start justify-start px-2  w-full">
+            <div className="w-full  flex items-center justify-start">
+              <span className="font-bold text-gray-900 pl-4 tracking-tight text-[1.2rem]">
                 Saved notes
               </span>
-              <button className=" rounded-full p-3 text-2xl mr-0 hover:bg-[#f6f8fb]/80 bg-[#f6f8fb]/40 hover:text-[#2c84fb]">
-                <TbSearch />
-              </button>
             </div>
 
             <div className="mt-10 w-full  px-6 mb-4 flex items-center  justify-between  text-gray-900/30 font-bold capitalize">
@@ -84,9 +89,7 @@ const Content = ({ id, path, title }) => {
           </div>
         </div>
       </div>
-      <div className="w-full  pt-0 h-screen">
-        
-      </div>
+      <div className="w-full  pt-0 h-screen"></div>
     </div>
   );
 };
