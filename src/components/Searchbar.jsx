@@ -59,7 +59,7 @@ const Searchbar = () => {
         <input
           ref={inputRef}
           type="text"
-          className={`placeholder:text-[1.2rem] max-w-[90%] placeholder:font-semibold placeholder:text-[#1b2838]/30  px-4 text-md h-full  focus:outline-none w-full cursor-pointer text-[1.2rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus `}
+          className={`placeholder:text-[1rem] max-w-[90%] placeholder:font-semibold placeholder:text-[#1b2838]/30  px-2 text-md h-full  focus:outline-none w-full cursor-pointer text-[1.2rem] placeholder:tracking-wider rounded-r-lg placeholder:font-plus `}
           placeholder={`Search  `}
           onChange={handleInput}
           value={query}

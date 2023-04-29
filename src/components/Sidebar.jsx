@@ -6,10 +6,11 @@ const Sidebar = ({ docs, loading }) => {
   return (
     <div className="h-screen bg-[#ffffff] w-fit flex-shrink-0   flex items-start justify-start">
       {/* category */}
-      <div className="flex-shrink-0 h-full w-[6rem] thin-right-divider flex flex-col items-center justify-start py-6 ">
+      <div className="flex-shrink-0 h-full w-[5rem] thin-right-divider flex flex-col items-center justify-start py-6 ">
         <div className="flex flex-col items-start space-y-3 justify-start h-full">
-          <div className="h-[3.5rem] flex-shrink-0 box-border w-[3.5rem] text-gray-100 rounded-xl bg-gradient-to-r from-sky-400 to-blue-500 p-1.5 flex flex-col items-end justify-end">
-            <span className="text-sm font-medium">Ne</span>
+          <div className="h-[4rem] flex-shrink-0 box-border w-[4rem] text-gray-100 rounded-xl  bg-sky-500 py-2 px-2 flex flex-col items-end justify-end ">
+            <span className="text-base font-medium">Ne</span>
+            
           </div>
         </div>
         <div className="text-[1.7rem] gap-2 flex items-center  justify-around flex-col">
@@ -22,14 +23,14 @@ const Sidebar = ({ docs, loading }) => {
         </div>
       </div>
       {/* links */}
-      <div className="h-full w-[22rem] flex-shrink-0">
+      <div className="h-full w-[20rem] flex-shrink-0">
         <div className=" mt-32 min-h-[4rem] px-0  w-full">
             {/* items */}
-            <button className="w-full flex   items-center justify-start px-4  p-3 text-[1.150rem] font-bold ">
-              <div className="w-full h-full flex items-center justify-start gap-3" ><TbChevronDown className="text-lg"/>
+            <div className="w-full flex   items-center justify-start px-4  p-3 text-[1rem] font-bold ">
+              <div className="w-full h-full flex items-center justify-start gap-3" ><TbChevronDown className="text-[1.2rem]"/>
               <span>Collections</span></div>
               <button className="thin-box-divider p-2 rounded-lg text-lg text-[#3960ed]"><TbPlus /></button>
-            </button>
+            </div>
             {!loading &&
             docs.map((item, id) => (
               <NavLink key={id} to={`/${item.name}`}>
@@ -45,7 +46,7 @@ const Sidebar = ({ docs, loading }) => {
                     <div className="flex items-center justify-start gap-3 w-full">
                       {/* <TbFolder className="text-lg " /> */}
                       {/* <div className="h-2 w-2 rounded-full bg-blue-500"></div> */}
-                      <span className="text-[1.150rem] capitalize   font-semibold">
+                      <span className="text-[1.050rem] capitalize   font-semibold">
                         {item.name.toLowerCase()}
                       </span>
                     </div>
