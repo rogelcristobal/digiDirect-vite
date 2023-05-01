@@ -13,9 +13,9 @@ const Item = ({ id, title, details, createdAt }) => {
     <NavLink
       key={id}
       to={`/${title}`}
-      className="py-6 thin-bottom-divider hover:bg-[#fafbfe]/50 text-gray-900/50 hover:text-gray-900/80 pl-8 pr-6 min-h-fit flex-shrink-0 w-full flex items-center justify-between  mb-0 cursor-pointer"
+      className="py-6 thin-bottom-divider hover:bg-[#fafbfe]/50 text-gray-900/40 hover:text-gray-900/80 pl-8 pr-6 min-h-fit flex-shrink-0 w-full flex items-center justify-between  mb-0 cursor-pointer"
     >
-      <p className=" text-md   max-w-[17rem] overflow-hidden truncate font-bold capitalize  ">
+      <p className=" text-[1.050rem]  max-w-[17rem] overflow-hidden truncate font-bold capitalize  ">
         {title?.toLowerCase()}
       </p>
       <div className="flex mb-0 items-center  gap-14 text-gray-900/40 justify-between">
