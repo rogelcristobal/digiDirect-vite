@@ -33,17 +33,27 @@ const Content = ({ id, path, title }) => {
   // }
 
   return (
-   <div className="relative w-full pt-28 h-full  box-border">
-    {/* <div className="fixed top-0 left-0 h-24 thin-bottom-divider w-full bg-white"></div> */}
-
-    <div className="h-full w-full ">
-      <div className="thin-bottom-divider pb-10 w-full px-20 flex-col flex gap-2">
-        <span className="text-lg font-semibold text-[#bbbed3]">Collections   &#x3e;   Dana Chats</span>
-        <span className="text-[2.475rem] font-semibold">Dana Chats</span>
+   <div className="relative w-full  h-screen p-0 box-border">
+    <div className="fixed top-0 h-24 w-full  bg-white sample"> </div>
+    <div className="h-full w-full flex flex-col items-start pt-28 ">
+      {/* page header */}
+      <div className=" pb-12 w-full  h-fit px-[6rem] flex-col flex gap-1">
+        {/* <span className="text-lg font-medium text-[#bbbed3]">Collections   &#x3e;  Chats</span>
+        <span className="text-[2.4rem] font-semibold"> Chats</span> */}
       </div>
-    </div>
+      {/* page content */}
 
-    
+      <div className=" w-full  h-full  px-12">
+        <div className="mt-0 h-full w-full bg-white px-12 pt-28  sample">
+{/* bg-[#f9fbfc] */}
+          <div className="h-full w-[35rem] thin-box-divider rounded-xl">
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
    </div>
   );
 };
