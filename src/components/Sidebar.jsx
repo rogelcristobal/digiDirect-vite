@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { TbChevronDown, TbPlus } from "react-icons/tb";
 import { query } from "firebase/firestore";
 import { BiNote } from "react-icons/bi";
-import {TbFolder,TbTools } from 'react-icons/tb'
+import {TbFolder,TbCheckbox } from 'react-icons/tb'
 import {HiOutlineWrench} from 'react-icons/hi2'
 const Sidebar = ({ docs, loading }) => {
   const [state, setState] = React.useState([]);
@@ -22,9 +22,11 @@ const Sidebar = ({ docs, loading }) => {
 
         <div className=" mt-12 pb-8 px-3.5  box-border flex flex-col items-center w-full justify-start">
           {/* items */}
-          <DropDown icon={<TbFolder className="mr-2.5 text-[#909294] text-[1.25rem]"/>} loading={loading} content={docs} title='Collection' initialState></DropDown>
-          <button className="text-[0.65rem] text-[#666869] hover:text-inherit font-medium sample2 hover:border-0  hover:bg-[#2b2c30] rounded-2xl  box-border w-[95%] py-2 mt-4 mb-4">Add New Item</button>
+          <DropDown icon={<TbFolder className="mr-2.5 text-[#909294] text-[1.25rem]"/>} loading={loading} content={docs} title='Collection' initialState AddBtn></DropDown>
+          
           <DropDown icon={<HiOutlineWrench className="mr-2.5 text-[#909294] text-[1.25rem]"/>} loading={loading} title="Tools"></DropDown>
+
+           <DropDown icon={<TbCheckbox className="mr-2.5 text-[#909294] text-[1.25rem]"/>} loading={loading} title="ToDos"></DropDown>
         </div>
       </div>
     </div>

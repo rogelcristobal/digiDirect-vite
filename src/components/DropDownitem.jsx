@@ -35,7 +35,8 @@ const DropDownitem = ({ data, isActive, id, itemContentLength }) => {
         <span className="text-[0.75rem] capitalize  ">
           {data.name.toLowerCase()}
         </span>
-        <span className="text-[0.7rem] ml-1.5">({query.length})</span>
+        {/* item content count 👇 */}
+        <span className="text-[0.7rem] font-normal proportional-nums ml-1.5">({query.length})</span>
       </div>
 
       {/* this is absolute 👇 */}

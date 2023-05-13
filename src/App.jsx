@@ -5,29 +5,8 @@ import { db } from "./firebase/firebase";
 import Sidebar from "./components/Sidebar";
 import Content from "./components/Content";
 import Navbar from "./components/Navbar";
+import CollectionContext from "./context/CollectionContext";
 function App() {
-  const [query, setQuery] = React.useState([]);
-
-  const [loading, setLoading] = React.useState(true);
-  //root collection
-
-  const noteCollection = collection(
-    db,
-    "my-notes/4bGwXxiddNvQyrkB1LWv/collection"
-  );
-                    //newstel
-                    //return 3 data
-
-  React.useEffect(() => {
-    const unsubscribe = onSnapshot(noteCollection, (snapshot) => {
-      setQuery(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setLoading(false);
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   // const sourceCollectionRef = collection(db, "digi-notes/p4HUxPaJejWlmgBcKRkj/data");
   // const destinationCollectionRef = collection(db, "my-notes/BWSt0EbQKXvgDqLCw8pz/collection")
@@ -48,10 +27,14 @@ function App() {
   //   fetch();
   // },[])
 
-  if (!loading) {
-    console.log(query);
+  // if (!loading) {
+  //   console.log(query);
+  // }
+  const {query ,loading} = React.useContext(CollectionContext)
+ 
+  if(!loading) {
+    console.log("CollectionContext",query);
   }
-
   return (
     <Routes>
       <Route

@@ -9,6 +9,7 @@ const DBQueryContext = React.createContext()
 export const DBQueryContextProvider = ({children}) => {
   const query = collection(db, "my-notes");
   const [docs, loading, error] = useCollectionData(query);
+  
   return (
     <DBQueryContext.Provider value={{docs,loading,error}}>
       {children}
