@@ -158,7 +158,9 @@
     font-family: "liberationBold";
     src: url("./font/LiberationMonoBold.ttf");
   }
-
+.sample2{
+  @apply border-[1px] border-gray-400/10
+}
   .sample {
 box-shadow: rgba(0, 0, 0, 0.03) 0px 6px 6px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; }
 }

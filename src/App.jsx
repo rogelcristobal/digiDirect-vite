@@ -15,6 +15,8 @@ function App() {
     db,
     "my-notes/4bGwXxiddNvQyrkB1LWv/collection"
   );
+                    //newstel
+                    //return 3 data
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(noteCollection, (snapshot) => {
@@ -46,19 +48,19 @@ function App() {
   //   fetch();
   // },[])
 
-  // if (!loading) {
-  //   console.log(query);
-  // }
+  if (!loading) {
+    console.log(query);
+  }
 
   return (
     <Routes>
       <Route
         path={`/*`}
         element={
-          <div className="font-plus  text-[#20304f] pt-0 h-screen relative flex flex-col  items-start justify-start ">
+          <div className="font-plus  text-white  pt-0 h-screen relative flex flex-col  items-start justify-start ">
             {/* nav */}
-            {/* <div className="h-24 w-full thin-bottom-divider flex-shrink-0 "></div> */}
-            <div className="w-full h-full  pt-0 flex items-start justify-start py-0   ">
+            {/* <div className="h-[3.7rem] fixed z-50 bg-white  w-full shadow-sm flex-shrink-0 "></div> */}
+            <div className="w-full h-full   pt-0 flex items-start justify-start py-0   ">
               <Sidebar docs={query} loading={loading} />
               <Routes>
                 {!loading &&

@@ -7,7 +7,6 @@ import Searchbar from "./Searchbar";
 import Item from "./Item";
 import { TbSearch } from "react-icons/tb";
 const Content = ({ id, path, title }) => {
-
   const [query, setQuery] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const noteCollectionRef = collection(db, path);
@@ -33,28 +32,26 @@ const Content = ({ id, path, title }) => {
   // }
 
   return (
-   <div className="relative w-full  h-screen p-0 box-border">
-    <div className="fixed top-0 h-24 w-full  bg-white sample"> </div>
-    <div className="h-full w-full flex flex-col items-start pt-28 ">
-      {/* page header */}
-      <div className=" pb-12 w-full  h-fit px-[6rem] flex-col flex gap-1">
-        {/* <span className="text-lg font-medium text-[#bbbed3]">Collections   &#x3e;  Chats</span>
-        <span className="text-[2.4rem] font-semibold"> Chats</span> */}
-      </div>
-      {/* page content */}
-
-      <div className=" w-full  h-full  px-12">
-        <div className="mt-0 h-full w-full bg-white px-12 pt-28  sample">
-{/* bg-[#f9fbfc] */}
-          <div className="h-full w-[35rem] thin-box-divider rounded-xl">
-
+    <div className="relative w-full bg-[#292b2f] h-screen p-0 box-border">
+      {/* <div className="fixed top-0 h-[3.7rem] w-full  bg- thin-bottom-divider"> </div> */}
+      <div className="h-full container mx-auto  flex flex-col items-start ">
+        {/* page header */}
+        <div className="   pt-16 pb-8 px-12 w-full  h-fit flex-col flex ">
+          <span className="text-xs mb-3 font-medium text-[#666869]">
+            Collections /  Chats
+          </span>
+          <span className="text-2xl font-medium ">  Chats</span>
+        </div>
+        {/* page content */}
+        <div className="px-10 w-full  h-full  ">
+          <div className="mt-0 h-full w-full    ">
+            {/* bg-[#f9fbfc] */}
+            <div className="h-full w-[20rem]  thin-box-divider ">
           </div>
-
+          </div>
         </div>
       </div>
-
     </div>
-   </div>
   );
 };
 
