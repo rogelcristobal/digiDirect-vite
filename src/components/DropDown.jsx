@@ -15,14 +15,14 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
     <>
       <div
         onClick={handleClick}
-        className={`w-full cursor-pointer rounded-lg flex  items-center flex-shrink-0 justify-start px-3 py-2  text-sm font-semibold`}
+        className={`w-full cursor-pointer flex  items-center flex-shrink-0 justify-start px-4 pb-2.5 pt-4  text-sm font-semibold ${state?' sample2':'text-[#909296]/80'}`}
       >
         <div className="w-full h-full  flex items-center justify-between ">
-          {/* {icon} */}
-          <div className="w-full flex items-center justify-start">
+            {/* {icon} */}
+          <div className="w-full ml-1 flex items-center justify-start">
             <span
-              className={`text-[0.75rem] font-semibold flex items-center ${
-                state ? "text-[#ffffff]" : "text-[#909296]"
+              className={`text-xs font-normal flex text-[0.7rem] items-center ${
+                state ? "" : ""
               }`}
             >
               {title}
@@ -31,15 +31,15 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
           {content && (
             <TbChevronDown
               className={`text-[1rem] ${
-                state ? "text-[#ffffff]" : "text-[#909296] -rotate-90"
+                state ? "" : " -rotate-90"
               }`}
             />
           )}
         </div>
       </div>
-      <div
+     {content&& <div
         className={`w-full ${
-          state ? "h-fit mt-2 mb-4" : "h-0 "
+          state ? "h-fit mt-0 mb-4 pb-4 pt-1" : "h-0 "
         } overflow-hidden flex  flex-col `}
       >
         {!loading &&
@@ -63,7 +63,7 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
             Add New Item
           </button>
         )}
-      </div>
+      </div>}
     </>
   );
 };

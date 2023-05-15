@@ -20,41 +20,39 @@ const DropDownitem = ({ data, isActive, id, itemContentLength }) => {
   return (
     <div
       key={id}
-      className={`cursor-pointer  relative py-1.5   px-4  ${
-        !isActive ? " text-[#666869]" : "     text-[#ffffff] "
+      className={`cursor-pointer  relative py-1.5   pl-2  ${
+        !isActive ? " text-[#909296]/60" : "     text-white"
       }   flex items-center justify-start gap-0   font-medium`}
     >
       {/* item name */}
       <div
-        className={`flex items-center ${
-          isActive && "bg-[#2b2c30]"
-        } relative justify-center ml-5 px-3 py-1  rounded-xl w-fit 
+        className={`flex items-center  relative justify-center ml-2 pl-2 py-1  rounded-xl w-fit 
        
         `}
       >
-        <span className="text-[0.75rem] capitalize  ">
+        <span className="text-[0.7rem] capitalize  font-normal">
           {data.name.toLowerCase()}
         </span>
         {/* item content count 👇 */}
-        <span className="text-[0.7rem] font-normal proportional-nums ml-1.5">({query.length})</span>
+        <span className="text-[0.7rem] font-medium proportional-nums ml-1.5">({query.length})</span>
       </div>
 
       {/* this is absolute 👇 */}
-      <div
-        className={` w-[0.1rem] 
+      {/* <div
+        className={` w-[2px] 
          ${
            itemContentLength === id + 1
              ? "h-[50%] top-0"
              : "h-full top-1/2 -translate-y-1/2"
          }
         ${
-          isActive ? "bg-[#37393d]/70" : "bg-[#37393d]/70"
-        }  absolute  left-1.5`}
+          isActive ? "bg-gray-600/10" : "bg-gray-600/10"
+        }  absolute  left-2.5`}
       >
         <div className="reletive h-full">
           <div
-            className={`w-3.5 h-[0.1rem] left-0  absolute 
-            ${isActive ? "bg-[#37393d]/70" : "bg-[#37393d]/70"}
+            className={`w-3.5 h-[2px] left-0  absolute 
+            ${isActive ? "bg-gray-600/10" : "bg-gray-600/10"}
             ${
               itemContentLength === id + 1
                 ? "bottom-0 "
@@ -64,7 +62,10 @@ const DropDownitem = ({ data, isActive, id, itemContentLength }) => {
             `}
           ></div>
         </div>
-      </div>
+      </div> */}
+
+
+      {isActive&&<div className="absolute top-1/2 -translate-y-1/2  rounded-l-lg -right-3 bg-white h-[70%] w-[2px]"></div>}
     </div>
   );
 };
