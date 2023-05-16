@@ -15,13 +15,13 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
     <>
       <div
         onClick={handleClick}
-        className={`w-full cursor-pointer flex  items-center  flex-shrink-0 justify-start px-4 pb-2.5 pt-2.5  text-sm font-semibold ${state?' bg-[#eeeeee]/30':'text-[#909296]/80'}`}
+        className={`w-full cursor-pointer  flex rounded-md items-center  flex-shrink-0 justify-start px-4  pb-2.5 pt-2.5  text-sm font-semibold ${state?'  bg-[#f7f4f4]/40 ':''}`}
       >
         <div className="w-full h-full  flex items-center justify-between ">
             {icon}
-          <div className="w-full ml-1 flex items-center justify-start">
+          <div className="w-full ml-0 flex items-center justify-start">
             <span
-              className={` font-semibold flex text-[0.795rem] items-center ${
+              className={` font-medium flex text-[0.785rem] items-center ${
                 state ? "" : ""
               }`}
             >
@@ -39,7 +39,7 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
       </div>
      {content&& <div
         className={`w-full ${
-          state ? "h-fit mt-2 mb-2 pb-2 pt-1" : "h-0 "
+          state ? "h-fit mt-1.5 mb-1.5 pb-2 pt-1" : "h-0 "
         } overflow-hidden flex  flex-col `}
       >
         {!loading &&
@@ -59,7 +59,7 @@ const DropDown = ({ loading, content, title, icon, AddBtn, initialState }) => {
         ))}
 
         {AddBtn && (
-          <button className="text-[0.65rem] text-[#666869] hover:text-inherit font-medium sample2 hover:border-0  hover:bg-[#2b2c30] rounded-2xl  box-border w-[95%] mx-auto py-2 mt-6 mb-2">
+          <button className="text-[0.65rem] text-[#666869] hover:text-inherit font-semibold sample2 hover:border-0  hover:bg-[#2b2c30] rounded-2xl  box-border w-[95%] mx-auto py-2 mt-6 mb-2">
             Add New Item
           </button>
         )}

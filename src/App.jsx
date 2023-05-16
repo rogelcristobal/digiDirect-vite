@@ -40,7 +40,7 @@ function App() {
       <Route
         path={`/*`}
         element={
-          <div className="font-plus  text-gray-700 bg-[#f8f8f8]/90  pt-0 h-screen relative flex flex-col  items-start justify-start ">
+          <div className="font-plus  text-[#0b2c44] bg-[#f9f8f8]  pt-0 h-screen relative flex flex-col  items-start justify-start ">
             {/* nav */}
             {/* <div className="h-[3.7rem] fixed z-50 bg-white  w-full shadow-sm flex-shrink-0 "></div> */}
             <div className="w-full h-full   pt-0 flex items-start justify-start py-0   ">

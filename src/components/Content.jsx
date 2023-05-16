@@ -1,5 +1,5 @@
 import React from "react";
-import { FiEdit } from "react-icons/fi";
+import { FiFileText } from "react-icons/fi";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { NavLink, Routes, Route } from "react-router-dom";
@@ -40,28 +40,30 @@ const Content = ({ id, path, title }) => {
           {/* <span className="text-xs mb-0 font-medium text-[#666869]">
             Collections 
           </span> */}
-          <span className="text-[1.40rem] font-semibold">  Chats</span>
+          <span className="text-[1.40rem] font-semibold"> Chats</span>
         </div>
         {/* page content */}
         <div className="pl-6 pr-16 w-full  h-full  ">
           <div className="h-full w-full flex gap-4">
-           
-            <div className="   bg-[#eeeeee]/60 w-[26rem]     ">
-              <div className="overflow-y-scroll  h-[74vh] mt-14 pr-1 pl-1.5  space-y-3">
-                
-              {Array.from({length:20}).map((item,id)=>(
-                <div className="w-full h-40 bg-[#ffffff] thin-box-divider cursor-pointer  hover:sample2" key={id}></div>
-              ))}
+            <div className=" rounded-lg flex-shrink-0 w-[18rem]    ">
+              <div className="overflow-y-scroll rounded-lg h-[78vh] mt-0 pr-1 pl-1.5  space-y-2.5">
+                {Array.from({ length: 20 }).map((item, id) => (
+                  <div
+                    className="w-full h-32 rounded-md bg-[#ffffff] cursor-pointer  "
+                    key={id}
+                  ></div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-[#eeeeee]/60 h-full  w-full "></div>
-
-
-           
-
-          
-
+            <div className="bg-[#f7f4f4] h-full rounded-lg w-full flex items-center justify-center">
+              <div className=" flex text-[#909296]/60 flex-col items-center justify-center space-y-3">
+                <FiFileText className="text-[1.7rem]" />
+                <span className=" text-base font-normal">
+                  No notes selected
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
