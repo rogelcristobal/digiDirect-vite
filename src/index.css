@@ -14,11 +14,11 @@
   }
  
   ::-webkit-scrollbar {
-    width: 0.45rem;
+    width: 0.40rem;
   }
   /* Set scrollbar thumb color */
   ::-webkit-scrollbar-thumb {
-    @apply  cursor-pointer bg-[#1a1c1e]/10 hover:bg-[#1a1c1e]/20;
+    @apply  cursor-pointer bg-[#1a1c1e]/10 hover:bg-[#1a1c1e]/20 rounded-lg;
   }
   .line-light {
     -webkit-box-shadow: inset 0px 0px 0px 1px rgba(29, 29, 29);
